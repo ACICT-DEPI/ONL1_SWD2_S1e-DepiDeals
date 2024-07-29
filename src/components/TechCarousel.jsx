@@ -25,7 +25,7 @@ const responsive = {
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
-    items: 1.2,
+    items: 1.3,
   },
 };
 
@@ -33,7 +33,8 @@ export default function TechCarousel() {
   const theme = useTheme();
 
   return (
-    <div style={{ position: "relative" }}>
+    <div
+      style={{ position: "relative", maxWidth: "100vw", overflow: "hidden" }}>
       <Carousel
         responsive={responsive}
         infinite={true}
@@ -48,7 +49,8 @@ export default function TechCarousel() {
             key={item.id}
             style={{
               margin: "0px 5px",
-              width: "275px",
+              width: "100%",
+              maxWidth: "275px",
               height: "205px",
               borderRadius: "15px",
               overflow: "hidden",

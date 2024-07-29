@@ -4,6 +4,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
+import BrushIcon from "@mui/icons-material/Brush";
 import { Typography } from "@mui/material";
 
 export default function Footer() {
@@ -21,12 +22,11 @@ export default function Footer() {
         justifyContent: "start",
         alignItems: "center",
         minHeight: "150px",
-        gap: { xs: "20px", sm: "50px", md: "100px" },
+        gap: { xs: "10px", sm: "50px", md: "100px" },
       }}>
       <Box
         sx={{
           py: "10px",
-
           maxHeight: { xs: "80px", sm: "120px" },
           maxWidth: { xs: "100px", sm: "180px" },
         }}>
@@ -35,7 +35,7 @@ export default function Footer() {
       <Box
         sx={{
           py: "10px",
-          maxHeight: "140px",
+          maxHeight: "120px",
           maxWidth: "40%",
           minWidth: "40%",
           display: "flex",
@@ -55,10 +55,14 @@ export default function Footer() {
           }}
           href="https://www.linkedin.com/in/seif-el-islam-92ba931a8/">
           <LinkedInIcon />
-          <Typography sx={{ fontSize: { sm: "12px", md: "15px", lg: "20px" } }}>
+          <Typography
+            sx={{
+              fontSize: { xs: "11px", sm: "12px", md: "15px", lg: "20px" },
+            }}>
             Seif El-islam
           </Typography>
         </a>
+
         <a
           style={{
             color: "white",
@@ -69,7 +73,10 @@ export default function Footer() {
           }}
           href="https://github.com/CoroSempi">
           <GitHubIcon />
-          <Typography sx={{ fontSize: { sm: "12px", md: "15px", lg: "20px" } }}>
+          <Typography
+            sx={{
+              fontSize: { xs: "11px", sm: "12px", md: "15px", lg: "20px" },
+            }}>
             Seif El-islam
           </Typography>
         </a>
@@ -82,7 +89,10 @@ export default function Footer() {
             alignItems: "center",
           }}>
           <MailOutlineIcon />
-          <Typography sx={{ fontSize: { sm: "12px", md: "15px", lg: "20px" } }}>
+          <Typography
+            sx={{
+              fontSize: { xs: "11px", sm: "12px", md: "15px", lg: "20px" },
+            }}>
             Corosempi@gmail.com
           </Typography>
         </span>
@@ -95,7 +105,10 @@ export default function Footer() {
             alignItems: "center",
           }}>
           <LocalPhoneIcon />
-          <Typography sx={{ fontSize: { sm: "12px", md: "15px", lg: "20px" } }}>
+          <Typography
+            sx={{
+              fontSize: { xs: "11px", sm: "12px", md: "15px", lg: "20px" },
+            }}>
             01150103029
           </Typography>
         </span>
@@ -107,9 +120,12 @@ export default function Footer() {
             justifyContent: "center",
             alignItems: "center",
           }}
-          href="https://github.com/CoroSempi">
-          <GitHubIcon />
-          <Typography sx={{ fontSize: { sm: "12px", md: "15px", lg: "20px" } }}>
+          href="https://www.figma.com/@SeifElislam">
+          <BrushIcon />
+          <Typography
+            sx={{
+              fontSize: { xs: "11px", sm: "12px", md: "15px", lg: "20px" },
+            }}>
             Seif El-islam
           </Typography>
         </a>
