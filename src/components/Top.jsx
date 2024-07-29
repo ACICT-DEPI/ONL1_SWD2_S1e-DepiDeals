@@ -1,5 +1,4 @@
 import Box from "@mui/material/Box";
-import SegmentRoundedIcon from "@mui/icons-material/SegmentRounded";
 import LList from "./List";
 export default function Top() {
   return (
