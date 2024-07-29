@@ -4,6 +4,7 @@ import Top from "./components/Top";
 import Latest from "./components/Latest";
 import Technologies from "./components/Technologies";
 import ContactMe from "./components/ContactMe";
+import React from "react";
 export default function App() {
   const theme = createTheme({
     typography: {

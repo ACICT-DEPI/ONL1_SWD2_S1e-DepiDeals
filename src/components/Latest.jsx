@@ -1,5 +1,6 @@
 import { Box } from "@mui/material";
 import Cardd from "./Card";
+import React from "react";
 import Typography from "@mui/material/Typography";
 
 export default function Latest() {

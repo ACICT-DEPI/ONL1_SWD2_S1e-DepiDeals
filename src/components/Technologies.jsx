@@ -1,6 +1,7 @@
 import { Box } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import TechCarousel from "./TechCarousel";
+import React from "react";
 
 export default function Technologies() {
   return (

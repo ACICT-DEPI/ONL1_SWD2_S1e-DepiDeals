@@ -2,6 +2,7 @@ import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useTheme } from "@mui/material/styles";
+import React from "react";
 import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
 
 const items = [
