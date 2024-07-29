@@ -5,6 +5,7 @@ import Latest from "./components/Latest";
 import Technologies from "./components/Technologies";
 import ContactMe from "./components/ContactMe";
 import React from "react";
+import Footer from "./components/Footer";
 export default function App() {
   const theme = createTheme({
     typography: {
@@ -27,6 +28,7 @@ export default function App() {
       <Latest />
       <Technologies />
       <ContactMe />
+      <Footer />
     </ThemeProvider>
   );
 }

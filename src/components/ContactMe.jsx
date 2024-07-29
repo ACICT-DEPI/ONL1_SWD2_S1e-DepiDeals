@@ -33,7 +33,13 @@ export default function ContactMe() {
           boxShadow: "0px 2px 10px 0px rgba(0, 0, 0, 0.25)",
         }}>
         <CardActions
-          sx={{ display: "flex", flexDirection: "column", minWidth: "60%" }}>
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "start",
+            flexDirection: "column",
+            minWidth: "60%",
+          }}>
           <CardContent>
             <Typography
               sx={{
