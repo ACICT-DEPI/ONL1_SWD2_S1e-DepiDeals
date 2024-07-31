@@ -2,6 +2,7 @@ import React from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
+import { Link } from "react-router-dom";
 
 export default function Nav() {
   const [value, setValue] = React.useState("Home");
@@ -16,30 +17,49 @@ export default function Nav() {
         display: { xs: "none", md: "flex" },
         justifyContent: "center",
         alignItems: "center",
-        width: "100%",
+        minWidth: "100%",
         paddingTop: "20px",
       }}>
       <Tabs value={value} onChange={handleChange}>
         <Tab
           sx={{ fontSize: "15px", fontWeight: "600" }}
           value="Home"
-          label="Home"
+          label={
+            <Link style={{ textDecoration: "none" }} to={"./Home"}>
+              Home
+            </Link>
+          }
         />
+
         <Tab
           sx={{ fontSize: "15px", fontWeight: "600" }}
           value="Projects"
-          label="Projects"
+          label={
+            <Link style={{ textDecoration: "none" }} to={"./Projects"}>
+              Projects
+            </Link>
+          }
+        />
+
+        <Tab
+          sx={{ fontSize: "15px", fontWeight: "600" }}
+          value="Technologies"
+          label={
+            <Link style={{ textDecoration: "none" }} to={"./Technologies"}>
+              Technologies{" "}
+            </Link>
+          }
         />
 
         <Tab
           sx={{ fontSize: "15px", fontWeight: "600" }}
           value="Send Message"
-          label="Send Message"
-        />
-        <Tab
-          sx={{ fontSize: "15px", fontWeight: "600" }}
-          value="Technologies"
-          label="Technologies"
+          label={
+            <Link style={{ textDecoration: "none" }} to={"./SendMessage"}>
+              {" "}
+              Send Message{" "}
+            </Link>
+          }
         />
       </Tabs>
     </Box>

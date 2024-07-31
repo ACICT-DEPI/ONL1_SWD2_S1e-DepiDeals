@@ -5,6 +5,7 @@ import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import SegmentRoundedIcon from "@mui/icons-material/SegmentRounded";
+import { Link } from "react-router-dom";
 
 export default function LList() {
   const [state, setState] = React.useState(false);
@@ -19,7 +20,7 @@ export default function LList() {
     setState(!state);
   };
 
-  const tabs = ["Home", "Projects", "Technologies", "Send Message", "About ME"];
+  const tabs = ["Home", "Projects", "Technologies", "SendMessage", "About ME"];
   const list = () => (
     <Box
       sx={{ width: 250 }} // Set width for the drawer
@@ -38,12 +39,16 @@ export default function LList() {
         <Divider />
 
         {tabs.map((tab, index) => (
-          <ListItem
-            sx={{
-              color: "primary.main",
-              fontSize: "18px",
-            }}>
-            {tab}
+          <ListItem>
+            <Link
+              style={{
+                color: "primary.main",
+                fontSize: "18px",
+                textDecoration: "none",
+              }}
+              to={tab}>
+              {tab}
+            </Link>
           </ListItem>
         ))}
       </List>
