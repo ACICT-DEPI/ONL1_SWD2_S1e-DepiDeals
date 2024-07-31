@@ -11,47 +11,36 @@ export default function Footer() {
   return (
     <Box
       sx={{
-        maxWidth: "100%",
-        px: "15px",
-        position: "relative",
-        margin: "0px",
-        padding: "10px 20px",
+        width: "100%",
         backgroundColor: "primary.main",
         color: "primary.text",
+        padding: { xs: "20px", md: "30px" },
         display: "flex",
-        flexDirection: { xs: "row", md: "column" },
-        justifyContent: "start",
+        flexDirection: { xs: "column", md: "coulmn" },
+        justifyContent: "space-between",
         alignItems: "center",
-        minHeight: "150px",
-        gap: "20px",
+        gap: { xs: "20px", md: "0" },
       }}>
       <Box
         sx={{
-          py: "10px",
-          maxHeight: { xs: "80px", sm: "120px" },
           maxWidth: { xs: "100px", sm: "180px" },
         }}>
         <img height={"100%"} width={"100%"} src="/logo.png" alt="Logo" />
       </Box>
       <Box
         sx={{
-          py: "10px",
-          maxHeight: { xs: "120px", md: "none", lg: "120px" },
-          maxWidth: "60%",
-          minWidth: "60%",
           display: "flex",
-          flexDirection: "column",
+          flexDirection: "row",
+          gap: { xs: "10px", md: "20px" },
+          alignItems: "center",
           flexWrap: "wrap",
           justifyContent: "center",
-          alignItems: "start",
-          gap: "10px 0px",
         }}>
         <a
           style={{
             color: "white",
             display: "flex",
             gap: "3px",
-            justifyContent: "center",
             alignItems: "center",
           }}
           href="https://www.linkedin.com/in/seif-el-islam-92ba931a8/">
@@ -69,7 +58,6 @@ export default function Footer() {
             color: "white",
             display: "flex",
             gap: "3px",
-            justifyContent: "center",
             alignItems: "center",
           }}
           href="https://github.com/CoroSempi">
@@ -86,7 +74,6 @@ export default function Footer() {
             color: "white",
             display: "flex",
             gap: "3px",
-            justifyContent: "center",
             alignItems: "center",
           }}>
           <MailOutlineIcon />
@@ -102,7 +89,6 @@ export default function Footer() {
             color: "white",
             display: "flex",
             gap: "3px",
-            justifyContent: "center",
             alignItems: "center",
           }}>
           <LocalPhoneIcon />
@@ -118,7 +104,6 @@ export default function Footer() {
             color: "white",
             display: "flex",
             gap: "3px",
-            justifyContent: "center",
             alignItems: "center",
           }}
           href="https://www.figma.com/@SeifElislam">

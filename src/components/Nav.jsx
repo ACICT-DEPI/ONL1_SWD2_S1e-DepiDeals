@@ -21,23 +21,23 @@ export default function Nav() {
       }}>
       <Tabs value={value} onChange={handleChange}>
         <Tab
-          sx={{ fontSize: "20px", fontWeight: "600" }}
+          sx={{ fontSize: "15px", fontWeight: "600" }}
           value="Home"
           label="Home"
         />
         <Tab
-          sx={{ fontSize: "20px", fontWeight: "600" }}
+          sx={{ fontSize: "15px", fontWeight: "600" }}
           value="Projects"
           label="Projects"
         />
 
         <Tab
-          sx={{ fontSize: "20px", fontWeight: "600" }}
+          sx={{ fontSize: "15px", fontWeight: "600" }}
           value="Send Message"
           label="Send Message"
         />
         <Tab
-          sx={{ fontSize: "20px", fontWeight: "600" }}
+          sx={{ fontSize: "15px", fontWeight: "600" }}
           value="Technologies"
           label="Technologies"
         />
