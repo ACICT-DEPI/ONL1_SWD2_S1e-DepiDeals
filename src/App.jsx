@@ -7,7 +7,7 @@ import Footer from "./components/Footer";
 import Aside from "./components/Aside";
 import { Box } from "@mui/material";
 import Nav from "./components/Nav";
-import { Route, Routes, redirect } from "react-router-dom";
+import { Route, Routes} from "react-router-dom";
 import Home from "./components/Home";
 import Projects from "./components/Projects";
 
