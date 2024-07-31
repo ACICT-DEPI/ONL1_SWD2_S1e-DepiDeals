@@ -1,4 +1,4 @@
-import { Box, Card } from "@mui/material";
+import { Box } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import Cardd from "./Card";
 import React from "react";

@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import Typography from "@mui/material/Typography";
@@ -17,7 +17,7 @@ export default function Aside() {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "space-between",
-        minheight:"100%",
+        minheight: "100%",
       }}>
       <ListItem sx={{ mb: 3 }}>
         <Box
