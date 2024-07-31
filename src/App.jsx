@@ -6,6 +6,10 @@ import Technologies from "./components/Technologies";
 import ContactMe from "./components/ContactMe";
 import React from "react";
 import Footer from "./components/Footer";
+import Aside from "./components/Aside";
+import { Box } from "@mui/material";
+import Nav from "./components/Nav";
+
 export default function App() {
   const theme = createTheme({
     typography: {
@@ -24,11 +28,19 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Top />
-      <Latest />
-      <Technologies />
-      <ContactMe />
-      <Footer />
+      <Box sx={{ display: "flex" }}>
+        <Aside />
+        <Box>
+          <Top />
+          <Nav />
+          <Latest />
+          <Technologies />
+          <ContactMe />
+          <Box sx={{ display: { xs: "block", md: "none" } }}>
+            <Footer />
+          </Box>
+        </Box>
+      </Box>
     </ThemeProvider>
   );
 }

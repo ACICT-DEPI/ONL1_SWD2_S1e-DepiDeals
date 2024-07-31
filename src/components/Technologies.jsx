@@ -1,6 +1,6 @@
-import { Box } from "@mui/material";
+import { Box, Card } from "@mui/material";
 import Typography from "@mui/material/Typography";
-import TechCarousel from "./TechCarousel";
+import Cardd from "./Card";
 import React from "react";
 
 export default function Technologies() {
@@ -21,7 +21,9 @@ export default function Technologies() {
         }}>
         Technologies
       </Typography>
-      <TechCarousel />
+      <Cardd />
+      <Cardd />
+      <Cardd />
     </Box>
   );
 }

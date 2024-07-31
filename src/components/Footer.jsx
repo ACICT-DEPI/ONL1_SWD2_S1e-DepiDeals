@@ -11,6 +11,7 @@ export default function Footer() {
   return (
     <Box
       sx={{
+        maxWidth: "100%",
         px: "15px",
         position: "relative",
         margin: "0px",
@@ -18,11 +19,11 @@ export default function Footer() {
         backgroundColor: "primary.main",
         color: "primary.text",
         display: "flex",
-        flexDirection: "row",
+        flexDirection: { xs: "row", md: "column" },
         justifyContent: "start",
         alignItems: "center",
         minHeight: "150px",
-        gap: { xs: "10px", sm: "50px", md: "100px" },
+        gap: "20px",
       }}>
       <Box
         sx={{
@@ -35,21 +36,21 @@ export default function Footer() {
       <Box
         sx={{
           py: "10px",
-          maxHeight: "120px",
-          maxWidth: "40%",
-          minWidth: "40%",
+          maxHeight: { xs: "120px", md: "none", lg: "120px" },
+          maxWidth: "60%",
+          minWidth: "60%",
           display: "flex",
           flexDirection: "column",
           flexWrap: "wrap",
           justifyContent: "center",
           alignItems: "start",
-          gap: "10px 5px",
+          gap: "10px 0px",
         }}>
         <a
           style={{
             color: "white",
             display: "flex",
-            gap: "10px",
+            gap: "3px",
             justifyContent: "center",
             alignItems: "center",
           }}
@@ -57,7 +58,7 @@ export default function Footer() {
           <LinkedInIcon />
           <Typography
             sx={{
-              fontSize: { xs: "11px", sm: "12px", md: "15px", lg: "20px" },
+              fontSize: { xs: "11px", sm: "12px" },
             }}>
             Seif El-islam
           </Typography>
@@ -67,7 +68,7 @@ export default function Footer() {
           style={{
             color: "white",
             display: "flex",
-            gap: "10px",
+            gap: "3px",
             justifyContent: "center",
             alignItems: "center",
           }}
@@ -75,7 +76,7 @@ export default function Footer() {
           <GitHubIcon />
           <Typography
             sx={{
-              fontSize: { xs: "11px", sm: "12px", md: "15px", lg: "20px" },
+              fontSize: { xs: "11px", sm: "12px" },
             }}>
             Seif El-islam
           </Typography>
@@ -84,14 +85,14 @@ export default function Footer() {
           style={{
             color: "white",
             display: "flex",
-            gap: "10px",
+            gap: "3px",
             justifyContent: "center",
             alignItems: "center",
           }}>
           <MailOutlineIcon />
           <Typography
             sx={{
-              fontSize: { xs: "11px", sm: "12px", md: "15px", lg: "20px" },
+              fontSize: { xs: "11px", sm: "12px" },
             }}>
             Corosempi@gmail.com
           </Typography>
@@ -100,14 +101,14 @@ export default function Footer() {
           style={{
             color: "white",
             display: "flex",
-            gap: "10px",
+            gap: "3px",
             justifyContent: "center",
             alignItems: "center",
           }}>
           <LocalPhoneIcon />
           <Typography
             sx={{
-              fontSize: { xs: "11px", sm: "12px", md: "15px", lg: "20px" },
+              fontSize: { xs: "11px", sm: "12px" },
             }}>
             01150103029
           </Typography>
@@ -116,7 +117,7 @@ export default function Footer() {
           style={{
             color: "white",
             display: "flex",
-            gap: "10px",
+            gap: "3px",
             justifyContent: "center",
             alignItems: "center",
           }}
@@ -124,7 +125,7 @@ export default function Footer() {
           <BrushIcon />
           <Typography
             sx={{
-              fontSize: { xs: "11px", sm: "12px", md: "15px", lg: "20px" },
+              fontSize: { xs: "11px", sm: "12px" },
             }}>
             Seif El-islam
           </Typography>
