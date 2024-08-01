@@ -57,6 +57,7 @@ export default function Projects() {
       if (card.category === f) {
         return <Cardd ApiCard={card} />;
       }
+      return null;
     });
   };
   return (
