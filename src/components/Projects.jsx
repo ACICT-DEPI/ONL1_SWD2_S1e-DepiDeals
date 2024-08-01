@@ -6,6 +6,7 @@ export default function Projects() {
   return (
     <Box
       sx={{
+        minHeight: "100vh",
         margin: "10px",
         display: "flex",
         flexDirection: "column",

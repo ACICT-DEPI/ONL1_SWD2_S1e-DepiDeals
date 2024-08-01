@@ -11,7 +11,7 @@ export default function Footer() {
   return (
     <Box
       sx={{
-        width: "100%",
+        maxWidth: "100%",
         backgroundColor: "primary.main",
         color: "primary.text",
         padding: { xs: "20px", md: "30px" },

@@ -7,7 +7,7 @@ import Footer from "./components/Footer";
 import Aside from "./components/Aside";
 import { Box } from "@mui/material";
 import Nav from "./components/Nav";
-import { Route, Routes} from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
 import Projects from "./components/Projects";
 
@@ -38,9 +38,15 @@ export default function App() {
             <Route path="/">
               <Route index path="/" element={<Home />} />
               <Route index path="/Home" element={<Home />} />
-              <Route path="/Projects" element={<Projects/>} />
-              <Route path="/Technologies" element={<h1>T</h1>} />
-              <Route path="/SendMessage" element={<h1>S</h1>} />
+              <Route path="/Projects" element={<Projects  />} />
+              <Route
+                path="/Technologies"
+                element={<h1 style={{ minHeight: "100vh" }}>T</h1>}
+              />
+              <Route
+                path="/SendMessage"
+                element={<h1 style={{ minHeight: "100vh" }}>S</h1>}
+              />
               <Route path="/About" element={<h1>A</h1>} />
               <Route path="*" element={<h1>No</h1>} />
             </Route>
