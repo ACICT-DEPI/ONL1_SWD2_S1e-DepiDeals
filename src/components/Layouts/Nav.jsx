@@ -1,14 +1,14 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import { Link } from "react-router-dom";
-
+import url from "../../Context/url";
 export default function Nav() {
-  const [value, setValue] = React.useState("Home");
-
+  let current = useContext(url);
+  let stat = current.url1;
   const handleChange = (event, newValue) => {
-    setValue(newValue);
+    current.seturl(newValue);
   };
 
   return (
@@ -20,7 +20,7 @@ export default function Nav() {
         minWidth: "100%",
         paddingTop: "20px",
       }}>
-      <Tabs value={value} onChange={handleChange}>
+      <Tabs value={stat} onChange={handleChange}>
         <Tab
           sx={{ fontSize: "15px", fontWeight: "600" }}
           value="Home"
@@ -53,7 +53,7 @@ export default function Nav() {
 
         <Tab
           sx={{ fontSize: "15px", fontWeight: "600" }}
-          value="Send Message"
+          value="SendMessage"
           label={
             <Link style={{ textDecoration: "none" }} to={"./SendMessage"}>
               {" "}

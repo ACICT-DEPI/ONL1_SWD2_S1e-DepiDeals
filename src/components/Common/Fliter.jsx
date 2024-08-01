@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../App.css";
+import "./Filter.css";
 
 export default function Tabs() {
   const [selectedTab, setSelectedTab] = useState("All");
@@ -36,11 +36,11 @@ export default function Tabs() {
           isSelected={selectedTab === "UI/UX"}
           onClick={() => handleTabClick("UI/UX")}
         />
-        <Tab
+        {/* <Tab
           label="Others"
           isSelected={selectedTab === "Others"}
           onClick={() => handleTabClick("Others")}
-        />
+        /> */}
       </div>
     </div>
   );

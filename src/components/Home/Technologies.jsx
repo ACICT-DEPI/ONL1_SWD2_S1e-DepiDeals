@@ -1,9 +1,9 @@
 import { Box } from "@mui/material";
-import Cardd from "./Card";
-import React from "react";
 import Typography from "@mui/material/Typography";
+import Cardd from "../Common/Card";
+import React from "react";
 
-export default function Latest() {
+export default function Technologies() {
   return (
     <Box
       sx={{
@@ -19,11 +19,19 @@ export default function Latest() {
           p: "5px",
           fontWeight: "600",
         }}>
-        My Latest Projects
+        Technologies
       </Typography>
-      <Cardd />
-      <Cardd />
-      <Cardd />
+      <Box
+        sx={{
+          display: "flex",
+          flexWrap: { xs: "nowrap", md: "wrap" },
+          flexDirection: { xs: "column", md: "row" },
+          gap: "15px",
+        }}>
+        <Cardd />
+        <Cardd />
+        <Cardd />
+      </Box>
     </Box>
   );
 }
