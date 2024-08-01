@@ -9,6 +9,7 @@ import Nav from "./components/Layouts/Nav";
 import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home/Home";
 import Projects from "./components/Projects/Projects";
+import Techs from "./components/Techs/Techs";
 export default function App() {
   const [url1, seturl] = useState("Home");
   const theme = createTheme({
@@ -25,7 +26,6 @@ export default function App() {
       },
     },
   });
-
   return (
     <url.Provider value={{ url1, seturl }}>
       <ThemeProvider theme={theme}>
@@ -39,10 +39,7 @@ export default function App() {
                 <Route index path="/" element={<Home />} />
                 <Route index path="/Home" element={<Home />} />
                 <Route path="/Projects" element={<Projects />} />
-                <Route
-                  path="/Technologies"
-                  element={<h1 style={{ minHeight: "100vh" }}>T</h1>}
-                />
+                <Route path="/Technologies" element={<Techs />} />
                 <Route
                   path="/SendMessage"
                   element={<h1 style={{ minHeight: "100vh" }}>S</h1>}
@@ -61,7 +58,7 @@ export default function App() {
                         margin: 0,
                         paddingTop: "30px",
                       }}>
-                      Error 404 : Not Found 
+                      Error 404 : Not Found
                     </h2>
                   }
                 />

@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import "./Filter.css";
 
-export default function Tabs() {
+export default function Filter({func}) {
   const [selectedTab, setSelectedTab] = useState("All");
 
   function handleTabClick(i) {
     setSelectedTab(i);
+    func(i);
   }
 
   return (

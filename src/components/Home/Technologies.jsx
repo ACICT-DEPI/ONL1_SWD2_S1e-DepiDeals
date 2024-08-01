@@ -2,8 +2,39 @@ import { Box } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import Cardd from "../Common/Card";
 import React from "react";
+const cardApi = [
+  {
+    id: 1,
+    title: "Rateorama",
+    category: "Backend",
+    overview:
+      "Rateorama is an exceptional platform dedicated to rating movies, series, and TV shows. It offers a unique opportunity for individuals to express their.... . ",
+    pic: "/name.png",
+  },
 
+  {
+    id: 3,
+    title: "Rateorama",
+    category: "Frontend",
+    overview:
+      "Rateorama is an exceptional platform dedicated to rating movies, series, and TV shows. It offers a unique opportunity for individuals to express their.... . ",
+    pic: "/1111.png",
+  },
+  {
+    id: 5,
+    title: "SAKANY",
+    category: "UI/UX",
+    overview:
+      "Rateorama is an exceptional platform dedicated to rating movies, series, and TV shows. It offers a unique opportunity for individuals to express their.... . ",
+    pic: "/111111.png",
+  },
+];
 export default function Technologies() {
+  const Cards = () => {
+    return cardApi.map((card) => {
+      return <Cardd ApiCard={card} />;
+    });
+  };
   return (
     <Box
       sx={{
@@ -28,9 +59,7 @@ export default function Technologies() {
           flexDirection: { xs: "column", md: "row" },
           gap: "15px",
         }}>
-        <Cardd />
-        <Cardd />
-        <Cardd />
+        <Cards />
       </Box>
     </Box>
   );

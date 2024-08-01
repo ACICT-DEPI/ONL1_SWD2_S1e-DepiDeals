@@ -6,19 +6,19 @@ import { useState } from "react";
 const cardApi = [
   {
     id: 1,
-    title: "Rateorama",
-    category: "Backend",
+    title: "Figma",
+    category: "UI/UX",
     overview:
-      "Rateorama is an exceptional platform dedicated to rating movies, series, and TV shows. It offers a unique opportunity for individuals to express their.... . ",
-    pic: "/name.png",
+      "Figma is a collaborative, cloud-based design tool used for user interface (UI) and user experience (UX) design. ",
+    pic: "/fig.jpeg",
   },
   {
     id: 2,
-    title: "test",
+    title: "Express",
     category: "Backend",
     overview:
-      "Rateorama is an exceptional platform dedicated to rating movies, series, and TV shows. It offers a unique opportunity for individuals to express their.... . ",
-    pic: "/rateo.png",
+      "Express.js is a minimal and flexible Node.js web application backend framework that provides a robust set of features for web and mobile applications. ",
+    pic: "/ex.png",
   },
   {
     id: 3,
@@ -46,7 +46,7 @@ const cardApi = [
   },
 ];
 
-export default function Projects() {
+export default function Techs() {
   const [f, setF] = useState("All");
 
   const Cards = () => {

@@ -8,7 +8,7 @@ import {
   Button,
 } from "@mui/material";
 
-export default function MediaCard({ p }) {
+export default function MediaCard({ ApiCard }) {
   return (
     <Card
       sx={{
@@ -18,13 +18,13 @@ export default function MediaCard({ p }) {
         alignItems: "center",
         justifyContent: "start",
         flexDirection: "row",
-        gap:"2px",
+        gap: "2px",
         px: { xs: "5px", md: "0px" },
         boxShadow: "0px 2px 10px 0px rgba(0, 0, 0, 0.25)",
         maxWidth: { xs: "100%", md: "450px" },
         maxHeight: { xs: "100px", md: "175px" },
         minHeight: { xs: "100px", md: "175px" },
-        height: "auto", 
+        height: "auto",
       }}>
       <CardMedia
         component="img"
@@ -35,7 +35,7 @@ export default function MediaCard({ p }) {
           height: { xs: "80px", md: "100%" },
           alignItems: "center",
         }}
-        image={p || "/rateo.png"}
+        image={ApiCard.pic}
         alt="Image"
       />
       <CardContent sx={{ p: 1 }}>
@@ -43,13 +43,13 @@ export default function MediaCard({ p }) {
           sx={{ fontSize: { xs: "18px", md: "20px" }, fontWeight: "500" }}
           color="black"
           component="div">
-          Rateorama
+          {ApiCard.title}
         </Typography>
         <Typography
           sx={{ fontSize: { xs: "11px", md: "12px" }, fontWeight: "500" }}
           color="primary.main"
           component="div">
-          Category: Backend
+          Category: {ApiCard.category}
         </Typography>
         <Typography
           sx={{
@@ -58,9 +58,7 @@ export default function MediaCard({ p }) {
             maxHeight: { xs: "40px", md: "60px" },
           }}
           color="secondary.main">
-          Rateorama is an exceptional platform dedicated to rating movies,
-          series, and TV shows. It offers a unique opportunity for individuals
-          to express their.... .
+          {ApiCard.overview}
         </Typography>
       </CardContent>
       <CardActions>
