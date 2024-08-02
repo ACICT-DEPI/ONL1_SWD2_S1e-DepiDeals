@@ -31,7 +31,7 @@ export default function App() {
       <ThemeProvider theme={theme}>
         <Box sx={{ display: "flex" }}>
           <Aside />
-          <Box sx={{ width: {xs:"100%",md:"70%"} }}>
+          <Box sx={{ width: { xs: "100%", md: "70%" } }}>
             <Top />
             <Nav />
             <Routes>

@@ -12,7 +12,7 @@ export default function Top() {
         sx={{
           display: { xs: "flex", md: "none" },
           px: "15px",
-          position: "sticky",
+          position: stat === "Home" ? "" : "sticky",
           top: 0,
           margin: "0px",
           backgroundColor: "primary.main",

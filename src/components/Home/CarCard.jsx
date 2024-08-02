@@ -8,10 +8,10 @@ export default function CarCard() {
       sx={{
         position: "relative",
         margin: "10px",
-        minHeight: { xs: "270px", sm: "400px", md: "500px", lg: "600px" },
-        maxHeight: { xs: "370px", sm: "400px", md: "500px", lg: "600px" },
-        height: { xs: "270px", sm: "400px", md: "500px" },
-        minWidth: { xs: "300px", sm: "400px", md: "500px" },
+        minHeight: { xs: "250px", sm: "400px", md: "500px", lg: "600px" },
+        maxHeight: { xs: "250px", sm: "400px", md: "500px", lg: "600px" },
+        height: { xs: "250px", sm: "400px", md: "500px" },
+        minWidth: { xs: "357px", sm: "400px", md: "500px" },
         padding: "0px",
         overflow: "clip",
       }}>
@@ -56,13 +56,13 @@ export default function CarCard() {
           </Typography>
           <Typography
             sx={{
-              fontSize: { xs: "12px", sm: "14px", md: "18px", lg: "18px" },
+              fontSize: { xs: "11px", sm: "14px", md: "18px", lg: "18px" },
             }}>
             Category: UI/UX
           </Typography>
           <Typography
             sx={{
-              fontSize: { xs: "10px", sm: "11px", md: "13px", lg: "14px" },
+              fontSize: { xs: "9px", sm: "11px", md: "13px", lg: "14px" },
             }}>
             SAKANY is a comprehensive platform designed to streamline the rental
             process for college students seeking affordable and secure accomm...
