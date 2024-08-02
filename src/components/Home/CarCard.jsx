@@ -82,7 +82,7 @@ export default function CarCard() {
               maxHeight: "100%",
               borderRadius: "10px",
             }}
-            src="/Saka.png"
+            src="/Saka.png" alt="pic"
           />
         </Box>
       </Box>
