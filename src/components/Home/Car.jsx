@@ -12,7 +12,7 @@ export default function Car() {
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 1.2,
+      items: 1,
       slidesToSlide: 1,
     },
     tablet: {
@@ -31,6 +31,7 @@ export default function Car() {
       slidesToSlide: 1,
     },
   };
+
 
   return (
     <Carousel

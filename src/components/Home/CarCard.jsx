@@ -8,9 +8,9 @@ export default function CarCard() {
       sx={{
         position: "relative",
         margin: "10px",
-        minHeight: { xs: "300px", sm: "400px", md: "500px" },
-        maxHeight: { xs: "300px", sm: "400px", md: "500px" },
-        height: { xs: "300px", sm: "400px", md: "500px" },
+        minHeight: { xs: "270px", sm: "400px", md: "500px", lg: "600px" },
+        maxHeight: { xs: "370px", sm: "400px", md: "500px", lg: "600px" },
+        height: { xs: "270px", sm: "400px", md: "500px" },
         minWidth: { xs: "300px", sm: "400px", md: "500px" },
         padding: "0px",
         overflow: "clip",
@@ -82,7 +82,8 @@ export default function CarCard() {
               maxHeight: "100%",
               borderRadius: "10px",
             }}
-            src="/Saka.png" alt="pic"
+            src="/Saka.png"
+            alt="pic"
           />
         </Box>
       </Box>
