@@ -5,9 +5,9 @@ import {
   CardContent,
   CardActions,
   Typography,
-  Button,
 } from "@mui/material";
 import Th from "../../Context/useTheme";
+import { Link } from "react-router-dom";
 
 export default function MediaCard({ ApiCard }) {
   const [ss] = useContext(Th);
@@ -68,18 +68,18 @@ export default function MediaCard({ ApiCard }) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button
-          sx={{
+        <Link
+          to={`/Technologies/${ApiCard.id}`}
+          style={{
             position: "absolute",
             top: "10px",
             right: "10px",
-            color: "primary.main",
-            fontSize: { xs: "8px", md: "10px" },
-            fontWeight: "600",
-          }}
-          size="small">
+            fontSize: "12px",
+            fontWeight: "700",
+            textDecoration: "none",
+          }}>
           More Details
-        </Button>
+        </Link>
       </CardActions>
     </Card>
   );

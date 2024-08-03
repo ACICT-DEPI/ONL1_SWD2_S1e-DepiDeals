@@ -10,6 +10,8 @@ import Home from "./components/Home/Home";
 import Projects from "./components/Projects/Projects";
 import Techs from "./components/Techs/Techs";
 import Th from "./Context/useTheme";
+import { cardApi, TechApi } from "./Context/TechApi";
+import TechDetails from "./components/Techs/TechDetails";
 
 export default function App() {
   const [theme, setTheme] = useState("light");
@@ -58,36 +60,39 @@ export default function App() {
             <Top />
 
             <Nav />
-            <Routes>
-              <Route path="/">
-                <Route index path="/" element={<Home />} />
-                <Route index path="/Home" element={<Home />} />
-                <Route path="/Projects" element={<Projects />} />
-                <Route path="/Technologies" element={<Techs />} />
-                <Route
-                  path="/SendMessage"
-                  element={<h1 style={{ minHeight: "100vh" }}>S</h1>}
-                />
-                <Route path="/About" element={<h1>A</h1>} />
-                <Route
-                  path="*"
-                  element={
-                    <h2
-                      style={{
-                        minHeight: "100vh",
-                        minWidth: "100%",
-                        textAlign: "center",
-                        backgroundColor: "#342D85",
-                        color: "white",
-                        margin: 0,
-                        paddingTop: "30px",
-                      }}>
-                      Error 404 : Not Found
-                    </h2>
-                  }
-                />
-              </Route>
-            </Routes>
+            <TechApi.Provider value={cardApi}>
+              <Routes>
+                <Route path="/">
+                  <Route index path="/" element={<Home />} />
+                  <Route index path="/Home" element={<Home />} />
+                  <Route path="/Projects" element={<Projects />} />
+                  <Route path="/Technologies" element={<Techs />} />
+                  <Route path="/Technologies/:id" element={<TechDetails />} />
+                  <Route
+                    path="/SendMessage"
+                    element={<h1 style={{ minHeight: "100vh" }}>S</h1>}
+                  />
+                  <Route path="/About" element={<h1>A</h1>} />
+                  <Route
+                    path="*"
+                    element={
+                      <h2
+                        style={{
+                          minHeight: "100vh",
+                          minWidth: "100%",
+                          textAlign: "center",
+                          backgroundColor: "#342D85",
+                          color: "white",
+                          margin: 0,
+                          paddingTop: "30px",
+                        }}>
+                        Error 404 : Not Found
+                      </h2>
+                    }
+                  />
+                </Route>
+              </Routes>
+            </TechApi.Provider>
             <Box sx={{ display: { xs: "block", md: "none" } }}>
               <Footer />
             </Box>
