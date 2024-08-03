@@ -9,7 +9,7 @@ import { Typography } from "@mui/material";
 import Th from "../../Context/useTheme";
 
 export default function Footer() {
-  const [ss, setss] = useContext(Th);
+  const [ss] = useContext(Th);
   return (
     <Box
       sx={{
