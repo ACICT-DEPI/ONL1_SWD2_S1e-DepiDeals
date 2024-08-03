@@ -39,7 +39,7 @@ export default function Top() {
 
         <Box
           sx={{
-            display: stat === "/Home" ? "flex" : "none",
+            display: stat === "/Home" || "/" ? "flex" : "none",
             alignItems: "center",
             justifyContent: "center",
             minWidth: "100%",
@@ -72,7 +72,7 @@ export default function Top() {
             possibilities abound.
           </Typography>
         </Box>
-        <Box sx={{ display: stat === "/Home" ? "" : "none" }}>
+        <Box sx={{ display: stat === "/Home" || "/" ? "" : "none" }}>
           <MySwitch />
         </Box>
 
