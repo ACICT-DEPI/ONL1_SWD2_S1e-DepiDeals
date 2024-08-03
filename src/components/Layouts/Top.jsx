@@ -15,7 +15,7 @@ export default function Top() {
         sx={{
           display: { xs: "flex", md: "none" },
           px: "15px",
-          position: stat === "Home" ? "" : "sticky",
+          position: stat === "/Home" || stat === "/" ? "" : "sticky",
           top: 0,
           margin: "0px",
           backgroundColor: "primary.main",
@@ -47,7 +47,6 @@ export default function Top() {
             maxHeight: "240px",
             flexDirection: "column",
           }}>
-          {stat}
           <Box
             sx={{
               py: "10px",
