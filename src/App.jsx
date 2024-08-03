@@ -1,6 +1,5 @@
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Top from "./components/Layouts/Top";
-import url from "./Context/url";
 import React, { useState } from "react";
 import Footer from "./components/Layouts/Footer";
 import Aside from "./components/Layouts/Aside";
@@ -10,9 +9,11 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home/Home";
 import Projects from "./components/Projects/Projects";
 import Techs from "./components/Techs/Techs";
+import Th from "./Context/useTheme";
+
 export default function App() {
-  const [url1, seturl] = useState("Home");
-  const theme = createTheme({
+  const [theme, setTheme] = useState("light");
+  const LightTheme = createTheme({
     typography: {
       fontFamily: "Poppins, Arial, sans-serif",
     },
@@ -20,19 +21,42 @@ export default function App() {
       primary: {
         main: "#342D85",
         text: "#ffffff",
+        ground: "#ffffff",
       },
       secondary: {
         main: "#BCBCBC",
       },
     },
   });
+  const DarkTheme = createTheme({
+    typography: {
+      fontFamily: "Poppins, Arial, sans-serif",
+    },
+    palette: {
+      mode: "dark",
+      primary: {
+        main: "#4B4386",
+        maintext: "#ffffff",
+        text: "#000000",
+        ground: "#1e1e1e",
+      },
+      secondary: {
+        main: "#BCBCBC",
+      },
+      background: {
+        default: "#1e1e1e",
+        paper: "#1e1e1e",
+      },
+    },
+  });
   return (
-    <url.Provider value={{ url1, seturl }}>
-      <ThemeProvider theme={theme}>
-        <Box sx={{ display: "flex" }}>
+    <Th.Provider value={[theme, setTheme]}>
+      <ThemeProvider theme={theme === "light" ? LightTheme : DarkTheme}>
+        <Box sx={{ display: "flex", backgroundColor: "primary.ground" }}>
           <Aside />
           <Box sx={{ width: { xs: "100%", md: "70%" } }}>
             <Top />
+
             <Nav />
             <Routes>
               <Route path="/">
@@ -70,6 +94,6 @@ export default function App() {
           </Box>
         </Box>
       </ThemeProvider>
-    </url.Provider>
+    </Th.Provider>
   );
 }

@@ -1,14 +1,25 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Filter.css";
+import Th from "../../Context/useTheme";
 
-export default function Filter({func}) {
+export default function Filter({ func }) {
   const [selectedTab, setSelectedTab] = useState("All");
-
+  const [ss] = useContext(Th);
   function handleTabClick(i) {
     setSelectedTab(i);
     func(i);
   }
 
+  function Tab({ label, isSelected, onClick }) {
+    return (
+      <div
+        style={{ color: ss === "dark" ? "white" : "" }}
+        className={`tab ${isSelected ? "selected" : ""}`}
+        onClick={onClick}>
+        {label}
+      </div>
+    );
+  }
   return (
     <div className="tabs-container">
       <div className="tabs">
@@ -43,14 +54,6 @@ export default function Filter({func}) {
           onClick={() => handleTabClick("Others")}
         /> */}
       </div>
-    </div>
-  );
-}
-
-function Tab({ label, isSelected, onClick }) {
-  return (
-    <div className={`tab ${isSelected ? "selected" : ""}`} onClick={onClick}>
-      {label}
     </div>
   );
 }

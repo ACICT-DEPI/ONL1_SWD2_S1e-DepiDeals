@@ -1,13 +1,15 @@
 import Box from "@mui/material/Box";
-import React from "react";
+import React, { useContext } from "react";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import BrushIcon from "@mui/icons-material/Brush";
 import { Typography } from "@mui/material";
+import Th from "../../Context/useTheme";
 
 export default function Footer() {
+  const [ss, setss] = useContext(Th);
   return (
     <Box
       sx={{
@@ -25,7 +27,12 @@ export default function Footer() {
         sx={{
           maxWidth: { xs: "100px", sm: "180px" },
         }}>
-        <img height={"100%"} width={"100%"} src="/logo.png" alt="Logo" />
+        <img
+          height={"100%"}
+          width={"100%"}
+          src={ss === "light" ? "/logo.png" : "logoDark.png"}
+          alt="Logo"
+        />
       </Box>
       <Box
         sx={{

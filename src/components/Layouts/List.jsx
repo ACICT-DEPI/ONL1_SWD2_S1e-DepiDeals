@@ -1,18 +1,14 @@
 import Box from "@mui/material/Box";
-import React, { useContext } from "react";
+import React from "react";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import SegmentRoundedIcon from "@mui/icons-material/SegmentRounded";
 import { Link } from "react-router-dom";
-import url from "../../Context/url";
 export default function LList() {
   const [state, setState] = React.useState(false);
-  let current = useContext(url);
-  function handle(e) {
-    current.seturl(e.target.className);
-  }
+
   const toggleDrawer = (open) => (event) => {
     if (
       event.type === "keydown" &&
@@ -33,7 +29,7 @@ export default function LList() {
       <List>
         <ListItem
           sx={{
-            color: "primary.main",
+            color: "primary.maintext",
             fontSize: "22px",
             fontWeight: "700",
           }}>
@@ -44,10 +40,8 @@ export default function LList() {
         {tabs.map((tab, index) => (
           <ListItem>
             <Link
-              className={tab}
-              onClick={handle}
               style={{
-                color: "primary.main",
+                color: "gray",
                 fontSize: "18px",
                 textDecoration: "none",
               }}
@@ -66,8 +60,8 @@ export default function LList() {
         onClick={toggleDrawer(true)}
         sx={{
           position: "absolute",
-          top: "16px",
-          right: "16px",
+          top: "15px",
+          right: "15px",
           fontSize: 40,
           color: "primary.text",
         }}

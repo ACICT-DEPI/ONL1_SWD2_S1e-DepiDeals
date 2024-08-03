@@ -1,15 +1,13 @@
-import React, { useContext} from "react";
+import React from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
-import { Link } from "react-router-dom";
-import url from "../../Context/url";
+import { Link, useLocation } from "react-router-dom";
+import MySwitch from "../Common/Switch";
+
 export default function Nav() {
-  let current = useContext(url);
-  let stat = current.url1;
-  const handleChange = (event, newValue) => {
-    current.seturl(newValue);
-  };
+  const location = useLocation();
+  const stat = location.pathname;
 
   return (
     <Box
@@ -19,11 +17,15 @@ export default function Nav() {
         alignItems: "center",
         minWidth: "100%",
         paddingTop: "20px",
+        position: "relative",
       }}>
-      <Tabs value={stat} onChange={handleChange}>
+      <Box sx={{ position: "absolute", top: "15px", right: "90px" }}>
+        <MySwitch />
+      </Box>
+      <Tabs value={stat}>
         <Tab
           sx={{ fontSize: "15px", fontWeight: "600" }}
-          value="Home"
+          value="/Home"
           label={
             <Link style={{ textDecoration: "none" }} to={"./Home"}>
               Home
@@ -33,7 +35,7 @@ export default function Nav() {
 
         <Tab
           sx={{ fontSize: "15px", fontWeight: "600" }}
-          value="Projects"
+          value="/Projects"
           label={
             <Link style={{ textDecoration: "none" }} to={"./Projects"}>
               Projects
@@ -43,7 +45,7 @@ export default function Nav() {
 
         <Tab
           sx={{ fontSize: "15px", fontWeight: "600" }}
-          value="Technologies"
+          value="/Technologies"
           label={
             <Link style={{ textDecoration: "none" }} to={"./Technologies"}>
               Technologies{" "}
@@ -53,7 +55,7 @@ export default function Nav() {
 
         <Tab
           sx={{ fontSize: "15px", fontWeight: "600" }}
-          value="SendMessage"
+          value="/SendMessage"
           label={
             <Link style={{ textDecoration: "none" }} to={"./SendMessage"}>
               {" "}

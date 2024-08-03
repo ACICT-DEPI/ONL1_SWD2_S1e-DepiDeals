@@ -16,7 +16,6 @@ export default function Header() {
           alignItems: "center",
           minHeight: "215px",
         }}>
-            rher
         <LList />
       </Box>
     </>

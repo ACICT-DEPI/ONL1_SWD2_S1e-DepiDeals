@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Card,
   CardMedia,
@@ -7,8 +7,11 @@ import {
   Typography,
   Button,
 } from "@mui/material";
+import Th from "../../Context/useTheme";
 
 export default function MediaCard({ ApiCard }) {
+  const [ss] = useContext(Th);
+
   return (
     <Card
       sx={{
@@ -20,7 +23,10 @@ export default function MediaCard({ ApiCard }) {
         flexDirection: "row",
         gap: "2px",
         px: { xs: "5px", md: "0px" },
-        boxShadow: "0px 2px 10px 0px rgba(0, 0, 0, 0.25)",
+        boxShadow:
+          ss === "dark"
+            ? "0px 2px 10px 0px rgba(255, 255, 255, 0.15)"
+            : "0px 2px 10px 0px rgba(0, 0, 0, 0.25)",
         maxWidth: { xs: "100%", md: "450px" },
         maxHeight: { xs: "100px", md: "175px" },
         minHeight: { xs: "100px", md: "175px" },
@@ -41,7 +47,7 @@ export default function MediaCard({ ApiCard }) {
       <CardContent sx={{ p: 1 }}>
         <Typography
           sx={{ fontSize: { xs: "18px", md: "20px" }, fontWeight: "500" }}
-          color="black"
+          color="primary.maintext"
           component="div">
           {ApiCard.title}
         </Typography>
