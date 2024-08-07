@@ -2,14 +2,14 @@ import { Box } from "@mui/material";
 import Cardd from "../Common/Card";
 import Fliter from "../Common/Fliter";
 import { useContext, useState } from "react";
-import { TechApi } from "../../Context/TechApi";
+import { ApiContext } from "../../Context/ContentApi";
 
 export default function Techs() {
   const [f, setF] = useState("All");
-  const TechApii = useContext(TechApi);
-
+  const [techApi] = useContext(ApiContext);
+  console.log(techApi);
   const Cards = () => {
-    return TechApii.map((card) => {
+    return techApi.map((card) => {
       if (f === "All") {
         return <Cardd ApiCard={card} />;
       }

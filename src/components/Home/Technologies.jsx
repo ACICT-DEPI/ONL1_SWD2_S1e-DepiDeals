@@ -2,12 +2,12 @@ import { Box } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import Cardd from "../Common/Card";
 import React, { useContext } from "react";
-import { TechApi } from "../../Context/TechApi";
+import { ApiContext } from "../../Context/ContentApi";
 
 export default function Technologies() {
-  const TechApii = useContext(TechApi);
+  const [techApi] = useContext(ApiContext);
   const Cards = () => {
-    return TechApii.map((card) => {
+    return techApi.map((card) => {
       return <Cardd ApiCard={card} />;
     });
   };

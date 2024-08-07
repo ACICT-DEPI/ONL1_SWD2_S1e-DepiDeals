@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import CarCard from "./CarCard";
+import { ApiContext } from "../../Context/ContentApi";
 
 export default function Car() {
   const responsive = {
@@ -31,7 +32,7 @@ export default function Car() {
       slidesToSlide: 1,
     },
   };
-
+  const [, proApi] = useContext(ApiContext);
 
   return (
     <Carousel
@@ -46,9 +47,9 @@ export default function Car() {
       removeArrowOnDeviceType={["mobile"]}
       dotListClass="custom-dot-list-style"
       itemClass="carousel-item-padding-40-px">
-      <CarCard />
-      <CarCard />
-      <CarCard />
+      {proApi.map((e) => {
+        return <CarCard data={e} />;
+      })}
     </Carousel>
   );
 }

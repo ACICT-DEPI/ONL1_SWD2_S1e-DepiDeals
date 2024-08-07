@@ -1,13 +1,13 @@
 import { useParams } from "react-router-dom";
-import { TechApi } from "../../Context/TechApi";
 import { useContext } from "react";
 import { Box, Typography } from "@mui/material";
 import ImageList from "./ImageList";
+import { ApiContext } from "../../Context/ContentApi";
 
-export default function TechDetails() {
+export default function ProjectDetails() {
   const { id } = useParams();
-  const TechApii = useContext(TechApi);
-  const tech = TechApii.find((card) => card.id === id);
+  const [, proApi] = useContext(ApiContext);
+  const pro = proApi.find((card) => card.id === id);
   return (
     <Box
       sx={{
@@ -22,13 +22,13 @@ export default function TechDetails() {
           sx={{ fontSize: { xs: "25px", md: "30px" }, fontWeight: "500" }}
           color="primary.maintext"
           component="div">
-          {tech.title}
+          {pro.title}
         </Typography>
         <Typography
           sx={{ fontSize: { xs: "14px", md: "20px" }, fontWeight: "500" }}
           color="primary.main"
           component="div">
-          Category: {tech.category}
+          Category: {pro.category}
         </Typography>
       </Box>
       <Typography
@@ -44,7 +44,7 @@ export default function TechDetails() {
         sx={{ fontSize: { xs: "15px", md: "20px" }, fontWeight: "500" }}
         color="secondary.main"
         component="div">
-        {tech.overview}
+        {pro.overview}
       </Typography>
       <Box
         sx={{
@@ -63,8 +63,7 @@ export default function TechDetails() {
             minHeight: "100%",
             minWidth: "100%",
             position: "absolute",
-            background:
-              "linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(255,255,255,0.2) 100%),url(/11.png)",
+            background: `linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(255,255,255,0.2) 100%),url(${pro.bg})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             top: "0px",
@@ -86,12 +85,12 @@ export default function TechDetails() {
               objectFit: "cover",
               borderRadius: "10px",
             }}
-            src={tech.pic}
+            src={pro.pic}
             alt="pic"
           />
         </Box>
       </Box>
-      <ImageList />
+      <ImageList gallery={pro.gallery} />
       <Typography
         sx={{
           color: "primary.main",
@@ -103,7 +102,11 @@ export default function TechDetails() {
       <Typography
         sx={{ fontSize: { xs: "15px", md: "18px" }, fontWeight: "500" }}
         color="secondary.main">
-        - Figma
+        <ul style={{ margin: "0px" }}>
+          {pro.tools.map((e) => {
+            return <li>{e}</li>;
+          })}
+        </ul>
       </Typography>
 
       <Typography
@@ -112,14 +115,20 @@ export default function TechDetails() {
           fontSize: "20px",
           fontWeight: "600",
         }}>
-        Link
+        Links
       </Typography>
       <Typography
         sx={{ fontSize: { xs: "15px", md: "18px" }, fontWeight: "500" }}
         color="secondary.main">
-        <a style={{ color: "inherit" }} href="www.google.com">
-          {tech.title}
-        </a>
+        <ul style={{ margin: "0px" }}>
+          <li>
+            <a
+              style={{ color: "inherit" }}
+              href="https://mui.com/material-ui/react-list/">
+              {pro.title}
+            </a>
+          </li>
+        </ul>
       </Typography>
 
       <Typography
@@ -133,10 +142,10 @@ export default function TechDetails() {
       <Typography
         sx={{ fontSize: { xs: "15px", md: "18px" }, fontWeight: "500" }}
         color="secondary.main">
-        <ul style={{ color: "inherit", margin: "0px" }} href="www.google.com">
-          <li>fgerwfrewgregerwgregrewr</li>
-          <li>fgerwfrewgregerwgregrewr</li>
-          <li>fgerwfrewgregerwgregrewr</li>
+        <ul style={{ margin: "0px" }}>
+          {pro.notes.map((e) => {
+            return <li>{e}</li>;
+          })}
         </ul>
       </Typography>
     </Box>

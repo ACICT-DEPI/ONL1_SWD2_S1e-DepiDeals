@@ -1,31 +1,9 @@
 import React, { useState } from "react";
 import "./g.css";
 import { Typography } from "@mui/material";
-const ImageGallery = () => {
+const ImageGallery = ( {gallery}) => {
   const [selectedImage, setSelectedImage] = useState(null);
 
-  const images = [
-    {
-      src: "/saka.png",
-      alt: "Image 1",
-    },
-    {
-      src: "/saka.png",
-      alt: "Image 1",
-    },
-    {
-      src: "/saka.png",
-      alt: "Image 1",
-    },
-    {
-      src: "/saka.png",
-      alt: "Image 1",
-    },
-    {
-      src: "/Link.png",
-      alt: "Image 1",
-    },
-  ];
 
   const handleImageClick = (image) => {
     setSelectedImage(image);
@@ -46,12 +24,12 @@ const ImageGallery = () => {
         Project Gallery
       </Typography>
       <div className="gallery-container">
-        {images.map((image, index) => (
+        {gallery.map((image, index) => (
           <div
             key={index}
             className="gallery-item"
             onClick={() => handleImageClick(image)}>
-            <img src={image.src} alt={image.alt} />
+            <img src={image} alt={image} />
           </div>
         ))}
       </div>
@@ -59,7 +37,7 @@ const ImageGallery = () => {
         <div className="modal-container">
           <div className="modal-backdrop" onClick={handleCloseModal} />
           <div className="modal-content">
-            <img src={selectedImage.src} alt={selectedImage.alt} />
+            <img src={selectedImage} alt={selectedImage.alt} />
           </div>
         </div>
       )}

@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 
 export default function MediaCard({ ApiCard }) {
   const [ss] = useContext(Th);
+  console.log("pro", ApiCard.type);
 
   return (
     <Card
@@ -67,20 +68,24 @@ export default function MediaCard({ ApiCard }) {
           {ApiCard.overview}
         </Typography>
       </CardContent>
-      <CardActions>
-        <Link
-          to={`/Technologies/${ApiCard.id}`}
-          style={{
-            position: "absolute",
-            top: "10px",
-            right: "10px",
-            fontSize: "12px",
-            fontWeight: "700",
-            textDecoration: "none",
-          }}>
-          More Details
-        </Link>
-      </CardActions>
+      {ApiCard.type === "project" ? (
+        <CardActions>
+          <Link
+            to={`/Projects/${ApiCard.id}`}
+            style={{
+              position: "absolute",
+              top: "10px",
+              right: "10px",
+              fontSize: "12px",
+              fontWeight: "700",
+              textDecoration: "none",
+            }}>
+            More Details
+          </Link>
+        </CardActions>
+      ) : (
+        ""
+      )}
     </Card>
   );
 }

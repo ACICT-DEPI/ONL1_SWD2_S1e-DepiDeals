@@ -10,8 +10,8 @@ import Home from "./components/Home/Home";
 import Projects from "./components/Projects/Projects";
 import Techs from "./components/Techs/Techs";
 import Th from "./Context/useTheme";
-import { cardApi, TechApi } from "./Context/TechApi";
-import TechDetails from "./components/Techs/TechDetails";
+import { proApi, TechApi, ApiContext } from "./Context/ContentApi";
+import ProjectDetails from "./components/Projects/ProjectDetails";
 
 export default function App() {
   const [theme, setTheme] = useState("light");
@@ -61,14 +61,14 @@ export default function App() {
             <Top />
 
             <Nav />
-            <TechApi.Provider value={cardApi}>
+            <ApiContext.Provider value={[TechApi, proApi]}>
               <Routes>
                 <Route path="/">
                   <Route index path="/" element={<Home />} />
                   <Route index path="/Home" element={<Home />} />
                   <Route path="/Projects" element={<Projects />} />
                   <Route path="/Technologies" element={<Techs />} />
-                  <Route path="/Technologies/:id" element={<TechDetails />} />
+                  <Route path="/Projects/:id" element={<ProjectDetails />} />
                   <Route
                     path="/SendMessage"
                     element={<h1 style={{ minHeight: "100vh" }}>S</h1>}
@@ -93,7 +93,7 @@ export default function App() {
                   />
                 </Route>
               </Routes>
-            </TechApi.Provider>
+            </ApiContext.Provider>
             <Box sx={{ display: { xs: "block", md: "none" } }}>
               <Footer />
             </Box>
