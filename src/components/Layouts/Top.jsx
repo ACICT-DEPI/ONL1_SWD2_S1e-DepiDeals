@@ -34,7 +34,9 @@ export default function Top() {
             justifyContent: "center",
             alignItems: "center",
           }}>
-          {stat.slice(1) === "SendMessage" ? "Send Message" : stat.slice(1)}
+          {stat.slice(1) === "SendMessage"
+            ? "Send Message"
+            : stat.slice(1).split("/")[0]}
         </Typography>
 
         <Box
@@ -63,7 +65,7 @@ export default function Top() {
           </Box>
           <Typography
             sx={{
-              color: "primary.maintext",
+              color: "white",
               textAlign: "center",
               fontSize: "13px",
               maxWidth: "350px",

@@ -7,7 +7,7 @@ const cardApi = [
     category: "UI/UX",
     overview:
       "Figma is a collaborative, cloud-based design tool used for user interface (UI) and user experience (UX) design. ",
-    pic: "/fig.jpeg",
+    pic: "/fig.png",
   },
   {
     id: " 2",

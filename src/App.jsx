@@ -22,6 +22,7 @@ export default function App() {
     palette: {
       primary: {
         main: "#342D85",
+        maintext: "#000000",
         text: "#ffffff",
         ground: "#ffffff",
       },
@@ -43,7 +44,7 @@ export default function App() {
         ground: "#1e1e1e",
       },
       secondary: {
-        main: "#BCBCBC",
+        main: "#B5AFAF",
       },
       background: {
         default: "#1e1e1e",
