@@ -14,7 +14,7 @@ export default function Latest() {
       <Typography
         sx={{
           color: "primary.main",
-          fontSize: "20px",
+          fontSize: { xs: "20px", md: "30px" },
           p: "5px",
           fontWeight: "600",
         }}>

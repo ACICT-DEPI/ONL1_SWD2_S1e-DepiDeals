@@ -12,6 +12,7 @@ import Techs from "./components/Techs/Techs";
 import Th from "./Context/useTheme";
 import { proApi, TechApi, ApiContext } from "./Context/ContentApi";
 import ProjectDetails from "./components/Projects/ProjectDetails";
+import SendMessage from "./components/Message/SendMessage";
 
 export default function App() {
   const [theme, setTheme] = useState("light");
@@ -57,7 +58,11 @@ export default function App() {
       <ThemeProvider theme={theme === "light" ? LightTheme : DarkTheme}>
         <Box sx={{ display: "flex", backgroundColor: "primary.ground" }}>
           <Aside />
-          <Box sx={{ width: { xs: "100%", md: "70%" } }}>
+          <Box
+            sx={{
+              width: { xs: "100%", md: "68%" },
+              marginLeft: { md: "32%" },
+            }}>
             <Top />
 
             <Nav />
@@ -69,10 +74,7 @@ export default function App() {
                   <Route path="/Projects" element={<Projects />} />
                   <Route path="/Technologies" element={<Techs />} />
                   <Route path="/Projects/:id" element={<ProjectDetails />} />
-                  <Route
-                    path="/SendMessage"
-                    element={<h1 style={{ minHeight: "100vh" }}>S</h1>}
-                  />
+                  <Route path="/SendMessage" element={<SendMessage />} />
                   <Route path="/About" element={<h1>A</h1>} />
                   <Route
                     path="*"

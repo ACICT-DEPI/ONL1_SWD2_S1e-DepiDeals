@@ -25,7 +25,7 @@ export default function ProjectDetails() {
           {pro.title}
         </Typography>
         <Typography
-          sx={{ fontSize: { xs: "14px", md: "20px" }, fontWeight: "500" }}
+          sx={{ fontSize: { xs: "15px", md: "18px" }, fontWeight: "500" }}
           color="primary.main"
           component="div">
           Category: {pro.category}
@@ -41,7 +41,10 @@ export default function ProjectDetails() {
         Overview
       </Typography>
       <Typography
-        sx={{ fontSize: { xs: "15px", md: "20px" }, fontWeight: "500" }}
+        sx={{
+          fontSize: { xs: "15px", sm: "16px", md: "17px" },
+          fontWeight: "500",
+        }}
         color="secondary.main"
         component="div">
         {pro.overview}
@@ -75,8 +78,8 @@ export default function ProjectDetails() {
             position: "absolute",
             width: { xs: "120px", sm: "140px", md: "200px" },
             height: { xs: "120px", sm: "140px", md: "200px" },
-            bottom: "10px",
-            right: "10px",
+            bottom: { xs: "10px", md: "30px" },
+            right: { xs: "10px", md: "30px" },
           }}>
           <img
             style={{
@@ -90,7 +93,6 @@ export default function ProjectDetails() {
           />
         </Box>
       </Box>
-      <ImageList gallery={pro.gallery} />
       <Typography
         sx={{
           color: "primary.main",
@@ -100,7 +102,10 @@ export default function ProjectDetails() {
         Tools and Technologies
       </Typography>
       <Typography
-        sx={{ fontSize: { xs: "15px", md: "18px" }, fontWeight: "500" }}
+        sx={{
+          fontSize: { xs: "15px", sm: "16px", md: "17px" },
+          fontWeight: "500",
+        }}
         color="secondary.main">
         <ul style={{ margin: "0px" }}>
           {pro.tools.map((e) => {
@@ -118,7 +123,10 @@ export default function ProjectDetails() {
         Links
       </Typography>
       <Typography
-        sx={{ fontSize: { xs: "15px", md: "18px" }, fontWeight: "500" }}
+        sx={{
+          fontSize: { xs: "15px", sm: "16px", md: "17px" },
+          fontWeight: "500",
+        }}
         color="secondary.main">
         <ul style={{ margin: "0px" }}>
           <li>
@@ -130,7 +138,7 @@ export default function ProjectDetails() {
           </li>
         </ul>
       </Typography>
-
+      <ImageList gallery={pro.gallery} />
       <Typography
         sx={{
           color: "primary.main",
@@ -140,7 +148,10 @@ export default function ProjectDetails() {
         Notes
       </Typography>
       <Typography
-        sx={{ fontSize: { xs: "15px", md: "18px" }, fontWeight: "500" }}
+        sx={{
+          fontSize: { xs: "15px", sm: "16px", md: "17px" },
+          fontWeight: "500",
+        }}
         color="secondary.main">
         <ul style={{ margin: "0px" }}>
           {pro.notes.map((e) => {

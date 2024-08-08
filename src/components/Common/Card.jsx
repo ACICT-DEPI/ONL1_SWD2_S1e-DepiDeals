@@ -11,8 +11,6 @@ import { Link } from "react-router-dom";
 
 export default function MediaCard({ ApiCard }) {
   const [ss] = useContext(Th);
-  console.log("pro", ApiCard.type);
-
   return (
     <Card
       sx={{

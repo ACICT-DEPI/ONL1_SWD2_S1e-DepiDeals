@@ -1,18 +1,20 @@
 import Card from "@mui/material/Card";
-import React from "react";
+import React, { useContext } from "react";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { Box, Button, CardActionArea, CardActions } from "@mui/material";
-
+import { Box, Button } from "@mui/material";
+import Th from "../../Context/useTheme";
 export default function ContactMe() {
+  const [ss] = useContext(Th);
   return (
     <Box
       sx={{
+        maxWidth: { xs: "100%", md: "80%" },
         margin: "10px",
         display: "flex",
         flexDirection: "column",
         gap: "10px",
+        marginBottom: "40px",
       }}>
       <Typography
         sx={{
@@ -26,25 +28,31 @@ export default function ContactMe() {
 
       <Card
         sx={{
+          height: "230px",
           maxWidth: "100%",
+          minWidth: "100%",
           display: "flex",
           flexDirection: "row",
-          borderRadius: "15px",
-          boxShadow: "0px 2px 10px 0px rgba(0, 0, 0, 0.25)",
+          borderRadius: { xs: "15px", md: "0px" },
+          boxShadow:
+            ss === "dark"
+              ? "0px 2px 10px 0px rgba(255, 255, 255, 0.15)"
+              : "0px 2px 10px 0px rgba(0, 0, 0, 0.25)",
         }}>
-        <CardActions
+        <Box
           sx={{
             display: "flex",
             justifyContent: "center",
             alignItems: "start",
             flexDirection: "column",
-            minWidth: "60%",
+            minWidth: "100%",
+            maxWidth: "100%",
           }}>
           <CardContent>
             <Typography
               sx={{
                 color: "primary.main",
-                fontSize: "19px",
+                fontSize: { xs: "20px", sm: "22px" },
                 fontWeight: "bold",
               }}
               component="div">
@@ -53,7 +61,7 @@ export default function ContactMe() {
             <Typography
               sx={{
                 color: "primary.main",
-                fontSize: "13px",
+                fontSize: { xs: "15px", sm: "17px" },
                 opacity: 0.7,
                 fontWeight: "bold",
               }}
@@ -63,29 +71,20 @@ export default function ContactMe() {
             <Typography
               sx={{
                 color: "secondary.main",
-                fontSize: "13px",
+                fontSize: { xs: "13px", sm: "15px" },
               }}
               component="div">
               Are you searching for a skilled MERN full-stack developer and
               UI/UX designer to bring your digital vision to life?
             </Typography>
           </CardContent>
-          <Button sx={{ width: "100%" }} variant="contained" color="primary">
+          <Button
+            sx={{ minWidth: "70%", margin: "0px auto" }}
+            variant="contained"
+            color="primary">
             Contact Me
           </Button>
-        </CardActions>
-        <CardActionArea
-          sx={{
-            minWidth: "40%",
-            overflow: "hidden",
-          }}>
-          <CardMedia
-            sx={{ objectFit: "cover", height: "100%", borderRadius: "0px" }}
-            component="img"
-            image="/seif.png"
-            alt="seif"
-          />
-        </CardActionArea>
+        </Box>
       </Card>
     </Box>
   );

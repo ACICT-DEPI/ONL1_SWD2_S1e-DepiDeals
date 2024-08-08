@@ -3,19 +3,22 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/material";
-import Footer from "./Footer";
 
 export default function Aside() {
   return (
     <Box
       sx={{
         display: { xs: "none", md: "block" },
-        minWidth: "30%",
+        minWidth: "32%",
         maxWidth: "32%",
         bgcolor: "primary.main",
-        alignItems: "start",
-        justifyContent: "start",
-        minheight: "100%",
+        alignItems: "center",
+        justifyContent: "center",
+        minheight: "100vh",
+        bottom: 0,
+        top: 0,
+        left: 0,
+        position: "fixed",
       }}>
       <List
         sx={{
@@ -26,11 +29,9 @@ export default function Aside() {
           color: "white",
           flexDirection: "column",
           alignItems: "center",
-          justifyContent: "space-between",
-          minheight: "50000000px",
-          maxheight: "50px",
+          justifyContent: "space-around",
         }}>
-        <ListItem sx={{ mb: 3 }}>
+        <ListItem>
           <Box
             sx={{
               py: "10px",
@@ -203,9 +204,6 @@ export default function Aside() {
               </Typography>
             </ListItem>
           </List>
-        </ListItem>
-        <ListItem>
-          <Footer />
         </ListItem>
       </List>
     </Box>
