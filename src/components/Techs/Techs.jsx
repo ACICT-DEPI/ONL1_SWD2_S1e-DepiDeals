@@ -16,6 +16,16 @@ export default function Techs() {
       if (card.category === f) {
         return <Cardd ApiCard={card} />;
       }
+      if ("Others" === f) {
+        if (
+          card.category !== "Fullstack" &&
+          card.category !== "Backend" &&
+          card.category !== "UI/UX" &&
+          card.category !== "Frontend"
+        ) {
+          return <Cardd ApiCard={card} />;
+        }
+      }
       return null;
     });
   };

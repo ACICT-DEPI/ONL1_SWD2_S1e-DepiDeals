@@ -24,7 +24,7 @@ export default function Top() {
           alignItems: "center",
           minHeight: stat === "Home" ? "215px" : "70px",
           boxShadow: "0px 7px 10px 0px rgba(0, 0, 0, 0.25)",
-          zIndex: 1, // Ensure the nav bar is on top of other elements
+          zIndex: 1,
         }}>
         <Typography
           sx={{

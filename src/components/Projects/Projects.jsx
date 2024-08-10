@@ -6,8 +6,7 @@ import { ApiContext } from "../../Context/ContentApi";
 
 export default function Projects() {
   const [f, setF] = useState("All");
-  const [,proApi] = useContext(ApiContext);
-  console.log("wefqfq",proApi);
+  const [, proApi] = useContext(ApiContext);
   const Cards = () => {
     return proApi.map((card) => {
       if (f === "All") {

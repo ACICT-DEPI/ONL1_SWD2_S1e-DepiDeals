@@ -35,7 +35,7 @@ export default function MediaCard({ ApiCard }) {
         component="img"
         sx={{
           borderRadius: { xs: "10px", md: "0px" },
-          maxWidth: { xs: "90px", md: "100%" },
+          maxWidth: { xs: "90px", md: "175px" },
           minWidth: { xs: "90px", md: "175px" },
           height: { xs: "80px", md: "100%" },
           alignItems: "center",
@@ -43,7 +43,7 @@ export default function MediaCard({ ApiCard }) {
         image={ApiCard.pic}
         alt="Image"
       />
-      <CardContent sx={{ p: 1 }}>
+      <CardContent sx={{ padding: "20px 5px" }}>
         <Typography
           sx={{ fontSize: { xs: "18px", md: "20px" }, fontWeight: "500" }}
           color="primary.maintext"

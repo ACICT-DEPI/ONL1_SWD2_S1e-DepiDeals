@@ -19,7 +19,7 @@ export default function LList() {
     setState(!state);
   };
 
-  const tabs = ["Home", "Projects", "Technologies", "SendMessage", "About ME"];
+  const tabs = ["Home", "Projects", "Technologies", "SendMessage", "AboutMe"];
   const list = () => (
     <Box
       sx={{ width: 250 }} // Set width for the drawer
@@ -46,7 +46,7 @@ export default function LList() {
                 textDecoration: "none",
               }}
               to={tab}>
-              {tab}
+              {tab === "SendMessage" ? "Send Message" : tab}
             </Link>
           </ListItem>
         ))}

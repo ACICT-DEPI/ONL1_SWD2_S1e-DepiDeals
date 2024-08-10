@@ -1,10 +1,13 @@
 import React, { useContext, useState } from "react";
 import "./Filter.css";
 import Th from "../../Context/useTheme";
+import { useLocation } from "react-router-dom";
 
 export default function Filter({ func }) {
   const [selectedTab, setSelectedTab] = useState("All");
   const [ss] = useContext(Th);
+  const location = useLocation();
+  const stat = location.pathname;
   function handleTabClick(i) {
     setSelectedTab(i);
     func(i);
@@ -28,11 +31,17 @@ export default function Filter({ func }) {
           isSelected={selectedTab === "All"}
           onClick={() => handleTabClick("All")}
         />
-        <Tab
-          label="FULLSTACK"
-          isSelected={selectedTab === "Fullstack"}
-          onClick={() => handleTabClick("Fullstack")}
-        />
+
+        {stat === "/Projects" ? (
+          <Tab
+            label="FULLSTACK"
+            isSelected={selectedTab === "Fullstack"}
+            onClick={() => handleTabClick("Fullstack")}
+          />
+        ) : (
+          ""
+        )}
+
         <Tab
           label="Backend"
           isSelected={selectedTab === "Backend"}
@@ -48,11 +57,15 @@ export default function Filter({ func }) {
           isSelected={selectedTab === "UI/UX"}
           onClick={() => handleTabClick("UI/UX")}
         />
-        {/* <Tab
-          label="Others"
-          isSelected={selectedTab === "Others"}
-          onClick={() => handleTabClick("Others")}
-        /> */}
+        {stat === "/Technologies" ? (
+          <Tab
+            label="Others"
+            isSelected={selectedTab === "Others"}
+            onClick={() => handleTabClick("Others")}
+          />
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );

@@ -36,14 +36,17 @@ export default function SenMessage() {
         gap: "10px",
       }}>
       <Typography
-        sx={{ fontSize: { xs: "25px", md: "30px" }, fontWeight: "500" }}
+        sx={{
+          fontSize: { xs: "22px", sm: "24px", md: "30px" },
+          fontWeight: "500",
+        }}
         color="primary.maintext"
         component="div">
         Share Your Thoughts
       </Typography>
       <Typography
         sx={{
-          fontSize: { xs: "15px", sm: "16px", md: "17px" },
+          fontSize: { xs: "12px", sm: "16px", md: "17px" },
           fontWeight: "500",
         }}
         color="secondary.main"
@@ -54,7 +57,7 @@ export default function SenMessage() {
         will remain anonymous.
       </Typography>
       <Typography
-        sx={{ fontSize: "20px", fontWeight: "600" }}
+        sx={{ fontSize: { xs: "17px", sm: "20px" }, fontWeight: "600" }}
         color="primary.main">
         Message Title
       </Typography>
@@ -70,7 +73,7 @@ export default function SenMessage() {
         />
       </Box>
       <Typography
-        sx={{ fontSize: "20px", fontWeight: "600" }}
+        sx={{ fontSize: { xs: "17px", sm: "20px" }, fontWeight: "600" }}
         color="primary.main">
         Your Message
       </Typography>

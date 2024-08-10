@@ -78,7 +78,9 @@ export default function ContactMe() {
               UI/UX designer to bring your digital vision to life?
             </Typography>
           </CardContent>
+
           <Button
+            href="SendMessage"
             sx={{ minWidth: "70%", margin: "0px auto" }}
             variant="contained"
             color="primary">

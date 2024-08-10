@@ -13,6 +13,7 @@ import Th from "./Context/useTheme";
 import { proApi, TechApi, ApiContext } from "./Context/ContentApi";
 import ProjectDetails from "./components/Projects/ProjectDetails";
 import SendMessage from "./components/Message/SendMessage";
+import AboutMe from "./components/AboutMe/AboutMe";
 
 export default function App() {
   const [theme, setTheme] = useState("light");
@@ -75,7 +76,7 @@ export default function App() {
                   <Route path="/Technologies" element={<Techs />} />
                   <Route path="/Projects/:id" element={<ProjectDetails />} />
                   <Route path="/SendMessage" element={<SendMessage />} />
-                  <Route path="/About" element={<h1>A</h1>} />
+                  <Route path="/AboutMe" element={<AboutMe />} />
                   <Route
                     path="*"
                     element={

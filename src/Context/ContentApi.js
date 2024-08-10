@@ -91,6 +91,15 @@ const TechApi = [
       "Rateorama is an exceptional platform dedicated to rating movies, series, and TV shows. It offers a unique opportunity for individuals to express their.... . ",
     pic: "/111111.png",
   },
+  {
+    id: "5f54f54tgf5g",
+    type: "tech",
+    title: "Mongosse",
+    category: "Database",
+    overview:
+      "Rateorama is an exceptional platform dedicated to rating movies, series, and TV shows. It offers a unique opportunity for individuals to express their.... . ",
+    pic: "/111111.png",
+  },
 ];
 
 const ApiContext = createContext({});
