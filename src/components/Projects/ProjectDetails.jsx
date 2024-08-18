@@ -132,9 +132,7 @@ export default function ProjectDetails() {
         color="secondary.main">
         <ul style={{ margin: "0px" }}>
           <li>
-            <a
-              style={{ color: "inherit" }}
-              href="https://mui.com/material-ui/react-list/">
+            <a style={{ color: "inherit" }} href={pro.link}>
               {pro.title}
             </a>
           </li>
@@ -151,6 +149,7 @@ export default function ProjectDetails() {
       </Typography>
       <Typography
         sx={{
+          marginBottom: "20px",
           fontSize: { xs: "15px", sm: "16px", md: "17px" },
           fontWeight: "500",
         }}
