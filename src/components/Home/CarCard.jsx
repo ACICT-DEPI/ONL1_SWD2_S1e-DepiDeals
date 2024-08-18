@@ -4,6 +4,9 @@ import { Box } from "@mui/material";
 import { Link } from "react-router-dom";
 
 export default function CarCard({ data }) {
+  let bg = `https://seif-sync-server.vercel.app/${data.bg}`;
+  bg = bg.replace(/\\/g, "/");
+  console.log("Updated URL:", bg);
   return (
     <Box
       sx={{
@@ -22,7 +25,7 @@ export default function CarCard({ data }) {
           minHeight: "100%",
           minWidth: "100%",
           position: "absolute",
-          background: `linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(255,255,255,0.2) 100%), url(${data.bg})`,
+          background: `linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(255,255,255,0.2) 100%), url(${bg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           top: "0px",
@@ -30,7 +33,7 @@ export default function CarCard({ data }) {
           zIndex: -1,
         }}
       />
-      <Link to={`/Projects/${data.id}`}>
+      <Link to={`/Projects/${data._id}`}>
         <Box
           sx={{
             position: "absolute",
@@ -84,7 +87,7 @@ export default function CarCard({ data }) {
                 maxHeight: "100%",
                 borderRadius: "10px",
               }}
-              src={data.pic}
+              src={`https://seif-sync-server.vercel.app/${data.pic}`}
               alt="pic"
             />
           </Box>

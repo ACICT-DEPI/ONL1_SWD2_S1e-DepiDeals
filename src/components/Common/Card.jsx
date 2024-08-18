@@ -40,7 +40,7 @@ export default function MediaCard({ ApiCard }) {
           height: { xs: "80px", md: "100%" },
           alignItems: "center",
         }}
-        image={ApiCard.pic}
+        image={`https://seif-sync-server.vercel.app/${ApiCard.pic}`}
         alt="Image"
       />
       <CardContent sx={{ padding: "20px 5px" }}>
@@ -69,7 +69,7 @@ export default function MediaCard({ ApiCard }) {
       {ApiCard.type === "project" ? (
         <CardActions>
           <Link
-            to={`/Projects/${ApiCard.id}`}
+            to={`/Projects/${ApiCard._id}`}
             style={{
               position: "absolute",
               top: "10px",

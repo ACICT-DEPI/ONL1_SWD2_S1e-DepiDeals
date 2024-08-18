@@ -7,7 +7,9 @@ import { ApiContext } from "../../Context/ContentApi";
 export default function ProjectDetails() {
   const { id } = useParams();
   const [, proApi] = useContext(ApiContext);
-  const pro = proApi.find((card) => card.id === id);
+  const pro = proApi.find((card) => card._id === id);
+  let bg = `https://seif-sync-server.vercel.app/${pro.bg}`;
+  bg = bg.replace(/\\/g, "/");
   return (
     <Box
       sx={{
@@ -66,7 +68,7 @@ export default function ProjectDetails() {
             minHeight: "100%",
             minWidth: "100%",
             position: "absolute",
-            background: `linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(255,255,255,0.2) 100%),url(${pro.bg})`,
+            background: `linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(255,255,255,0.2) 100%),url(${bg})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             top: "0px",
@@ -88,7 +90,7 @@ export default function ProjectDetails() {
               objectFit: "cover",
               borderRadius: "10px",
             }}
-            src={pro.pic}
+            src={`https://seif-sync-server.vercel.app/${pro.pic}`}
             alt="pic"
           />
         </Box>

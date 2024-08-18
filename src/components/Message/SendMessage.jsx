@@ -8,6 +8,26 @@ export default function SenMessage() {
   const [title, setTitle] = useState("");
   const [Aler, setAler] = useState("none");
 
+  async function addMessage(title, content) {
+    try {
+      const response = await fetch(
+        "https://seif-sync-server.vercel.app/Messages/addMessage",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ title, content }),
+        }
+      );
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Error adding message");
+      }
+    } catch (error) {
+      console.error("Fetch error:", error.message);
+    }
+  }
   function filling() {
     if (title === "" || message === "") {
       return true;
@@ -19,6 +39,7 @@ export default function SenMessage() {
   function handle() {
     // const t = title;
     // const m = message;
+    addMessage(title, message);
     setTitle("");
     setMessage("");
     setAler("flex");

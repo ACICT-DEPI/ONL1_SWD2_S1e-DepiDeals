@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import "./g.css";
 import { Typography } from "@mui/material";
-const ImageGallery = ( {gallery}) => {
+const ImageGallery = ({ gallery }) => {
   const [selectedImage, setSelectedImage] = useState(null);
-
-
-  const handleImageClick = (image) => {
+  function handleImageClick(image) {
     setSelectedImage(image);
-  };
+  }
 
   const handleCloseModal = () => {
     setSelectedImage(null);
@@ -29,7 +27,10 @@ const ImageGallery = ( {gallery}) => {
             key={index}
             className="gallery-item"
             onClick={() => handleImageClick(image)}>
-            <img src={image} alt={image} />
+            <img
+              src={`https://seif-sync-server.vercel.app/${image}`}
+              alt={image}
+            />
           </div>
         ))}
       </div>
@@ -37,7 +38,10 @@ const ImageGallery = ( {gallery}) => {
         <div className="modal-container">
           <div className="modal-backdrop" onClick={handleCloseModal} />
           <div className="modal-content">
-            <img src={selectedImage} alt={selectedImage.alt} />
+            <img
+              src={`https://seif-sync-server.vercel.app/${selectedImage}`}
+              alt={selectedImage.alt}
+            />
           </div>
         </div>
       )}
