@@ -7,6 +7,7 @@ export default function SenMessage() {
   const [message, setMessage] = useState("");
   const [title, setTitle] = useState("");
   const [Aler, setAler] = useState("none");
+  const [msg, setMsg] = useState("Message sent successfully.");
 
   async function addMessage(title, content) {
     try {
@@ -21,8 +22,7 @@ export default function SenMessage() {
         }
       );
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || "Error adding message");
+        return false;
       }
     } catch (error) {
       console.error("Fetch error:", error.message);
@@ -39,12 +39,15 @@ export default function SenMessage() {
   function handle() {
     // const t = title;
     // const m = message;
-    addMessage(title, message);
+    if (addMessage(title, message) === false) {
+      setMsg("Sorry an error occurred please try again");
+    }
     setTitle("");
     setMessage("");
     setAler("flex");
     setTimeout(() => {
       setAler("none");
+      setMsg("Message sent successfully.");
     }, 1200);
   }
   return (
@@ -110,7 +113,7 @@ export default function SenMessage() {
         />
       </Box>
       <Alert sx={{ display: Aler }} severity="success">
-        Message sent successfully.
+        {msg}
       </Alert>
       <Button
         onClick={handle}
