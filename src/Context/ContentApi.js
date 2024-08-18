@@ -26,8 +26,21 @@ let TechApi = async () => {
     console.error("Error fetching latest projects:", error);
   }
 };
+
+let ss = async () => {
+  try {
+    const response = await fetch("https://seif-sync-server.vercel.app/tech");
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    const latestProjects = await response.json();
+    return latestProjects;
+  } catch (error) {
+    console.error("Error fetching latest projects:", error);
+  }
+};
 TechApi = await TechApi();
 proApi = await proApi();
 
 const ApiContext = createContext({});
-export { TechApi, proApi, ApiContext };
+export { TechApi, proApi,ss, ApiContext };

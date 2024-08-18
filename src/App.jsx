@@ -1,6 +1,7 @@
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+import Splash from "./components/Common/Splash";
 import Top from "./components/Layouts/Top";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Footer from "./components/Layouts/Footer";
 import Aside from "./components/Layouts/Aside";
 import { Box } from "@mui/material";
@@ -10,7 +11,7 @@ import Home from "./components/Home/Home";
 import Projects from "./components/Projects/Projects";
 import Techs from "./components/Techs/Techs";
 import Th from "./Context/useTheme";
-import { proApi, TechApi, ApiContext } from "./Context/ContentApi";
+import { proApi, TechApi, ss, ApiContext } from "./Context/ContentApi";
 import ProjectDetails from "./components/Projects/ProjectDetails";
 import SendMessage from "./components/Message/SendMessage";
 import AboutMe from "./components/AboutMe/AboutMe";
@@ -54,54 +55,72 @@ export default function App() {
       },
     },
   });
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const loadResources = async () => {
+      try {
+        await Promise.all([ss()]);
+        setIsLoading(false);
+      } catch (error) {
+        console.error("Error loading resources:", error);
+      }
+    };
+    loadResources();
+  }, []);
   return (
     <Th.Provider value={[theme, setTheme]}>
       <ThemeProvider theme={theme === "light" ? LightTheme : DarkTheme}>
-        <Box sx={{ display: "flex", backgroundColor: "primary.ground" }}>
-          <Aside />
-          <Box
-            sx={{
-              width: { xs: "100%", md: "68%" },
-              marginLeft: { md: "32%" },
-            }}>
-            <Top />
+        {isLoading ? (
+          <Splash />
+        ) : (
+          <Box sx={{ display: "flex", backgroundColor: "primary.ground" }}>
+            <Aside />
+            <Box
+              sx={{
+                width: { xs: "100%", md: "68%" },
+                marginLeft: { md: "32%" },
+              }}>
+              <Top />
 
-            <Nav />
-            <ApiContext.Provider value={[TechApi, proApi]}>
-              <Routes>
-                <Route path="/">
-                  <Route index path="/" element={<Home />} />
-                  <Route index path="/Home" element={<Home />} />
-                  <Route path="/Projects" element={<Projects />} />
-                  <Route path="/Technologies" element={<Techs />} />
-                  <Route path="/Projects/:id" element={<ProjectDetails />} />
-                  <Route path="/SendMessage" element={<SendMessage />} />
-                  <Route path="/AboutMe" element={<AboutMe />} />
-                  <Route
-                    path="*"
-                    element={
-                      <h2
-                        style={{
-                          minHeight: "100vh",
-                          minWidth: "100%",
-                          textAlign: "center",
-                          backgroundColor: "#342D85",
-                          color: "white",
-                          margin: 0,
-                          paddingTop: "30px",
-                        }}>
-                        Error 404 : Not Found
-                      </h2>
-                    }
-                  />
-                </Route>
-              </Routes>
-            </ApiContext.Provider>
-            <Box sx={{ display: { xs: "block", md: "none" } }}>
-              <Footer />
+              <Nav />
+              <ApiContext.Provider value={[TechApi, proApi]}>
+                <Routes>
+                  <Route path="/">
+                    <Route index path="/" element={<Home />} />
+                    <Route index path="/Home" element={<Home />} />
+                    <Route path="/Projects" element={<Projects />} />
+                    <Route path="/Technologies" element={<Techs />} />
+                    <Route path="/Projects/:id" element={<ProjectDetails />} />
+                    <Route path="/SendMessage" element={<SendMessage />} />
+                    <Route path="/AboutMe" element={<AboutMe />} />
+                    <Route
+                      path="*"
+                      element={
+                        <h2
+                          style={{
+                            minHeight: "100vh",
+                            minWidth: "100%",
+                            textAlign: "center",
+                            backgroundColor: "#342D85",
+                            color: "white",
+                            margin: 0,
+                            paddingTop: "30px",
+                          }}>
+                          Error 404 : Not Found
+                        </h2>
+                      }
+                    />
+                  </Route>
+                </Routes>
+              </ApiContext.Provider>
+              <Box sx={{ display: { xs: "block", md: "none" } }}>
+                <Footer />
+              </Box>
             </Box>
           </Box>
-        </Box>
+        )}
       </ThemeProvider>
     </Th.Provider>
   );
