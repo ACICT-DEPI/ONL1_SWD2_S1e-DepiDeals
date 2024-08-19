@@ -48,7 +48,7 @@ export default function Car() {
       dotListClass="custom-dot-list-style"
       itemClass="carousel-item-padding-40-px">
       {proApi.map((e) => {
-        return <CarCard data={e} />;
+        return <CarCard key={e._id} data={e} />;
       })}
     </Carousel>
   );

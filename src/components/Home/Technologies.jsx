@@ -8,7 +8,7 @@ export default function Technologies() {
   const [techApi] = useContext(ApiContext);
   const Cards = () => {
     return techApi.map((card) => {
-      return <Cardd ApiCard={card} />;
+      return <Cardd key={card._if} ApiCard={card} />;
     });
   };
   return (

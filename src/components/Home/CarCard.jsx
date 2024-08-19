@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 export default function CarCard({ data }) {
   let bg = `https://seif-sync-server.vercel.app/${data.bg}`;
   bg = bg.replace(/\\/g, "/");
-  console.log("Updated URL:", bg);
   return (
     <Box
       sx={{

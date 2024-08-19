@@ -12,10 +12,10 @@ export default function Projects() {
   const Cards = () => {
     return proApi.map((card) => {
       if (f === "All") {
-        return <Cardd ApiCard={card} />;
+        return <Cardd key={card._id} ApiCard={card} />;
       }
       if (card.category === f) {
-        return <Cardd ApiCard={card} />;
+        return <Cardd key={card._id}  ApiCard={card} />;
       }
       return null;
     });

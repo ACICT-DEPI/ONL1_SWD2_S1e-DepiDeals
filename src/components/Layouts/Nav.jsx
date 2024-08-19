@@ -7,7 +7,14 @@ import MySwitch from "../Common/Switch";
 
 export default function Nav() {
   const location = useLocation();
-  const stat = location.pathname;
+  let stat = location.pathname;
+  stat =
+    stat !== "/Home" &&
+    stat !== "/Projects" &&
+    stat !== "/Technologies" &&
+    stat !== "/SendMessage"
+      ? "/Home"
+      : stat;
 
   return (
     <Box

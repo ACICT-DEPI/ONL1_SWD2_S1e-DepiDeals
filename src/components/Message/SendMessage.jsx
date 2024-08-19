@@ -21,13 +21,14 @@ export default function SenMessage() {
           body: JSON.stringify({ title, content }),
         }
       );
-      if (!response.ok) {
-        return false;
-      }
+      console.log(response.status);
+      return response ? true : false;
     } catch (error) {
-      console.error("Fetch error:", error.message);
+      console.log("efref", error);
+      return false;
     }
   }
+
   function filling() {
     if (title === "" || message === "") {
       return true;
@@ -36,10 +37,8 @@ export default function SenMessage() {
     }
   }
 
-  function handle() {
-    // const t = title;
-    // const m = message;
-    if (addMessage(title, message) === false) {
+  async function handle() {
+    if ((await addMessage(title, message)) === false) {
       setMsg("Sorry an error occurred please try again");
     }
     setTitle("");

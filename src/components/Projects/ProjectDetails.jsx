@@ -103,7 +103,7 @@ export default function ProjectDetails() {
         }}>
         Tools and Technologies
       </Typography>
-      <Typography
+      <Box
         sx={{
           fontSize: { xs: "15px", sm: "16px", md: "17px" },
           fontWeight: "500",
@@ -111,10 +111,10 @@ export default function ProjectDetails() {
         color="secondary.main">
         <ul style={{ margin: "0px" }}>
           {pro.tools.map((e) => {
-            return <li>{e}</li>;
+            return <li key={e}>{e}</li>;
           })}
         </ul>
-      </Typography>
+      </Box>
 
       <Typography
         sx={{
@@ -124,7 +124,7 @@ export default function ProjectDetails() {
         }}>
         Links
       </Typography>
-      <Typography
+      <Box
         sx={{
           fontSize: { xs: "15px", sm: "16px", md: "17px" },
           fontWeight: "500",
@@ -137,7 +137,7 @@ export default function ProjectDetails() {
             </a>
           </li>
         </ul>
-      </Typography>
+      </Box>
       <ImageList gallery={pro.gallery} />
       <Typography
         sx={{
@@ -147,7 +147,7 @@ export default function ProjectDetails() {
         }}>
         Notes
       </Typography>
-      <Typography
+      <Box
         sx={{
           marginBottom: "20px",
           fontSize: { xs: "15px", sm: "16px", md: "17px" },
@@ -156,10 +156,10 @@ export default function ProjectDetails() {
         color="secondary.main">
         <ul style={{ margin: "0px" }}>
           {pro.notes.map((e) => {
-            return <li>{e}</li>;
+            return <li key={e}>{e}</li>;
           })}
         </ul>
-      </Typography>
+      </Box>
     </Box>
   );
 }

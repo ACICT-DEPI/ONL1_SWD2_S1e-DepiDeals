@@ -22,12 +22,13 @@ export default function LList() {
   const tabs = ["Home", "Projects", "Technologies", "SendMessage", "AboutMe"];
   const list = () => (
     <Box
-      sx={{ width: 250 }} // Set width for the drawer
+      sx={{ width: 250 }}
       role="presentation"
       onClick={toggleDrawer(false)}
       onKeyDown={toggleDrawer(false)}>
       <List>
         <ListItem
+          key={"2"}
           sx={{
             color: "primary.maintext",
             fontSize: "22px",
@@ -37,9 +38,10 @@ export default function LList() {
         </ListItem>
         <Divider />
 
-        {tabs.map((tab, index) => (
-          <ListItem>
+        {tabs.map((tab) => (
+          <ListItem key={"43"}>
             <Link
+              key={tab}
               style={{
                 color: "gray",
                 fontSize: "18px",

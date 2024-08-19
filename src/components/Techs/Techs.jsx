@@ -11,10 +11,10 @@ export default function Techs() {
   const Cards = () => {
     return techApi.map((card) => {
       if (f === "All") {
-        return <Cardd ApiCard={card} />;
+        return <Cardd key={card._id} ApiCard={card} />;
       }
       if (card.category === f) {
-        return <Cardd ApiCard={card} />;
+        return <Cardd key={card._id} ApiCard={card} />;
       }
       if ("Others" === f) {
         if (
@@ -23,7 +23,7 @@ export default function Techs() {
           card.category !== "UI/UX" &&
           card.category !== "Frontend"
         ) {
-          return <Cardd ApiCard={card} />;
+          return <Cardd key={card._id} ApiCard={card} />;
         }
       }
       return null;
