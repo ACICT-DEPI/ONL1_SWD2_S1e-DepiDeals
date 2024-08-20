@@ -27,8 +27,8 @@ export default function MediaCard({ ApiCard }) {
             ? "0px 2px 10px 0px rgba(255, 255, 255, 0.15)"
             : "0px 2px 10px 0px rgba(0, 0, 0, 0.25)",
         maxWidth: { xs: "100%", md: "450px" },
-        maxHeight: { xs: "100px", md: "175px" },
-        minHeight: { xs: "100px", md: "175px" },
+        maxHeight: { xs: "110px", md: "175px" },
+        minHeight: { xs: "110px", md: "175px" },
         height: "auto",
       }}>
       <CardMedia
@@ -56,6 +56,17 @@ export default function MediaCard({ ApiCard }) {
           component="div">
           Category: {ApiCard.category}
         </Typography>
+        {ApiCard.type === "Technologie" ? (
+          <Typography
+            sx={{ fontSize: { xs: "11px", md: "12px" }, fontWeight: "300" }}
+            color="primary.maintext"
+            component="div">
+            Experience : {ApiCard.experienceYears}+ Years
+          </Typography>
+        ) : (
+          ""
+        )}
+
         <Typography
           sx={{
             overflow: "hidden",

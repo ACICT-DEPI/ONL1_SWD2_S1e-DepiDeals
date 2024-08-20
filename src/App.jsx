@@ -11,7 +11,7 @@ import Home from "./components/Home/Home";
 import Projects from "./components/Projects/Projects";
 import Techs from "./components/Techs/Techs";
 import Th from "./Context/useTheme";
-import { proApi, TechApi, ss, ApiContext } from "./Context/ContentApi";
+import { proApi, TechApi, ss, sss, ApiContext } from "./Context/ContentApi";
 import ProjectDetails from "./components/Projects/ProjectDetails";
 import SendMessage from "./components/Message/SendMessage";
 import AboutMe from "./components/AboutMe/AboutMe";
@@ -61,7 +61,7 @@ export default function App() {
   useEffect(() => {
     const loadResources = async () => {
       try {
-        await Promise.all([ss()]);
+        await Promise.all([ss(), sss()]);
         setIsLoading(false);
       } catch (error) {
         console.error("Error loading resources:", error);
