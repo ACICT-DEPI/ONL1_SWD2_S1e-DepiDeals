@@ -1,127 +1,59 @@
-import { ThemeProvider, createTheme } from "@mui/material/styles";
-import Splash from "./components/Common/Splash";
-import Top from "./components/Layouts/Top";
-import React, { useEffect, useState } from "react";
-import Footer from "./components/Layouts/Footer";
-import Aside from "./components/Layouts/Aside";
+// import { ThemeProvider, createTheme } from "@mui/material/styles";
+import React, { useState } from "react";
 import { Box } from "@mui/material";
-import Nav from "./components/Layouts/Nav";
-import { Route, Routes } from "react-router-dom";
-import Home from "./components/Home/Home";
-import Projects from "./components/Projects/Projects";
-import Techs from "./components/Techs/Techs";
-import Th from "./Context/useTheme";
-import { proApi, TechApi, ss, sss, ApiContext } from "./Context/ContentApi";
-import ProjectDetails from "./components/Projects/ProjectDetails";
-import SendMessage from "./components/Message/SendMessage";
-import AboutMe from "./components/AboutMe/AboutMe";
+import SignIn from "./components/Forms/SignIn";
+import SignUp from "./components/Forms/SignUp";
+import Landing from "./components/Forms/Landing";
+import "./App.css";
 
 export default function App() {
-  const [theme, setTheme] = useState("light");
-  const LightTheme = createTheme({
-    typography: {
-      fontFamily: "Poppins, Arial, sans-serif",
-    },
-    palette: {
-      primary: {
-        main: "#342D85",
-        maintext: "#000000",
-        text: "#ffffff",
-        ground: "#ffffff",
-      },
-      secondary: {
-        main: "#BCBCBC",
-      },
-    },
-  });
-  const DarkTheme = createTheme({
-    typography: {
-      fontFamily: "Poppins, Arial, sans-serif",
-    },
-    palette: {
-      mode: "dark",
-      primary: {
-        main: "#4B4386",
-        maintext: "#ffffff",
-        text: "#000000",
-        ground: "#1e1e1e",
-      },
-      secondary: {
-        main: "#B5AFAF",
-      },
-      background: {
-        default: "#1e1e1e",
-        paper: "#1e1e1e",
-      },
-    },
-  });
+  const [start, setStart] = useState("landing");
 
-  const [isLoading, setIsLoading] = useState(true);
+  function handleStart(value) {
+    setStart(value);
+    console.log(value);
+  }
 
-  useEffect(() => {
-    const loadResources = async () => {
-      try {
-        await Promise.all([ss(), sss()]);
-        setIsLoading(false);
-      } catch (error) {
-        console.error("Error loading resources:", error);
-      }
-    };
-    loadResources();
-  }, []);
   return (
-    <Th.Provider value={[theme, setTheme]}>
-      <ThemeProvider theme={theme === "light" ? LightTheme : DarkTheme}>
-        {isLoading ? (
-          <Splash />
-        ) : (
-          <Box sx={{ display: "flex", backgroundColor: "primary.ground" }}>
-            <Aside />
-            <Box
-              sx={{
-                width: { xs: "100%", md: "68%" },
-                marginLeft: { md: "32%" },
-              }}>
-              <Top />
+    <Box
+      sx={{
+        padding: { xs: "0px", md: "45px" },
+        backgroundColor: " #f0e8e8",
+        fontFamily: "Poppins",
+      }}>
+      <Box
+        sx={{
+          position: "relative",
+          width: "100%",
+          height: "100vh",
+          maxHeight: "900px",
+        }}>
+        <Box
+          sx={{
+            position: "absolute",
+            right: {
+              md: start === "landing" || start === "signup" ? 0 : "40%",
+            },
+            left: { md: start === "signin" ? 0 : "40%" },
+            top: 0,
+            width: { xs: "100%", md: "60%" },
+            height:
+              start === "landig"
+                ? { xs: "70%", md: "100%" }
+                : { xs: "60%", md: "100%" },
+            transition: "left 1s ease, right 1s ease",
+            background: "url('details.png') center/cover no-repeat",
+          }}
+        />
 
-              <Nav />
-              <ApiContext.Provider value={[TechApi, proApi]}>
-                <Routes>
-                  <Route path="/">
-                    <Route index path="/" element={<Home />} />
-                    <Route index path="/Home" element={<Home />} />
-                    <Route path="/Projects" element={<Projects />} />
-                    <Route path="/Technologies" element={<Techs />} />
-                    <Route path="/Projects/:id" element={<ProjectDetails />} />
-                    <Route path="/SendMessage" element={<SendMessage />} />
-                    <Route path="/AboutMe" element={<AboutMe />} />
-                    <Route
-                      path="*"
-                      element={
-                        <h2
-                          style={{
-                            minHeight: "100vh",
-                            minWidth: "100%",
-                            textAlign: "center",
-                            backgroundColor: "#342D85",
-                            color: "white",
-                            margin: 0,
-                            paddingTop: "30px",
-                          }}>
-                          Error 404 : Not Found
-                        </h2>
-                      }
-                    />
-                  </Route>
-                </Routes>
-              </ApiContext.Provider>
-              <Box sx={{ display: { xs: "block", md: "none" } }}>
-                <Footer />
-              </Box>
-            </Box>
-          </Box>
+        {start === "landing" ? (
+          <Landing handleStart={handleStart} />
+        ) : start === "signin" ? (
+          <SignIn handleStart={handleStart} />
+        ) : (
+          <SignUp handleStart={handleStart} />
         )}
-      </ThemeProvider>
-    </Th.Provider>
+      </Box>
+    </Box>
   );
 }

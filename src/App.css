@@ -1,0 +1,13 @@
+@font-face {
+  font-family: Almond;
+  src: url("../public/ALMOND.otf");
+}
+
+.Almond {
+  font-family: Almond;
+}
+
+button {
+  background-color: inherit;
+  border: none;
+}
