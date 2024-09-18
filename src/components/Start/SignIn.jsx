@@ -38,6 +38,7 @@ export default function SignIn({ handleStart }) {
             top: "10px",
             left: "10px",
             rotate: "90deg",
+            background: "none",
           }}>
           <ArrowDownwardIcon sx={{ fontSize: { xs: "40px", md: "50px" } }} />
         </button>
@@ -55,9 +56,10 @@ export default function SignIn({ handleStart }) {
 
         <Box
           sx={{
-            fontSize: { xs: "15px", md: "20px" },
-            width: { xs: "340px", md: "460px" },
-            height: { xs: "53px", md: "65px" },
+            fontSize: { xs: "15px", md: "18px", lg: "20px" },
+            width: "85%",
+            maxWidth: "460px",
+            height: { xs: "45px", md: "50px", lg: "60px" },
             display: "flex",
           }}>
           <input
@@ -70,7 +72,7 @@ export default function SignIn({ handleStart }) {
               fontSize: "inherit",
               fontWeight: "450",
               width: "100%",
-              height: "100%",
+              height: " 100%",
               border: "2px solid rgba(0,0,0,0.2)",
             }}
             placeholder="UserName"
@@ -79,9 +81,10 @@ export default function SignIn({ handleStart }) {
 
         <Box
           sx={{
-            fontSize: { xs: "15px", md: "20px" },
-            width: { xs: "340px", md: "460px" },
-            height: { xs: "53px", md: "65px" },
+            fontSize: { xs: "15px", md: "18px", lg: "20px" },
+            width: "85%",
+            maxWidth: "460px",
+            height: { xs: "45px", md: "50px", lg: "60px" },
             display: "flex",
           }}>
           <input
