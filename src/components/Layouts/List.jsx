@@ -1,77 +1,145 @@
 import Box from "@mui/material/Box";
 import React from "react";
-import Drawer from "@mui/material/Drawer";
+import { Typography } from "@mui/material";
 import List from "@mui/material/List";
-import Divider from "@mui/material/Divider";
-import ListItem from "@mui/material/ListItem";
-import SegmentRoundedIcon from "@mui/icons-material/SegmentRounded";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
 import { Link } from "react-router-dom";
+
 export default function LList() {
-  const [state, setState] = React.useState(false);
-
-  const toggleDrawer = (open) => (event) => {
-    if (
-      event.type === "keydown" &&
-      (event.key === "Tab" || event.key === "Shift")
-    ) {
-      return;
-    }
-    setState(!state);
-  };
-
-  const tabs = ["Home", "Projects", "Technologies", "SendMessage", "AboutMe"];
-  const list = () => (
-    <Box
-      sx={{ width: 250 }}
-      role="presentation"
-      onClick={toggleDrawer(false)}
-      onKeyDown={toggleDrawer(false)}>
-      <List>
-        <ListItem
-          key={"2"}
-          sx={{
-            color: "primary.maintext",
-            fontSize: "22px",
-            fontWeight: "700",
-          }}>
-          Options
-        </ListItem>
-        <Divider />
-
-        {tabs.map((tab) => (
-          <ListItem key={"43"}>
-            <Link
-              key={tab}
-              style={{
-                color: "gray",
-                fontSize: "18px",
-                textDecoration: "none",
-              }}
-              to={tab}>
-              {tab === "SendMessage" ? "Send Message" : tab}
-            </Link>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-  );
-
   return (
-    <div>
-      <SegmentRoundedIcon
-        onClick={toggleDrawer(true)}
+    <Box
+      sx={{
+        boxShadow: "3px 0px 10px rgba(0,0,0,0.25)",
+        paddingTop: "20px",
+        paddingLeft: "10px",
+        width: { xs: "300px",sm:"400px", md: "100%" },
+        height: "100vh",
+      }}>
+      <Box
         sx={{
-          position: "absolute",
-          top: "15px",
-          right: "15px",
-          fontSize: 40,
-          color: "primary.text",
-        }}
-      />
+          fontSize: "25px",
+          margin: "10px",
+          fontWeight: "600",
+          textAlign: "left",
+          width: "90%",
+        }}>
+        welcome to
+        <Typography
+          sx={{
+            fontSize: { xs: "30px", md: "40px" },
 
-      <Drawer anchor="right" open={state} onClose={toggleDrawer(false)}>
-        {list()}
-      </Drawer>
-    </div>
+            fontFamily: "Almond",
+            color: "#FF8B48",
+            display: "inline-block",
+          }}>
+          BITEOPIA
+        </Typography>
+        , good recipes awaits ...
+      </Box>
+
+      <List>
+        <Typography
+          sx={{
+            fontWeight: "700",
+            fontSize: "21px",
+            marginBottom: "10px",
+            color: "#8D8D94",
+          }}>
+          Personal
+        </Typography>
+        {/* ========================================================= */}
+        <ListItemButton>
+          <ListItemIcon>
+            <img src="icons/heart.png" alt="" />
+          </ListItemIcon>
+          <ListItemText>
+            <Link className="llink">My favourite recipes</Link>
+          </ListItemText>
+        </ListItemButton>
+      </List>
+      {/* ============================================================================================================ */}
+      <List>
+        <Typography
+          sx={{
+            fontWeight: "700",
+            fontSize: "21px",
+            marginBottom: "10px",
+            color: "#8D8D94",
+          }}>
+          Categories
+        </Typography>
+        {/* ========================================================= */}
+        <ListItemButton>
+          <ListItemIcon>
+            <img src="icons/beef.png" alt="" />
+          </ListItemIcon>
+          <ListItemText>
+            <Link className="llink">Beef</Link>
+          </ListItemText>
+        </ListItemButton>
+        {/* ========================================================= */}
+        <ListItemButton>
+          <ListItemIcon>
+            <img src="icons/chicken.png" alt="" />
+          </ListItemIcon>
+          <ListItemText>
+            <Link className="llink"> Chicken</Link>
+          </ListItemText>
+        </ListItemButton>
+        {/* ========================================================= */}
+        <ListItemButton>
+          <ListItemIcon>
+            <img src="icons/lamb.png" alt="" />
+          </ListItemIcon>
+          <ListItemText>
+            <Link className="llink"> Lamb</Link>
+          </ListItemText>
+        </ListItemButton>
+        {/* ========================================================= */}
+        <ListItemButton>
+          <ListItemIcon>
+            <img src="icons/vege.png" alt="" />
+          </ListItemIcon>
+          <ListItemText>
+            <Link className="llink"> Vegetarian</Link>
+          </ListItemText>
+        </ListItemButton>
+        {/* ========================================================= */}
+        <ListItemButton>
+          <ListItemIcon>
+            <img src="icons/mis.png" alt="" />
+          </ListItemIcon>
+          <ListItemText>
+            <Link className="llink"> Miscellaneous</Link>
+          </ListItemText>
+        </ListItemButton>
+      </List>
+      {/* ============================================================================================================ */}
+      <List>
+        <Typography
+          sx={{
+            fontWeight: "700",
+            fontSize: "21px",
+            marginBottom: "10px",
+            color: "#8D8D94",
+          }}>
+          General
+        </Typography>
+        {/* ========================================================= */}
+        <ListItemButton>
+          <ListItemIcon>
+            <img src="icons/signout.png" alt="" />
+          </ListItemIcon>
+          <ListItemText>
+            <Link to={"/"} className="llink">
+              Sign Out
+            </Link>
+          </ListItemText>
+        </ListItemButton>
+      </List>
+      {/* ============================================================================================================ */}
+    </Box>
   );
 }

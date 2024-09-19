@@ -11,3 +11,23 @@ button {
   background-color: inherit;
   border: none;
 }
+
+.selected {
+  color: #ff8b48;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.link {
+  font-weight: 550;
+  font-size: 20px;
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
+}
+
+.llink {
+  font-weight: 550;
+  font-size: 16px;
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
+}

@@ -1,6 +1,7 @@
 import React from "react";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import { Box, Button, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 
 export default function Landing({ handleStart }) {
   return (
@@ -38,38 +39,39 @@ export default function Landing({ handleStart }) {
           </Typography>
           , good recipes awaits ...
         </Box>
-        <Button
-          sx={{
-            backgroundColor: "black",
-            borderRadius: "100px",
-            fontSize: { xs: "18px", md: "20px" },
-            fontWeight: { xs: "600", md: "550" },
-            width: "85%",
-            height: { xs: "55px", md: "65px" },
-            // boxShadow: "0px 5px 10px  #888888",
-          }}
-          color="error"
-          variant="contained">
-          <Box
+        <Link style={{ width: "85%" }} to={"/Home"}>
+          <Button
             sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              width: { xs: "45px", md: "55px" },
-              height: { xs: "45px", md: "55px" },
-              backgroundColor: "white",
-              borderRadius: "100%",
-              position: "absolute",
-              top: "5px",
-              right: "5px",
-              rotate: "-90deg",
-            }}>
-            <ArrowDownwardIcon
-              sx={{ color: "black", fontSize: { xs: "35px", md: "50px" } }}
-            />
-          </Box>
-          Get started
-        </Button>
+              backgroundColor: "black",
+              borderRadius: "100px",
+              fontSize: { xs: "18px", md: "20px" },
+              fontWeight: { xs: "600", md: "550" },
+              width: "100%",
+              height: { xs: "55px", md: "65px" },
+            }}
+            color="error"
+            variant="contained">
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                width: { xs: "45px", md: "55px" },
+                height: { xs: "45px", md: "55px" },
+                backgroundColor: "white",
+                borderRadius: "100%",
+                position: "absolute",
+                top: "5px",
+                right: "5px",
+                rotate: "-90deg",
+              }}>
+              <ArrowDownwardIcon
+                sx={{ color: "black", fontSize: { xs: "35px", md: "50px" } }}
+              />
+            </Box>
+            Get started
+          </Button>
+        </Link>
         <Button
           onClick={() => handleStart("signin")}
           sx={{
