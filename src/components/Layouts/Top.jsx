@@ -10,7 +10,7 @@ export default function Top() {
       <Box
         sx={{
           width: "100%",
-          padding: "30px 20px",
+          padding: "30px 20px 0px 20px",
           display: "flex",
           gap: "20px",
           margin: "0px",

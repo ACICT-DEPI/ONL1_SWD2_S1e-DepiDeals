@@ -7,19 +7,21 @@ export default function SearchBar({ phone }) {
     <Box
       sx={{
         display: { xs: phone ? "flex" : "none", md: "flex" },
-        justifyContent:"center",
+        justifyContent: "center",
         alignItems: "center",
         flex: 1,
         position: "relative",
+        height: { xs: "30px", md: "40px" },
+        marginBottom: "10px",
       }}>
       <input
         style={{
           width: "100%",
           borderRadius: "20px",
-          fontSize: "20px",
+          fontSize: { xs: "18px", md: "20px" },
           padding: "10px",
           border: "none",
-          height: "40px",
+          height: "100%",
           backgroundColor: "#F1EFEF",
           color: "#787777",
         }}
@@ -30,7 +32,7 @@ export default function SearchBar({ phone }) {
         sx={{
           position: "absolute",
           right: "10px",
-          top: "10px",
+          top: { xs: "-5px", md: "0px" },
           fontSize: "40px",
           color: "gray",
         }}
