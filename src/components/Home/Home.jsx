@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Filter from "./Filter";
 import SearchBar from "../Layouts/SearchBar";
 import { Box, Typography } from "@mui/material";
@@ -6,14 +6,40 @@ import Card from "./Card";
 
 export default function Home() {
   const Cards = () => {
-    const cardArray = [];
+    const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
-    for (let i = 0; i < 20; i++) {
-      cardArray.push(<Card />);
-    }
+    useEffect(() => {
+      fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=p")
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(
+              "Network response was not ok " + response.statusText
+            );
+          }
+          return response.json();
+        })
+        .then((data) => {
+          setData(data.meals || []); // Handle case where meals might be null
+          setLoading(false);
+        })
+        .catch((error) => {
+          setError(error);
+          setLoading(false);
+        });
+    }, []);
+
+    if (loading) return <div>Loading...</div>;
+    if (error) return <div>Error: {error.message}</div>;
+
+    const cardArray = data.map((item) => (
+      <Card key={item.idMeal} item={item} />
+    ));
 
     return <>{cardArray}</>;
   };
+
   return (
     <Box
       sx={{

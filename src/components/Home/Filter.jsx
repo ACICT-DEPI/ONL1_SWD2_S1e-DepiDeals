@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import "./Filter.css";
 
-
 export default function Filter() {
   const [selectedTab, setSelectedTab] = useState("All");
 
   function handleTabClick(i) {
     setSelectedTab(i);
-   
   }
 
   function Tab({ label, isSelected, onClick }) {
@@ -46,12 +44,6 @@ export default function Filter() {
           label="Vegetarian"
           isSelected={selectedTab === "Vegetarian"}
           onClick={() => handleTabClick("Vegetarian")}
-        />
-
-        <Tab
-          label="Miscellaneous"
-          isSelected={selectedTab === "Miscellaneous"}
-          onClick={() => handleTabClick("Miscellaneous")}
         />
       </div>
     </div>

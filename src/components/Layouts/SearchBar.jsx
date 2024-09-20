@@ -13,12 +13,13 @@ export default function SearchBar({ phone }) {
         position: "relative",
         height: { xs: "30px", md: "40px" },
         marginBottom: "10px",
+        fontSize: { xs: "18px", md: "20px" },
       }}>
       <input
         style={{
           width: "100%",
           borderRadius: "20px",
-          fontSize: { xs: "18px", md: "20px" },
+          fontSize: "inherit",
           padding: "10px",
           border: "none",
           height: "100%",
