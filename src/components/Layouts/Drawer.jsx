@@ -8,6 +8,7 @@ export default function TemporaryDrawer() {
   const [open, setOpen] = React.useState(false);
 
   const toggleDrawer = (newOpen) => () => {
+    console.log("frgttgtgt");
     setOpen(newOpen);
   };
 
@@ -20,8 +21,13 @@ export default function TemporaryDrawer() {
         <img src="icons/list.png" alt="list" />
       </Button>
 
-      <Drawer open={open} onClose={toggleDrawer(false)}>
-        <Llist  />
+      <Drawer
+        sx={{
+          display: { xs: "flex", md: "none" },
+        }}
+        open={open}
+        onClose={toggleDrawer(false)}>
+        <Llist toggleDrawer={toggleDrawer(false)} />
       </Drawer>
     </Box>
   );

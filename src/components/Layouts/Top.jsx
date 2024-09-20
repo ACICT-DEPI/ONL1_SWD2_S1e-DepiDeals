@@ -1,8 +1,8 @@
 import Box from "@mui/material/Box";
 import React from "react";
 import Nav from "./Nav";
-import SearchIcon from "@mui/icons-material/Search";
 import Drawer from "./Drawer";
+import SearchBar from "./SearchBar";
 
 export default function Top() {
   return (
@@ -20,37 +20,14 @@ export default function Top() {
         }}>
         <Drawer />
         <Nav></Nav>
-        <Box
-          sx={{
-            display: { xs: "none", md: "block" },
-            flex: 1,
-            position: "relative",
-          }}>
-          <input
-            style={{
-              width: "100%",
-              borderRadius: "20px",
-              fontSize: "20px",
-              padding: "10px",
-              border: "none",
-              height: "40px",
-              backgroundColor: "#F1EFEF",
-              color: "#787777",
-            }}
-            placeholder="Search for recpies"
-          />
+        <SearchBar />
 
-          <SearchIcon
-            sx={{
-              position: "absolute",
-              right: "-10px",
-              top: "10px",
-              fontSize: "40px",
-              color: "gray",
-            }}
-          />
-        </Box>
-        <img style={{ marginLeft: "10px" }} src="/ologo.png" alt="logo" />
+        <img
+          style={{ marginLeft: "10px" }}
+          id="ologo"
+          src="/ologo.png"
+          alt="logo"
+        />
       </Box>
     </>
   );

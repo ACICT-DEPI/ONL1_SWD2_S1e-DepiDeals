@@ -13,7 +13,7 @@ export default function Nav() {
   return (
     <Box
       sx={{
-        display: { xs: "none", md: "flex" },
+        display: { xs: "none", lg: "flex" },
         alignItems: "center",
         justifyContent: "center",
         gap: "40px",

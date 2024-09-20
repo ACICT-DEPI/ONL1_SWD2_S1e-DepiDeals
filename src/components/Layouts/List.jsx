@@ -7,15 +7,15 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import { Link } from "react-router-dom";
 
-export default function LList() {
+export default function LList({ toggleDrawer }) {
   return (
     <Box
       sx={{
         boxShadow: "3px 0px 10px rgba(0,0,0,0.25)",
         paddingTop: "20px",
         paddingLeft: "10px",
-        width: { xs: "300px",sm:"400px", md: "100%" },
-        height: "100vh",
+        width: { xs: "300px", sm: "400px", md: "100%" },
+        minHeight: "150%",
       }}>
       <Box
         sx={{
@@ -25,7 +25,7 @@ export default function LList() {
           textAlign: "left",
           width: "90%",
         }}>
-        welcome to
+        welcome to {" "}
         <Typography
           sx={{
             fontSize: { xs: "30px", md: "40px" },
@@ -39,6 +39,51 @@ export default function LList() {
         , good recipes awaits ...
       </Box>
 
+      <List sx={{ display: { xs: "", lg: "none" } }}>
+        <Typography
+          sx={{
+            fontWeight: "700",
+            fontSize: "21px",
+            marginBottom: "10px",
+            color: "#8D8D94",
+          }}>
+          General
+        </Typography>
+        {/* ========================================================= */}
+        <Link to={"/Home"} className="llink">
+          <ListItemButton onClick={() => toggleDrawer()}>
+            <ListItemIcon>
+              <img src="icons/Home.png" alt="" />
+            </ListItemIcon>
+            <ListItemText>
+              <div className="llink"> Home</div>
+            </ListItemText>
+          </ListItemButton>
+        </Link>
+        {/* ========================================================= */}
+        <Link to={"/About"} className="llink">
+          <ListItemButton onClick={() => toggleDrawer()}>
+            <ListItemIcon>
+              <img src="icons/About.png" alt="" />
+            </ListItemIcon>
+            <ListItemText>
+              <div className="llink"> About</div>
+            </ListItemText>
+          </ListItemButton>
+        </Link>
+        {/* ========================================================= */}
+        <Link to={"/"} className="llink">
+          <ListItemButton onClick={() => toggleDrawer()}>
+            <ListItemIcon>
+              <img src="icons/signout.png" alt="" />
+            </ListItemIcon>
+            <ListItemText>
+              <div className="llink"> Sign Out</div>
+            </ListItemText>
+          </ListItemButton>
+        </Link>
+      </List>
+
       <List>
         <Typography
           sx={{
@@ -50,7 +95,7 @@ export default function LList() {
           Personal
         </Typography>
         {/* ========================================================= */}
-        <ListItemButton>
+        <ListItemButton onClick={() => toggleDrawer()}>
           <ListItemIcon>
             <img src="icons/heart.png" alt="" />
           </ListItemIcon>
@@ -71,16 +116,18 @@ export default function LList() {
           Categories
         </Typography>
         {/* ========================================================= */}
-        <ListItemButton>
+
+        <ListItemButton onClick={() => toggleDrawer()}>
           <ListItemIcon>
-            <img src="icons/beef.png" alt="" />
+            <img src="icons/mis.png" alt="" />
           </ListItemIcon>
           <ListItemText>
-            <Link className="llink">Beef</Link>
+            <Link className="llink"> Miscellaneous</Link>
           </ListItemText>
         </ListItemButton>
+
         {/* ========================================================= */}
-        <ListItemButton>
+        <ListItemButton onClick={() => toggleDrawer()}>
           <ListItemIcon>
             <img src="icons/chicken.png" alt="" />
           </ListItemIcon>
@@ -89,7 +136,7 @@ export default function LList() {
           </ListItemText>
         </ListItemButton>
         {/* ========================================================= */}
-        <ListItemButton>
+        <ListItemButton onClick={() => toggleDrawer()}>
           <ListItemIcon>
             <img src="icons/lamb.png" alt="" />
           </ListItemIcon>
@@ -98,7 +145,7 @@ export default function LList() {
           </ListItemText>
         </ListItemButton>
         {/* ========================================================= */}
-        <ListItemButton>
+        <ListItemButton onClick={() => toggleDrawer()}>
           <ListItemIcon>
             <img src="icons/vege.png" alt="" />
           </ListItemIcon>
@@ -107,17 +154,17 @@ export default function LList() {
           </ListItemText>
         </ListItemButton>
         {/* ========================================================= */}
-        <ListItemButton>
+        <ListItemButton onClick={() => toggleDrawer()}>
           <ListItemIcon>
-            <img src="icons/mis.png" alt="" />
+            <img src="icons/beef.png" alt="" />
           </ListItemIcon>
           <ListItemText>
-            <Link className="llink"> Miscellaneous</Link>
+            <Link className="llink">Beef</Link>
           </ListItemText>
         </ListItemButton>
       </List>
       {/* ============================================================================================================ */}
-      <List>
+      <List sx={{ display: { xs: "none", lg: "block" } }}>
         <Typography
           sx={{
             fontWeight: "700",
@@ -128,7 +175,7 @@ export default function LList() {
           General
         </Typography>
         {/* ========================================================= */}
-        <ListItemButton>
+        <ListItemButton onClick={() => toggleDrawer()}>
           <ListItemIcon>
             <img src="icons/signout.png" alt="" />
           </ListItemIcon>

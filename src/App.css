@@ -31,3 +31,21 @@ button {
   color: inherit; /* blue colors for links too */
   text-decoration: inherit; /* no underline */
 }
+
+#ologo {
+  width: 200px;
+}
+
+@media only screen and (min-width: 500px) {
+  /* For tablets: */
+  #ologo {
+    width: 180px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  #ologo {
+    width: 230px;
+  }
+}

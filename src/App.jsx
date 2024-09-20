@@ -33,9 +33,9 @@ export default function App() {
           sx={{
             marginRight: "20px",
             width: "27%",
-            display: {xs:"none", md: stat === "/" ? "none" : "block" },
+            display: { xs: "none", md: stat === "/" ? "none" : "block" },
           }}>
-          <List />
+          <List toggleDrawer={() => {}} />
         </Box>
         <Box sx={{ width: "100%", display: "flex", flexDirection: "column" }}>
           <Box
