@@ -18,7 +18,7 @@ export default function TemporaryDrawer() {
         display: { xs: "flex", md: "none" },
       }}>
       <Button onClick={toggleDrawer(true)}>
-        <img src="icons/list.png" alt="list" />
+        <img src="/icons/list.png" alt="list" />
       </Button>
 
       <Drawer

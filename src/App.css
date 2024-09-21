@@ -3,6 +3,9 @@
   src: url("../public/ALMOND.otf");
 }
 
+/* body{
+  font-family: "Almond";
+} */
 .Almond {
   font-family: Almond;
 }
@@ -20,6 +23,7 @@ button {
 }
 
 .link {
+  cursor: pointer;
   font-weight: 550;
   font-size: 20px;
   color: inherit; /* blue colors for links too */
@@ -27,6 +31,7 @@ button {
 }
 
 .llink {
+  font-family: "Poppins";
   font-weight: 550;
   font-size: 16px;
   color: inherit; /* blue colors for links too */
@@ -48,7 +53,7 @@ button {
   }
 
   #about {
-    width: 300px;
+    width: 80%;
   }
 }
 

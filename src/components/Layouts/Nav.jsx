@@ -6,9 +6,7 @@ export default function Nav() {
   const location = useLocation();
   let stat = location.pathname;
   stat =
-    stat !== "/Home" && stat !== "/About" && stat !== "/Profile"
-      ? "/Home"
-      : stat;
+    stat !== "/Home" && stat !== "/About" && stat !== "/Profile" ? "/" : stat;
 
   return (
     <Box

@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import "./Filter.css";
 
-export default function Filter() {
+export default function Filter({ setFilter }) {
   const [selectedTab, setSelectedTab] = useState("All");
 
   function handleTabClick(i) {
     setSelectedTab(i);
+    if (i === "All") {
+      setFilter(null);
+    } else {
+      setFilter(i);
+    }
   }
 
   function Tab({ label, isSelected, onClick }) {

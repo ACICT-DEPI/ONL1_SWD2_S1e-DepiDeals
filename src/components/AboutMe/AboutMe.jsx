@@ -15,7 +15,7 @@ export default function AboutMe() {
 
       <Typography
         sx={{
-          maxWidth: "60%",
+          maxWidth: { xs: "80%", md: "60%" },
           textAlign: "center",
           color: "#FF8B48",
           fontWeight: "bold",

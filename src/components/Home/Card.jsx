@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 
 import { Box, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 
 export default function Card({ item }) {
-  console.log(item);
   const [srcc, setSrc] = useState("love.png");
   const love = () => {
     srcc === "love.png" ? setSrc("heart2.png") : setSrc("love.png");
   };
+
   return (
     <Box
       sx={{
@@ -26,17 +27,28 @@ export default function Card({ item }) {
           alt="like"
         />
       </button>
-      <img width={"100%"} src={item.strMealThumb} alt="re" />
+      <Link className="link" to={`/item/${item.idMeal}`}>
+        <img width={"100%"} src={item.strMealThumb} alt="re" />
+      </Link>
+
       <Typography
         sx={{
+          maxHeight: "40px",
+          overflow: "clip",
+          fontFamily: "Poppins",
           fontWeight: "bold",
           fontSize: { xs: "20px", sm: "25px" },
         }}>
         {item.strMeal}
       </Typography>
       <Typography
-        sx={{ color: "#FF8B48", fontSize: { xs: "15px", sm: "18px" } }}>
-        Area: {item.strArea}
+        sx={{
+          fontWeight: "600",
+          fontFamily: "Poppins",
+          color: "#FF8B48",
+          fontSize: { xs: "15px", sm: "18px" },
+        }}>
+        Area: {item.strArea || "Click for more.. ."}
       </Typography>
     </Box>
   );

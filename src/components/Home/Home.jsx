@@ -5,40 +5,40 @@ import { Box, Typography } from "@mui/material";
 import Card from "./Card";
 
 export default function Home() {
-  const Cards = () => {
-    const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+  const [filter, setFilter] = useState(null);
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-    useEffect(() => {
-      fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=p")
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error(
-              "Network response was not ok " + response.statusText
-            );
-          }
-          return response.json();
-        })
-        .then((data) => {
-          setData(data.meals || []); // Handle case where meals might be null
-          setLoading(false);
-        })
-        .catch((error) => {
-          setError(error);
-          setLoading(false);
-        });
-    }, []);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          filter === null
+            ? "https://www.themealdb.com/api/json/v1/1/search.php?s=w"
+            : `https://www.themealdb.com/api/json/v1/1/filter.php?c=${filter}`
+        );
 
-    if (loading) return <div>Loading...</div>;
-    if (error) return <div>Error: {error.message}</div>;
+        if (!response.ok) {
+          throw new Error("Network response was not ok " + response.statusText);
+        }
 
-    const cardArray = data.map((item) => (
-      <Card key={item.idMeal} item={item} />
-    ));
+        const data = await response.json();
+        setData(data.meals || []);
+      } catch (error) {
+        setError(error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-    return <>{cardArray}</>;
-  };
+    fetchData();
+  }, [filter]);
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
+
+  const cardArray = data.map((item) => <Card key={item.idMeal} item={item} />);
 
   return (
     <Box
@@ -66,10 +66,11 @@ export default function Home() {
       <Box sx={{ minWidth: "100%", display: { xs: "block", md: "none" } }}>
         <SearchBar phone={true} />
       </Box>
-      <Filter />
+
+      <Filter setFilter={setFilter} />
 
       <Box sx={{ display: "flex", justifyContent: "center", flexWrap: "wrap" }}>
-        {Cards()}
+        {cardArray}
       </Box>
     </Box>
   );
