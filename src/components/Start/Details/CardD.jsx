@@ -1,7 +1,6 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
-import CardTop from "./CardTop";
+
 
 export default function CardD({ data }) {
   const ingredients = [];
