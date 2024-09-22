@@ -15,7 +15,7 @@ export default function Home() {
       try {
         const response = await fetch(
           filter === null
-            ? "https://www.themealdb.com/api/json/v1/1/search.php?s=w"
+            ? "https://www.themealdb.com/api/json/v1/1/search.php?s="
             : `https://www.themealdb.com/api/json/v1/1/filter.php?c=${filter}`
         );
 

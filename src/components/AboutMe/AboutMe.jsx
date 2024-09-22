@@ -11,7 +11,9 @@ export default function AboutMe() {
         alignItems: "center",
         minHeight: "90vh",
       }}>
-      <img id="about" src="aboutus.png" alt="logo" />
+      <Box sx={{ maxWidth: "80%" }}>
+        <img width={"100%"} src="aboutus.png" alt="logo" />
+      </Box>
 
       <Typography
         sx={{

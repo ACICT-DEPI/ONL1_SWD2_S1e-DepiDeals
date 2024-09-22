@@ -33,7 +33,7 @@ export default function Card({ item }) {
 
       <Typography
         sx={{
-          maxHeight: "40px",
+          maxHeight: { xs: "30px", md: "40px" },
           overflow: "clip",
           fontFamily: "Poppins",
           fontWeight: "bold",
@@ -48,7 +48,7 @@ export default function Card({ item }) {
           color: "#FF8B48",
           fontSize: { xs: "15px", sm: "18px" },
         }}>
-        Area: {item.strArea || "Click for more.. ."}
+        {item.strArea ? `Area : ${item.strArea}` : ""}
       </Typography>
     </Box>
   );

@@ -1,9 +1,8 @@
 // import { ThemeProvider, createTheme } from "@mui/material/styles";
+import "./App.css";
 import React from "react";
 import { Box } from "@mui/material";
-
 import { Route, Routes, useLocation } from "react-router-dom";
-import "./App.css";
 
 import Home from "./components/Home/Home";
 import About from "./components/AboutMe/AboutMe";
@@ -42,7 +41,7 @@ export default function App() {
           <Box
             sx={{
               display: stat === "/" ? "none" : "flex",
-              alignItems: "start",
+              alignItems: "center",
             }}>
             <Top />
           </Box>

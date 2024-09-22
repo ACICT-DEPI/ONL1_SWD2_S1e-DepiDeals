@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Box, Typography, CircularProgress, Alert } from "@mui/material";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import CardD from "./CardD";
+import CardTop from "./CardTop";
+
 
 export default function Details() {
   const { id } = useParams();
@@ -50,16 +52,22 @@ export default function Details() {
   }
 
   return (
-    <Box sx={{ padding: 2 }}>
-      {/* <Typography variant="h4">{data.strMeal}</Typography>
-      <Typography variant="h6">Category: {data.strCategory}</Typography>
-      <Typography variant="body1">{data.strInstructions}</Typography>
-      <img
-        src={data.strMealThumb}
-        alt={data.strMeal}
-        style={{ width: "100%", maxHeight: "400px", objectFit: "cover" }}
-      /> */}
+    <Box
+      sx={{
+        margin: "20px",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "start",
+        alignItems: "start",
+      }}>
+      <Box sx={{ display: { xs: "block", md: "none" } }}>
+        <Link to={"/home"}>
+          <img src="/icons/back.png" alt="r" />
+        </Link>
+      </Box>
+      <CardTop data={data} />
       <CardD data={data} />
+  
     </Box>
   );
 }
