@@ -1,13 +1,24 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 
-
 export default function CardTop({ data }) {
   return (
     <Box
-      sx={{ display: "flex", width: "60%", justifyContent: "space-between" }}>
+      sx={{
+        display: "flex",
+        flexDirection: { xs: "column", md: "row" },
+        gap: "10px",
+        width: "100%",
+        justifyContent: "space-between",
+      }}>
       <Box sx={{ display: "flex", gap: "5px" }}>
-        <Box sx={{ width: "8px", backgroundColor: "#ff8b48" }} />
+        <Box
+          sx={{
+            display: { xs: "none", md: "block" },
+            width: "8px",
+            backgroundColor: "#ff8b48",
+          }}
+        />
         <Typography
           sx={{
             fontFamily: "Poppins",
@@ -19,6 +30,7 @@ export default function CardTop({ data }) {
       </Box>
       <Box
         sx={{
+          gap: "50px",
           display: "flex",
           width: "30%",
           justifyContent: "space-between",

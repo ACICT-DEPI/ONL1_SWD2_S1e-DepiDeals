@@ -4,7 +4,6 @@ import { Link, useParams } from "react-router-dom";
 import CardD from "./CardD";
 import CardTop from "./CardTop";
 
-
 export default function Details() {
   const { id } = useParams();
   const [data, setData] = useState(null);
@@ -36,7 +35,6 @@ export default function Details() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          height: "100vh",
         }}>
         <CircularProgress />
       </Box>
@@ -54,20 +52,29 @@ export default function Details() {
   return (
     <Box
       sx={{
-        margin: "20px",
+        margin: { xs: "0", md: "20px" },
         display: "flex",
         flexDirection: "column",
         justifyContent: "start",
         alignItems: "start",
+        position: "relative",
       }}>
-      <Box sx={{ display: { xs: "block", md: "none" } }}>
+      <Box
+        sx={{
+          display: { xs: "block", md: "none" },
+          position: "absolute",
+          zIndex: 1,
+          top: "20px",
+          left: "20px",
+        }}>
         <Link to={"/home"}>
           <img src="/icons/back.png" alt="r" />
         </Link>
       </Box>
-      <CardTop data={data} />
+      <Box sx={{ display: { xs: "none", md: "block" } }}>
+        <CardTop data={data} />
+      </Box>
       <CardD data={data} />
-  
     </Box>
   );
 }
