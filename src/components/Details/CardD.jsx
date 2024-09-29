@@ -22,7 +22,7 @@ export default function CardD({ data }) {
       }}>
       <Box
         sx={{
-          marginTop: { xs: "450px", md: "0px" },
+          marginTop: { xs: "350px", sm: "450px", md: "0px" },
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",

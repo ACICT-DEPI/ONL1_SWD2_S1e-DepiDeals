@@ -8,7 +8,6 @@ export default function TemporaryDrawer() {
   const [open, setOpen] = React.useState(false);
 
   const toggleDrawer = (newOpen) => () => {
-    console.log("frgttgtgt");
     setOpen(newOpen);
   };
 

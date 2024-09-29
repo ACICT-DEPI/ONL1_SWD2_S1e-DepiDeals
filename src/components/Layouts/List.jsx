@@ -11,7 +11,6 @@ export default function LList({ toggleDrawer }) {
   return (
     <Box
       sx={{
-        
         boxShadow: "3px 0px 10px rgba(0,0,0,0.25)",
         paddingTop: "20px",
         paddingLeft: "10px",
@@ -117,52 +116,64 @@ export default function LList({ toggleDrawer }) {
           Categories
         </Typography>
         {/* ========================================================= */}
+        <Link to={"/Category/Miscellaneous"} className="llink">
+          <ListItemButton onClick={() => toggleDrawer()}>
+            <ListItemIcon>
+              <img src="/icons/mis.png" alt="" />
+            </ListItemIcon>
+            <ListItemText>
+              <div className="llink"> Miscellaneous</div>
+            </ListItemText>
+          </ListItemButton>
+        </Link>
 
-        <ListItemButton onClick={() => toggleDrawer()}>
-          <ListItemIcon>
-            <img src="/icons/mis.png" alt="" />
-          </ListItemIcon>
-          <ListItemText>
-            <Link className="llink"> Miscellaneous</Link>
-          </ListItemText>
-        </ListItemButton>
+        {/* ========================================================= */}
+        <Link to={"/Category/Chicken"} className="llink">
+          <ListItemButton onClick={() => toggleDrawer()}>
+            <ListItemIcon>
+              <img src="/icons/chicken.png" alt="" />
+            </ListItemIcon>
+            <ListItemText>
+              <div className="llink"> Chicken</div>
+            </ListItemText>
+          </ListItemButton>
+        </Link>
 
         {/* ========================================================= */}
-        <ListItemButton onClick={() => toggleDrawer()}>
-          <ListItemIcon>
-            <img src="/icons/chicken.png" alt="" />
-          </ListItemIcon>
-          <ListItemText>
-            <Link className="llink"> Chicken</Link>
-          </ListItemText>
-        </ListItemButton>
+        <Link to={"/Category/Lamb"} className="llink">
+          <ListItemButton onClick={() => toggleDrawer()}>
+            <ListItemIcon>
+              <img src="/icons/lamb.png" alt="" />
+            </ListItemIcon>
+            <ListItemText>
+              <div className="llink"> Lamb</div>
+            </ListItemText>
+          </ListItemButton>
+        </Link>
+
         {/* ========================================================= */}
-        <ListItemButton onClick={() => toggleDrawer()}>
-          <ListItemIcon>
-            <img src="/icons/lamb.png" alt="" />
-          </ListItemIcon>
-          <ListItemText>
-            <Link className="llink"> Lamb</Link>
-          </ListItemText>
-        </ListItemButton>
+        <Link to={"/Category/Vegetarian"} className="llink">
+          <ListItemButton onClick={() => toggleDrawer()}>
+            <ListItemIcon>
+              <img src="/icons/vege.png" alt="" />
+            </ListItemIcon>
+            <ListItemText>
+              <div className="llink"> Vegetarian</div>
+            </ListItemText>
+          </ListItemButton>
+        </Link>
+
         {/* ========================================================= */}
-        <ListItemButton onClick={() => toggleDrawer()}>
-          <ListItemIcon>
-            <img src="/icons/vege.png" alt="" />
-          </ListItemIcon>
-          <ListItemText>
-            <Link className="llink"> Vegetarian</Link>
-          </ListItemText>
-        </ListItemButton>
-        {/* ========================================================= */}
-        <ListItemButton onClick={() => toggleDrawer()}>
-          <ListItemIcon>
-            <img src="/icons/beef.png" alt="" />
-          </ListItemIcon>
-          <ListItemText>
-            <Link className="llink">Beef</Link>
-          </ListItemText>
-        </ListItemButton>
+        <Link to={"/Category/Beef"} className="llink">
+          <ListItemButton onClick={() => toggleDrawer()}>
+            <ListItemIcon>
+              <img src="/icons/beef.png" alt="" />
+            </ListItemIcon>
+            <ListItemText>
+              <div className="llink"> Beef</div>
+            </ListItemText>
+          </ListItemButton>
+        </Link>
       </List>
       {/* ============================================================================================================ */}
       <List sx={{ display: { xs: "none", lg: "block" } }}>

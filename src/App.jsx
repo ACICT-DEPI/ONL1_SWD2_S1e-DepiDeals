@@ -10,7 +10,8 @@ import Profile from "./components/Profile/Profile";
 import Start from "./components/Start/Start";
 import Top from "./components/Layouts/Top";
 import List from "./components/Layouts/List";
-import Details from "./components/Start/Details/Details";
+import Details from "./components/Details/Details";
+import Category from "./components/Categories/Category";
 
 export default function App() {
   const location = useLocation();
@@ -52,6 +53,7 @@ export default function App() {
               <Route path="/About" element={<About />} />
               <Route path="/Profile" element={<Profile />} />
               <Route path="/item/:id" element={<Details />} />
+              <Route path="/Category/:name" element={<Category />} />
               <Route
                 path="*"
                 element={
