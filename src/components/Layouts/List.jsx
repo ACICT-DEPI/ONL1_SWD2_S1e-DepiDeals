@@ -95,14 +95,17 @@ export default function LList({ toggleDrawer }) {
           Personal
         </Typography>
         {/* ========================================================= */}
-        <ListItemButton onClick={() => toggleDrawer()}>
-          <ListItemIcon>
-            <img src="/icons/heart.png" alt="" />
-          </ListItemIcon>
-          <ListItemText>
-            <Link className="llink">My favourite recipes</Link>
-          </ListItemText>
-        </ListItemButton>
+
+        <Link to={"/Profile"} className="llink">
+          <ListItemButton onClick={() => toggleDrawer()}>
+            <ListItemIcon>
+              <img src="/icons/signout.png" alt="" />
+            </ListItemIcon>
+            <ListItemText>
+              <div className="llink"> My favourite recipes</div>
+            </ListItemText>
+          </ListItemButton>
+        </Link>
       </List>
       {/* ============================================================================================================ */}
       <List>

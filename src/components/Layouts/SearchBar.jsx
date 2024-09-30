@@ -42,12 +42,16 @@ export default function SearchBar({ phone }) {
 
   useEffect(() => {
     debouncedFetchData(searchTerm);
-  }, [debouncedFetchData,searchTerm]);
+  }, [debouncedFetchData, searchTerm]);
 
   const cardArray = data.map((item) => (
     <Box key={item.idMeal} sx={{ width: "100%" }}>
       <Link
-        style={{ display: "flex", justifyContent: "space-between" }}
+        style={{
+          padding: "5px 10px",
+          display: "flex",
+          justifyContent: "space-between",
+        }}
         className="link"
         to={`/item/${item.idMeal}`}>
         <Typography>{item.strMeal}</Typography>
@@ -69,6 +73,7 @@ export default function SearchBar({ phone }) {
           width: "100%",
           backgroundColor: "rgba(0,0,0,0.3)",
           bottom: 0,
+          height: { xs: "200%", md: "200%" },
         }}
       />
 
@@ -121,17 +126,23 @@ export default function SearchBar({ phone }) {
             marginTop: "-10px",
             backgroundColor: "white",
             display: {
-              xs: phone ? (searching ? "flex" : "none") : "none",
-              md: searching ? "flex" : "none",
+              xs: phone
+                ? searching
+                  ? searchTerm.length
+                    ? "flex"
+                    : "none"
+                  : "none"
+                : "none",
+              md: searching ? (searchTerm.length ? "flex" : "none") : "none",
             },
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
-            width: "95%",
+            width: "100%",
             position: "absolute",
             fontSize: { xs: "18px", md: "20px" },
             zIndex: 1,
-            padding: "20px 10px",
+            padding: "20px 0px",
             borderRadius: "0px 0px 20px 20px",
             boxShadow: "3px 0px 10px rgba(0,0,0,0.25)",
           }}>

@@ -13,6 +13,7 @@ export default function CardD({ data }) {
   return (
     <Box
       sx={{
+        zIndex: "0",
         marginTop: { xs: "0", md: "20px" },
         boxShadow: "0px 5px 10px rgba(0,0,0,0.25)",
         position: "relative",
@@ -34,7 +35,7 @@ export default function CardD({ data }) {
           position: "relative",
           minWidth: { xs: "90%", md: "40%" },
           maxWidth: { xs: "100%", md: "40%" },
-          zIndex: 1,
+          zIndex: 0,
           borderRadius: { xs: "50px 50px 0px 0px", md: "0px 50px 50px 0px" },
         }}>
         <Box>
@@ -153,6 +154,8 @@ export default function CardD({ data }) {
       </Box>
       <Box
         sx={{
+          display: "flex",
+          zIndex: "-1",
           position: "absolute",
           right: "0",
           top: "0",
