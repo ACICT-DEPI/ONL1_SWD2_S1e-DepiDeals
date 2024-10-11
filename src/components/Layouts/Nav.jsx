@@ -2,6 +2,7 @@ import React from "react";
 import Box from "@mui/material/Box";
 import { Link, useLocation } from "react-router-dom";
 
+
 export default function Nav() {
   const location = useLocation();
   let stat = location.pathname;
@@ -21,9 +22,16 @@ export default function Nav() {
       <Link className="link" to={"./Home"}>
         <div className={stat === "/Home" ? "selected" : ""}>Home</div>
       </Link>
-      <Link className="link" to={"/Profile"}>
-        <div className={stat === "/Profile" ? "selected" : ""}>Profile</div>
-      </Link>
+      {localStorage.getItem("token") ? (
+        <Link className="link" to={"/Profile"}>
+          <div className={stat === "/Profile" ? "selected" : ""}>Profile</div>
+        </Link>
+      ) : (
+        <Link className="link" to={"/"}>
+          <div>Signin</div>
+        </Link>
+      )}
+
       <Link className="link" to={"/About"}>
         <div className={stat === "/About" ? "selected" : ""}>About</div>
       </Link>

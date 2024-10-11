@@ -1,12 +1,56 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { Box, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 
-export default function Card({ item }) {
+export default function Card({ item, setAlert }) {
   const [srcc, setSrc] = useState("love.png");
-  const love = () => {
-    srcc === "love.png" ? setSrc("heart2.png") : setSrc("love.png");
+
+  const list = JSON.parse(localStorage.getItem("favlist"));
+
+  useEffect(() => {
+    if (list) {
+      const isAdded = list.find((e) => e.recipeID === item.idMeal);
+      if (isAdded) {
+        setSrc("heart2.png");
+      }
+    }
+  }, [item.idMeal,list]);
+
+  const love = async () => {
+    if (localStorage.getItem("token")) {
+      const response = await fetch(
+        `https://biteopia-server.vercel.app/favlist/${
+          srcc === "love.png" ? "add" : "delete"
+        }`,
+        {
+          method: srcc === "love.png" ? "Post" : "Delete",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+          body: JSON.stringify({
+            recipeID: item.idMeal,
+            recipeName: item.strMeal,
+          }),
+        }
+      );
+
+      if (response.ok) {
+        const data = await response.json();
+
+        srcc === "love.png" ? setSrc("heart2.png") : setSrc("love.png");
+        console.log(data);
+      } else {
+        const errorData = await response.json();
+        console.error("Error:", errorData);
+      }
+    } else {
+      setAlert(true);
+      setTimeout(() => {
+        setAlert(false);
+      }, 1500);
+    }
   };
 
   return (

@@ -1,13 +1,51 @@
 import React, { useState } from "react";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import { Box, Button, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 export default function SignIn({ handleStart }) {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [res, setRes] = useState(null);
 
-  function handleForm() {
-    console.log(password, userName);
+  const nav = useNavigate();
+  async function handleForm() {
+    // Validate input fields
+    if (!userName || !password) {
+      console.error("Username and password are required.");
+      return; // Prevent further execution if fields are empty
+    }
+
+    try {
+      const response = await fetch(
+        "https://biteopia-server.vercel.app/users/signin",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ userName, password }),
+        }
+      );
+
+      if (response.ok) {
+        const data = await response.json();
+        const jwt = data.AccessToken;
+        if (data.message === "username or password wrong") {
+          setRes(data.message);
+        } else {
+          // Store the JWT securely (e.g., in localStorage )
+          localStorage.setItem("token", jwt);
+          nav("/profile");
+        }
+      } else {
+        const errorData = await response.json();
+        console.error("Error:", errorData.message);
+      }
+    } catch (error) {
+      console.error("Network error:", error);
+    }
+
     setPassword("");
     setUserName("");
   }
@@ -103,6 +141,19 @@ export default function SignIn({ handleStart }) {
             placeholder="Password"
           />
         </Box>
+        <p
+          style={{
+            paddingRight: "15px",
+            margin: "2px",
+            maxWidth: "460px",
+            width: "80%",
+            fontSize: "16px",
+            fontWeight: "600",
+            color: "red",
+            textAlign: "right",
+          }}>
+          {res ? res : ""}
+        </p>
 
         <button
           onClick={() => handleStart("signup")}

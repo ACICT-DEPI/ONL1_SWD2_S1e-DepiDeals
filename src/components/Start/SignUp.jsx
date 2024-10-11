@@ -7,14 +7,54 @@ export default function SignUp({ handleStart }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  function handleForm() {
+  const [res, setRes] = useState(null);
+
+  async function handleForm(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    // Validate email format
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      setRes("Please enter a valid email address.");
+      return;
+    }
+
+    // Validate password length
+    if (password.length < 8) {
+      setRes("Password must be at least 8 characters long.");
+      return;
+    }
+
     console.log(password, userName, email);
+
+    const response = await fetch(
+      "https://biteopia-server.vercel.app/users/signup",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ userName, email, password }),
+      }
+    );
+
+    if (response.ok) {
+      const data = await response.json();
+      console.log("Success:", data.message);
+      setRes(data.message);
+    } else {
+      const errorData = await response.json();
+      console.error("Error:", errorData.message);
+      setRes(errorData.message);
+    }
+
     setPassword("");
     setUserName("");
     setEmail("");
   }
+
   return (
-    <>
+    <form onSubmit={handleForm}>
       <Box
         sx={{
           borderRadius: { xs: "30px 30px 0px 0px", md: "0px" },
@@ -93,6 +133,7 @@ export default function SignUp({ handleStart }) {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             type="email"
+            minLength={12}
             style={{
               paddingLeft: "20px",
               borderRadius: "100px",
@@ -130,7 +171,19 @@ export default function SignUp({ handleStart }) {
             placeholder="Password"
           />
         </Box>
-
+        <p
+          style={{
+            paddingRight: "15px",
+            margin: "2px",
+            maxWidth: "460px",
+            width: "80%",
+            fontSize: "16px",
+            fontWeight: "600",
+            color: res === "User successfully created." ? "green" : "red",
+            textAlign: "right",
+          }}>
+          {res ? res : ""}
+        </p>
         <button
           onClick={() => handleStart("signin")}
           style={{
@@ -145,7 +198,7 @@ export default function SignUp({ handleStart }) {
         </button>
 
         <Button
-          onClick={() => handleForm()}
+          type="submit"
           sx={{
             marginTop: "30px",
             backgroundColor: "#FF8B48",
@@ -164,6 +217,6 @@ export default function SignUp({ handleStart }) {
           SIGN UP
         </Button>
       </Box>
-    </>
+    </form>
   );
 }

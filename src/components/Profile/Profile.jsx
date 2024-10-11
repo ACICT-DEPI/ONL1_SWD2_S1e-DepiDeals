@@ -1,10 +1,50 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Typography } from "@mui/material";
 import Pcard from "./Pcard";
 
 export default function Profile() {
+  const [res, setRes] = useState("");
+
+  const getFavs = async () => {
+    const response = await fetch(
+      "https://biteopia-server.vercel.app/favlist",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      }
+    );
+
+    if (response.ok) {
+      const data = await response.json();
+      setRes(data);
+      localStorage.setItem("favlist", JSON.stringify(data.FavList));
+    } else {
+      const errorData = await response.json();
+      console.error("Error:", errorData);
+    }
+  };
+  useEffect(() => {
+    console.log("Profile component mounted");
+    getFavs();
+  }, []);
+
+  const Pcards = () => {
+    if (res.FavList) {
+      if (res.FavList.length > 0) {
+        return res.FavList.map((item, index) => (
+          <Pcard data={item} key={index} />
+        ));
+      } else {
+        return null;
+      }
+    }
+  };
+
   return (
-    <Box sx={{ padding: "0px 15px" }}>
+    <Box sx={{ padding: "0px 15px", marginBottom: "20px" }}>
       <Box>
         <Typography sx={{ color: "#8D8D94", fontFamily: "poppins" }}>
           Welcome Back!
@@ -15,7 +55,7 @@ export default function Profile() {
             fontSize: { xs: "20px", md: "28px" },
             fontFamily: "poppins",
           }}>
-          @lordseif07
+          @{res.username}
         </Typography>
       </Box>
 
@@ -50,9 +90,7 @@ export default function Profile() {
           flexDirection: { xs: "column", md: "row" },
           flexWrap: "wrap",
         }}>
-        <Pcard />
-        <Pcard />
-        <Pcard />
+        {Pcards() || "feel free to add any recpies here!"}
       </Box>
     </Box>
   );

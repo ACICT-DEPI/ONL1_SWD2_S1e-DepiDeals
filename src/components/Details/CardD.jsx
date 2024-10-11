@@ -1,8 +1,54 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Button, Typography } from "@mui/material";
 import CardTop from "./CardTop";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 
 export default function CardD({ data }) {
+  const [srcc, setSrc] = useState("white");
+  const list = JSON.parse(localStorage.getItem("favlist"));
+
+  useEffect(() => {
+    if (list) {
+      const isAdded = list.find((e) => e.recipeID === data.idMeal);
+      if (isAdded) {
+        setSrc("#FF8B48");
+      }
+    }
+  }, [list, data.idMeal]);
+
+  const love = async () => {
+    if (localStorage.getItem("token")) {
+      const response = await fetch(
+        `https://biteopia-server.vercel.app/favlist/${
+          srcc === "white" ? "add" : "delete"
+        }`,
+        {
+          method: srcc === "white" ? "Post" : "Delete",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+          body: JSON.stringify({
+            recipeID: data.idMeal,
+            recipeName: data.strMeal,
+          }),
+        }
+      );
+
+      if (response.ok) {
+        const data = await response.json();
+
+        srcc === "white" ? setSrc("#FF8B48") : setSrc("white");
+        console.log(data);
+      } else {
+        const errorData = await response.json();
+        console.error("Error:", errorData);
+      }
+    } else {
+      alert("please sign in first");
+    }
+  };
+
   const ingredients = [];
   for (let i = 1; i <= 20; i++) {
     const ingredient = data[`strIngredient${i}`];
@@ -137,7 +183,12 @@ export default function CardD({ data }) {
             <img src="/icons/play.png" alt="" />
             Watch Recipe Video
           </Button>
+
+          {/* favButton */}
           <Button
+            onClick={() => {
+              love();
+            }}
             sx={{
               backgroundColor: "#FFC5A3",
               borderRadius: "10px",
@@ -148,7 +199,7 @@ export default function CardD({ data }) {
             }}
             color="error"
             variant="contained">
-            <img src="/icons/heart.png" alt="" />
+            <FavoriteIcon sx={{ fontSize: "40px", color: srcc }} />
           </Button>
         </Box>
       </Box>

@@ -3,12 +3,15 @@ import Filter from "./Filter";
 import SearchBar from "../Layouts/SearchBar";
 import { Box, Typography } from "@mui/material";
 import Card from "./Card";
+import Alert from "./Alert";
 
 export default function Home() {
   const [filter, setFilter] = useState(null);
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const [alertD, setAlertD] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,7 +41,9 @@ export default function Home() {
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
 
-  const cardArray = data.map((item) => <Card key={item.idMeal} item={item} />);
+  const cardArray = data.map((item) => (
+    <Card key={item.idMeal} item={item} setAlert={setAlertD} />
+  ));
 
   return (
     <Box
@@ -71,6 +76,14 @@ export default function Home() {
 
       <Box sx={{ display: "flex", justifyContent: "center", flexWrap: "wrap" }}>
         {cardArray}
+      </Box>
+      <Box
+        sx={{
+          width: "100%",
+          display: alertD ? "flex" : "none",
+          justifyContent: "center",
+        }}>
+        <Alert />
       </Box>
     </Box>
   );
