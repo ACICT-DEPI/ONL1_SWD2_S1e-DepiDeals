@@ -18,7 +18,7 @@ export default function TopCard({ item }) {
         .
         <Box
           sx={{
-            fontSize:{xs:'12px',md:"15px"},
+            fontSize: { xs: "12px", md: "15px" },
             padding: "10px",
             boxSizing: "border-box",
             color: "white",
@@ -31,7 +31,7 @@ export default function TopCard({ item }) {
           }}>
           <h2>{item.Name}</h2>
           <span>Category :</span> {item.Category} | <span>Price : </span>{" "}
-          {item.Price} $<p>{item.Overview}</p>
+          {item.Price} $<p style={{ color: "white" }}>{item.Overview}</p>
         </Box>
       </Box>
     </Link>

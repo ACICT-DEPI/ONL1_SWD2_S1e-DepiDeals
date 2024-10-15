@@ -101,7 +101,7 @@ export default function LList({ toggleDrawer }) {
           </ListItemButton>
         </Link>
         {/* ========================================================= */}
-        <Link to={"/About"} className="llink">
+        <Link to={"/Cart"} className="llink">
           <ListItemButton onClick={() => toggleDrawer()}>
             <ShoppingCartIcon sx={{ fontSize: "35px" }} />
             <ListItemText>

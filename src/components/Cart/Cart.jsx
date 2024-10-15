@@ -1,5 +1,6 @@
 import React from "react";
 import "./cart.css";
+import TagName from "../Layouts/TagName";
 
 const products = [
   {
@@ -34,7 +35,7 @@ export default function Cart() {
     <main style={{ padding: "20px" }}>
       <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
         <div className="tagRec"></div>
-        <h1 id="head">Cart</h1>
+        <TagName name={"Cart"} />
       </div>
       <div className="table">
         <div className="main-row">
