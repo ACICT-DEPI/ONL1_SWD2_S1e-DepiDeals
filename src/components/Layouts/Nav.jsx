@@ -2,17 +2,16 @@ import React from "react";
 import Box from "@mui/material/Box";
 import { Link, useLocation } from "react-router-dom";
 
-
 export default function Nav() {
   const location = useLocation();
   let stat = location.pathname;
-  stat =
-    stat !== "/Home" && stat !== "/About" && stat !== "/Profile" ? "/" : stat;
+  // stat =
+  //   stat !== "/Home" && stat !== "/About" && stat !== "/Profile" ? "/" : stat;
 
   return (
     <Box
       sx={{
-        display: { xs: "none", lg: "flex" },
+        display: { xs: "none", md: "flex" },
         alignItems: "center",
         justifyContent: "center",
         gap: "40px",
@@ -22,15 +21,14 @@ export default function Nav() {
       <Link className="link" to={"./Home"}>
         <div className={stat === "/Home" ? "selected" : ""}>Home</div>
       </Link>
-      {localStorage.getItem("token") ? (
-        <Link className="link" to={"/Profile"}>
-          <div className={stat === "/Profile" ? "selected" : ""}>Profile</div>
-        </Link>
-      ) : (
-        <Link className="link" to={"/"}>
-          <div>Signin</div>
-        </Link>
-      )}
+
+      <Link className="link" to={"/Trendy"}>
+        <div className={stat === "/Trendy" ? "selected" : ""}>Trendy</div>
+      </Link>
+
+      <Link className="link" to={"/Latest"}>
+        <div className={stat === "/Latest" ? "selected" : ""}>Latest</div>
+      </Link>
 
       <Link className="link" to={"/About"}>
         <div className={stat === "/About" ? "selected" : ""}>About</div>

@@ -1,69 +1,22 @@
-@font-face {
-  font-family: Almond;
-  src: url("../public/ALMOND.otf");
-}
-
-/* body{
-  font-family: "Almond";
-} */
-.Almond {
-  font-family: Almond;
-}
-
-button {
-  cursor: pointer;
-  background-color: inherit;
-  border: none;
-}
-
-.selected {
-  color: #ff8b48;
-  font-weight: 700;
-  font-size: 20px;
-}
-
 .link {
   cursor: pointer;
-  font-weight: 550;
+  font-weight: 500;
   font-size: 20px;
   color: inherit; /* blue colors for links too */
   text-decoration: inherit; /* no underline */
 }
 
 .llink {
-  font-family: "Poppins";
+  margin: 0px 10px;
+  color: #414db1;
+  cursor: pointer;
   font-weight: 550;
-  font-size: 16px;
-  color: inherit; /* blue colors for links too */
+  font-size: 20px;
+
   text-decoration: inherit; /* no underline */
 }
 
-#ologo {
-  width: 200px;
-}
-
-#about {
-  width: 400px;
-}
-
-@media only screen and (min-width: 500px) {
-  /* For tablets: */
-  #ologo {
-    width: 180px;
-  }
-
-  #about {
-    max-width: 80%;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  /* For desktop: */
-  #ologo {
-    width: 230px;
-  }
-
-  #about {
-    width: 400px;
-  }
+.selected {
+  color: #414db1;
+  font-weight: 650;
 }

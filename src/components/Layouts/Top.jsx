@@ -4,7 +4,7 @@ import Nav from "./Nav";
 import Drawer from "./Drawer";
 import SearchBar from "./SearchBar";
 import { useLocation } from "react-router-dom";
-
+import Actions from "./Actions";
 
 export default function Top() {
   const location = useLocation();
@@ -15,25 +15,33 @@ export default function Top() {
     <>
       <Box
         sx={{
+          boxShadow: "3px 0px 10px rgba(0,0,0,0.25)",
+          boxSizing: "border-box",
           width: "100%",
-          padding: { xs: "20px 10px", md: "30px 20px 0px 20px" },
-          display: { xs: stat === "item" ? "none" : "flex", md: "flex" },
+          padding: "20px 30px",
+          display: stat === "Start" ? "none" : "flex",
           gap: "20px",
           margin: "0px",
           justifyContent: "space-between",
           alignItems: "center",
           zIndex: 1,
+          maxHeight: "70px",
         }}>
-        <Drawer />
-        <Nav></Nav>
-        <SearchBar />
+        <img width={"150px"} id="logo" src="/logo.png" alt="logo" />
+        <Nav />
 
-        <img
-          style={{ marginLeft: "10px" }}
-          id="ologo"
-          src="/ologo.png"
-          alt="logo"
-        />
+        <Box
+          sx={{
+            justifyContent: "space-between",
+            alignItems: "center",
+            display: "flex",
+            width: "50%",
+          }}>
+          <SearchBar />
+          <Actions />
+        </Box>
+
+        <Drawer />
       </Box>
     </>
   );

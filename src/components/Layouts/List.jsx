@@ -3,48 +3,36 @@ import React from "react";
 import { Typography } from "@mui/material";
 import List from "@mui/material/List";
 import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import { Link } from "react-router-dom";
+import CabinIcon from "@mui/icons-material/Cabin";
+import InfoIcon from "@mui/icons-material/Info";
+import WhatshotIcon from "@mui/icons-material/Whatshot";
+import AccessAlarmIcon from "@mui/icons-material/AccessAlarm";
+import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 export default function LList({ toggleDrawer }) {
   return (
     <Box
       sx={{
-        boxShadow: "3px 0px 10px rgba(0,0,0,0.25)",
         paddingTop: "20px",
-        paddingLeft: "10px",
-        width: { xs: "300px", sm: "400px", md: "100%" },
-        minHeight: "150%",
+        paddingLeft: "20px",
+        width: "300px",
       }}>
-      <Box
+      <img src="/logo.png" alt="logo" />
+      <List
         sx={{
-          fontSize: "25px",
-          margin: "10px",
-          fontWeight: "600",
-          textAlign: "left",
-          width: "90%",
+          gap: "10px",
+          flexDirection: "column",
+          display: { xs: "flex", lg: "none" },
         }}>
-        welcome to{" "}
-        <Typography
-          sx={{
-            fontSize: { xs: "30px", md: "40px" },
-
-            fontFamily: "Almond",
-            color: "#FF8B48",
-            display: "inline-block",
-          }}>
-          BITEOPIA
-        </Typography>
-        , good recipes awaits ...
-      </Box>
-
-      <List sx={{ display: { xs: "", lg: "none" } }}>
         <Typography
           sx={{
             fontWeight: "700",
-            fontSize: "21px",
-            marginBottom: "10px",
+            fontSize: "26px",
+            marginTop: "10px",
             color: "#8D8D94",
           }}>
           General
@@ -52,216 +40,85 @@ export default function LList({ toggleDrawer }) {
         {/* ========================================================= */}
         <Link to={"/Home"} className="llink">
           <ListItemButton onClick={() => toggleDrawer()}>
-            <ListItemIcon>
-              <img src="/icons/Home.png" alt="" />
-            </ListItemIcon>
+            <CabinIcon sx={{ fontSize: "35px" }} />
             <ListItemText>
               <div className="llink"> Home</div>
             </ListItemText>
           </ListItemButton>
         </Link>
         {/* ========================================================= */}
+        <Link to={"/Trendy"} className="llink">
+          <ListItemButton onClick={() => toggleDrawer()}>
+            <WhatshotIcon sx={{ fontSize: "35px" }} />
+            <ListItemText>
+              <div className="llink"> Trendy</div>
+            </ListItemText>
+          </ListItemButton>
+        </Link>
+        {/* ========================================================= */}
+        <Link to={"/Latest"} className="llink">
+          <ListItemButton onClick={() => toggleDrawer()}>
+            <AccessAlarmIcon sx={{ fontSize: "35px" }} />
+            <ListItemText>
+              <div className="llink"> Latest</div>
+            </ListItemText>
+          </ListItemButton>
+        </Link>
+        {/* ========================================================= */}
         <Link to={"/About"} className="llink">
           <ListItemButton onClick={() => toggleDrawer()}>
-            <ListItemIcon>
-              <img src="/icons/About.png" alt="" />
-            </ListItemIcon>
+            <InfoIcon sx={{ fontSize: "35px" }} />
             <ListItemText>
-              <div className="llink"> About</div>
+              <div className="llink"> About us</div>
             </ListItemText>
           </ListItemButton>
         </Link>
         {/* ========================================================= */}
-        {localStorage.getItem("token") ? (
-          <Link to={"/"} className="llink">
-            <ListItemButton
-              onClick={() => {
-                localStorage.removeItem("favlist");
-                localStorage.removeItem("token"); // Use removeItem instead of clear
-                toggleDrawer();
-              }}>
-              <ListItemIcon>
-                <img src="/icons/signout.png" alt="" />
-              </ListItemIcon>
-              <ListItemText>
-                <div className="llink"> Sign Out</div>
-              </ListItemText>
-            </ListItemButton>
-          </Link>
-        ) : (
-          ""
-        )}
-
-        {localStorage.getItem("token") ? (
-          ""
-        ) : (
-          <Link to={"/"} className="llink">
-            <ListItemButton
-              onClick={() => {
-                toggleDrawer();
-              }}>
-              <ListItemIcon>
-                <img src="/icons/signin.png" alt="" />
-              </ListItemIcon>
-              <ListItemText>
-                <div className="llink"> Sign In</div>
-              </ListItemText>
-            </ListItemButton>
-          </Link>
-        )}
       </List>
-
-      {localStorage.getItem("token") ? (
-        <List>
-          <Typography
-            sx={{
-              fontWeight: "700",
-              fontSize: "21px",
-              marginBottom: "10px",
-              color: "#8D8D94",
-            }}>
-            Personal
-          </Typography>
-          {/* ========================================================= */}
-
-          <Link to={"/Profile"} className="llink">
-            <ListItemButton onClick={() => toggleDrawer()}>
-              <ListItemIcon>
-                <img src="/icons/heart.png" alt="" />
-              </ListItemIcon>
-              <ListItemText>
-                <div className="llink"> My favourite recipes</div>
-              </ListItemText>
-            </ListItemButton>
-          </Link>
-        </List>
-      ) : (
-        ""
-      )}
-
-      {/* ============================================================================================================ */}
-      <List>
+      {/* =================================================================================== */}
+      <List
+        sx={{
+          gap: "10px",
+          flexDirection: "column",
+          display: { xs: "flex", lg: "none" },
+        }}>
         <Typography
           sx={{
             fontWeight: "700",
-            fontSize: "21px",
-            marginBottom: "10px",
+            fontSize: "26px",
+            marginTop: "10px",
             color: "#8D8D94",
           }}>
-          Categories
+          Personal
         </Typography>
         {/* ========================================================= */}
-        <Link to={"/Category/Miscellaneous"} className="llink">
+        <Link to={"/Profile"} className="llink">
           <ListItemButton onClick={() => toggleDrawer()}>
-            <ListItemIcon>
-              <img src="/icons/mis.png" alt="" />
-            </ListItemIcon>
+            <AccountCircleIcon sx={{ fontSize: "35px" }} />
             <ListItemText>
-              <div className="llink"> Miscellaneous</div>
+              <div className="llink"> Profile</div>
             </ListItemText>
           </ListItemButton>
         </Link>
-
         {/* ========================================================= */}
-        <Link to={"/Category/Chicken"} className="llink">
+        <Link to={"/About"} className="llink">
           <ListItemButton onClick={() => toggleDrawer()}>
-            <ListItemIcon>
-              <img src="/icons/chicken.png" alt="" />
-            </ListItemIcon>
+            <ShoppingCartIcon sx={{ fontSize: "35px" }} />
             <ListItemText>
-              <div className="llink"> Chicken</div>
+              <div className="llink"> Cart</div>
             </ListItemText>
           </ListItemButton>
         </Link>
-
         {/* ========================================================= */}
-        <Link to={"/Category/Lamb"} className="llink">
+        <Link to={"/Home"} className="llink">
           <ListItemButton onClick={() => toggleDrawer()}>
-            <ListItemIcon>
-              <img src="/icons/lamb.png" alt="" />
-            </ListItemIcon>
+            <ExitToAppIcon sx={{ fontSize: "35px" }} />
             <ListItemText>
-              <div className="llink"> Lamb</div>
-            </ListItemText>
-          </ListItemButton>
-        </Link>
-
-        {/* ========================================================= */}
-        <Link to={"/Category/Vegetarian"} className="llink">
-          <ListItemButton onClick={() => toggleDrawer()}>
-            <ListItemIcon>
-              <img src="/icons/vege.png" alt="" />
-            </ListItemIcon>
-            <ListItemText>
-              <div className="llink"> Vegetarian</div>
-            </ListItemText>
-          </ListItemButton>
-        </Link>
-
-        {/* ========================================================= */}
-        <Link to={"/Category/Beef"} className="llink">
-          <ListItemButton onClick={() => toggleDrawer()}>
-            <ListItemIcon>
-              <img src="/icons/beef.png" alt="" />
-            </ListItemIcon>
-            <ListItemText>
-              <div className="llink"> Beef</div>
+              <div className="llink"> SignOut</div>
             </ListItemText>
           </ListItemButton>
         </Link>
       </List>
-      {/* ============================================================================================================ */}
-      <List sx={{ display: { xs: "none", lg: "block" } }}>
-        <Typography
-          sx={{
-            fontWeight: "700",
-            fontSize: "21px",
-            marginBottom: "10px",
-            color: "#8D8D94",
-          }}>
-          General
-        </Typography>
-        {/* ========================================================= */}
-
-        {localStorage.getItem("token") ? (
-          <Link to={"/"} className="llink">
-            <ListItemButton
-              onClick={() => {
-                localStorage.removeItem("favlist");
-                localStorage.removeItem("token"); // Use removeItem instead of clear
-                toggleDrawer();
-              }}>
-              <ListItemIcon>
-                <img src="/icons/signout.png" alt="" />
-              </ListItemIcon>
-              <ListItemText>
-                <div className="llink"> Sign Out</div>
-              </ListItemText>
-            </ListItemButton>
-          </Link>
-        ) : (
-          ""
-        )}
-
-        {localStorage.getItem("token") ? (
-          ""
-        ) : (
-          <Link to={"/"} className="llink">
-            <ListItemButton
-              onClick={() => {
-                toggleDrawer();
-              }}>
-              <ListItemIcon>
-                <img src="/icons/signin.png" alt="" />
-              </ListItemIcon>
-              <ListItemText>
-                <div className="llink"> Sign In</div>
-              </ListItemText>
-            </ListItemButton>
-          </Link>
-        )}
-      </List>
-      {/* ============================================================================================================ */}
     </Box>
   );
 }

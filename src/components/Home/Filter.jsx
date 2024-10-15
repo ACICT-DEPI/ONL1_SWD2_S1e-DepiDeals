@@ -30,25 +30,40 @@ export default function Filter({ setFilter }) {
         />
 
         <Tab
-          label="Beef"
-          isSelected={selectedTab === "Beef"}
-          onClick={() => handleTabClick("Beef")}
+          label="Gaming"
+          isSelected={selectedTab === "Gaming"}
+          onClick={() => handleTabClick("Gaming")}
         />
 
         <Tab
-          label="Chicken"
-          isSelected={selectedTab === "Chicken"}
-          onClick={() => handleTabClick("Chicken")}
+          label="Monitors"
+          isSelected={selectedTab === "Monitors"}
+          onClick={() => handleTabClick("Monitors")}
         />
         <Tab
-          label="Lamb"
-          isSelected={selectedTab === "Lamb"}
-          onClick={() => handleTabClick("Lamb")}
+          label="Tablets"
+          isSelected={selectedTab === "Tablets"}
+          onClick={() => handleTabClick("Tablets")}
         />
         <Tab
-          label="Vegetarian"
-          isSelected={selectedTab === "Vegetarian"}
-          onClick={() => handleTabClick("Vegetarian")}
+          label="Accessories"
+          isSelected={selectedTab === "Accessories"}
+          onClick={() => handleTabClick("Accessories")}
+        />
+        <Tab
+          label="Laptops"
+          isSelected={selectedTab === "Laptops"}
+          onClick={() => handleTabClick("Laptops")}
+        />
+        <Tab
+          label="Consoles"
+          isSelected={selectedTab === "Consoles"}
+          onClick={() => handleTabClick("Consoles")}
+        />
+        <Tab
+          label="Keyboards"
+          isSelected={selectedTab === "Keyboards"}
+          onClick={() => handleTabClick("Keyboards")}
         />
       </div>
     </div>

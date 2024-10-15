@@ -1,72 +1,39 @@
-import React, { useState } from "react";
+import "./Start.css";
 import { Box, Typography } from "@mui/material";
+import React, { useState } from "react";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
-import Landing from "./Landing";
+import { Link } from "react-router-dom";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
-export default function Starting() {
-  const [start, setStart] = useState("landing");
-
-  function handleStart(value) {
-    setStart(value);
-    console.log(value);
-  }
+export default function Start() {
+  const [sign, setSign] = useState("in");
   return (
     <Box
       sx={{
         position: "relative",
-        width: "100%",
-        height: { xs: "90vh", md: "100vh" },
-        maxHeight: "700px",
+        margin: "60px auto",
+        minHeight: "600px",
+        width: "1000px",
+        display: "flex",
+        alignItems: "center",
+        boxShadow: "3px 0px 10px rgba(0,0,0,0.25)",
       }}>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          flexDirection: "column",
-          position: "absolute",
-          right: {
-            md: start === "landing" || start === "signup" ? 0 : "40%",
-          },
-          left: { md: start === "signin" ? 0 : "40%" },
-          top: 0,
-          width: { xs: "100%", md: "60%" },
-          minHeight:
-            start === "landig"
-              ? { xs: "80%", md: "100%" }
-              : start === "signup"
-              ? { xs: "45%", md: "100%" }
-              : { xs: "60%", md: "100%" },
-          transition: "left 1s ease, right 1s ease",
-          background: "url('details.png') center/cover no-repeat",
-        }}>
-        <img src="/logo.png" alt="logo" width={"60%"} />
+      <img
+        src="/start.png"
+        style={{ maxHeight: "600px", width: "auto", objectFit: "cover" }}
+        alt="start"
+      />
 
-        <Typography
-          sx={{
-            fontWeight: "550",
-            maxWidth: "80%",
-            fontSize: {
-              xs: start === "landing" || start === "signin" ? "18px" : "15px",
-              md: "25px",
-            },
-            color: "white",
-            display: "inline-block",
-            paddingLeft: "10px",
-          }}>
-          Welcome to Biteopia, your ultimate culinary destination! Our mission
-          is to bring the world of recipes right to your kitchen, inspiring home
-          cooks of all skill levels to explore and create delicious meals.
-        </Typography>
-      </Box>
-      {start === "landing" ? (
-        <Landing handleStart={handleStart} />
-      ) : start === "signin" ? (
-        <SignIn handleStart={handleStart} />
-      ) : (
-        <SignUp handleStart={handleStart} />
-      )}
+      <div className="skip">
+        <Link to={"/"} className="link">
+          <Typography sx={{fontWeight:"700"}}>Skip For Now</Typography>
+        </Link>
+        <ArrowForwardIcon />
+      </div>
+      <div className={"main"}>
+        {sign === "in" ? <SignIn sign={setSign} /> : <SignUp sign={setSign} />}
+      </div>
     </Box>
   );
 }

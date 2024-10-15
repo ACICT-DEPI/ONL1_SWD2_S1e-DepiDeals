@@ -12,20 +12,24 @@ export default function AboutMe() {
         minHeight: "90vh",
       }}>
       <Box sx={{ maxWidth: "80%" }}>
-        <img width={"100%"} src="aboutus.png" alt="logo" />
+        <img width={"100%"} src="about.png" alt="logo" />
       </Box>
 
       <Typography
         sx={{
           maxWidth: { xs: "80%", md: "60%" },
           textAlign: "center",
-          color: "#FF8B48",
+          color: "#414DB1",
           fontWeight: "bold",
           fontSize: { xs: "20px", md: "25px" },
         }}>
-        Welcome to Biteopia, your ultimate culinary destination! Our mission is
-        to bring the world of recipes right to your kitchen, inspiring home
-        cooks of all skill levels to explore and create delicious meals.
+        DepiDeals is your ultimate E-commerce destination for a diverse range of
+        tech devices, from smart home gadgets to gaming accessories and personal
+        electronics. Our website features a sleek, intuitive user interface and
+        a responsive design, ensuring a seamless shopping experience on any
+        device. With detailed product descriptions and customer reviews, finding
+        the perfect tech gear is easy and enjoyable. Experience secure shopping
+        and discover innovative technology at DepiDeals!
       </Typography>
     </Box>
   );
