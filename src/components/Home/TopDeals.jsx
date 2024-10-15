@@ -1,22 +1,22 @@
 import React from "react";
-import { Box } from "@mui/material";
-import { useParams } from "react-router-dom";
 import TagName from "../Layouts/TagName";
+import Swiper from "./TopSwiper";
+import { Box } from "@mui/material";
 
-export default function Details() {
-  const { id } = useParams();
-
+export default function TopDeals() {
   return (
     <Box
       sx={{
-        margin: { xs: "0", md: "20px" },
+        width: { xs: "100%", md: "60%" },
         display: "flex",
         flexDirection: "column",
         justifyContent: "start",
         alignItems: "start",
-        position: "relative",
+        gap: "10px",
+        mb:"20px"
       }}>
-      <TagName name={id} />
+      <TagName name={"Top in DepiDeals"} />
+      <Swiper />
     </Box>
   );
 }

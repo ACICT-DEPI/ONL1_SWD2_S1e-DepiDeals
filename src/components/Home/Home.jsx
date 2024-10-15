@@ -1,24 +1,34 @@
 // import React, {  useState } from "react";
-// import Filter from "./Filter";
-
+import "./home.css";
 import { Box } from "@mui/material";
-import TagName from "../Layouts/TagName";
+import TopDeals from "./TopDeals";
+import ExclusiveDeals from "./ExclusiveDeals";
+import LatestDeals from "./LatestDeals";
 
 export default function Home() {
-  // const [filter, setFilter] = useState(null);
-
   return (
     <Box
       sx={{
-        padding: "20px",
-        // backgroundColor: "gold",
+        padding: "20px 5px ",
         minWidth: "100%",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        alignItems: "center",
+        boxSizing: "border-box",
       }}>
-      <TagName name={"Top in DepiDeals"} />
+      <Box
+        sx={{
+          minWidth: "100%",
+          maxWidth: "100%",
+          display: { xs: "block", md: "flex" },
+          justifyContent: "center",
+          height: { xs: "", md: "550px" },
+          gap: "20px",
+        }}>
+        <TopDeals />
+        <ExclusiveDeals />
+      </Box>
+      <LatestDeals />
     </Box>
   );
 }

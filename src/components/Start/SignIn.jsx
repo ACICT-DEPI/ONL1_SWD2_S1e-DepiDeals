@@ -11,7 +11,7 @@ export default function SignIn({ sign }) {
   const handleSignIn = () => {
     alert(username + password);
   };
-  
+
   return (
     <Box sx={{ width: "55%", mx: "auto", my: "auto" }}>
       <form onSubmit={handleSignIn}>
@@ -52,6 +52,7 @@ export default function SignIn({ sign }) {
           Sign In
         </Button>
         <img src="/div.png" width={"80%"} alt="" />
+        
         <Button
           sx={{ width: "80%", borderRadius: "20px" }}
           type="button"

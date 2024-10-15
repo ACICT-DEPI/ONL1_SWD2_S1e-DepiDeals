@@ -10,9 +10,10 @@ import Profile from "./components/Profile/Profile";
 import Details from "./components/Details/Details";
 import Latest from "./components/Latest/Latest.jsx";
 import Trendy from "./components/Trendy/Trendy";
-
 import Top from "./components/Layouts/Top";
 import Start from "./components/Start/Start";
+import Footer from "./components/Layouts/Footer.jsx";
+import Cart from "./components/Cart/Cart.jsx";
 
 export default function App() {
   return (
@@ -26,13 +27,14 @@ export default function App() {
       <Top />
       <Routes>
         <Route path="/">
-          <Route path="/" element={<Navigate to="/home" />} />
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Navigate to="/Home" />} />
+          <Route path="/Home" element={<Home />} />
           <Route path="/About" element={<About />} />
           <Route path="/Start" element={<Start />} />
           <Route path="/Profile" element={<Profile />} />
           <Route path="/Trendy" element={<Trendy />} />
           <Route path="/Latest" element={<Latest />} />
+          <Route path="/Cart" element={<Cart />} />
           <Route path="/item/:id" element={<Details />} />
           <Route
             path="*"
@@ -52,6 +54,7 @@ export default function App() {
           />
         </Route>
       </Routes>
+      <Footer />
     </Box>
   );
 }
