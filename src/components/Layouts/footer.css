@@ -1,70 +1,73 @@
 footer {
   background-color: #414db1;
-  padding: 20px 0;
+  padding: 10px;
   text-align: center;
-  margin-top: 40px;
+  margin-top: 4%;
 }
+
 .footer-info {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 25px;
+  padding: 10px;
 }
+
 .footer-img {
-  flex: 0 0 auto;
+  width: 100vw;
   display: flex;
+  justify-content: center;
   align-items: center;
 }
+
 .footer-img img {
-  width: 200px;
-  padding-left: 25px;
+  width: 13%;
+  position: absolute;
+  left: 20px;
 }
-.footer-img p {
-  font-size: larger;
-  color: aliceblue;
-  margin-left: 240px;
+
+.footer-p {
+  color: #f0f8ff;
+  font-size: 15px;
+  margin-left: 5%;
+  text-align: center;
 }
-.div-icon {
-  flex: 0 0 auto;
-  display: flex;
-  align-items: center;
-}
-.div-icon i {
-  color: aliceblue;
-  font-size: 24px;
-  padding-right: 25px;
-}
+
 .Copyright {
   color: aliceblue;
   font-size: 14px;
-  padding-top: 15px;
+  padding-top: 1.5%;
+  text-align: center;
 }
+
 @media (max-width: 480px) {
+  .footer-info {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
   .footer-img {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    margin-bottom: 10px;
   }
   .footer-img img {
-    width: 60%;
+    width: 40%;
     margin-bottom: 5px;
   }
-  .footer-img p {
-    font-size: 7px;
+  .footer-p {
+    font-size: 0.7rem;
     margin-left: 0;
-  }
-  .div-icon i {
-    font-size: 14px;
+    text-align: center;
+    width: 100%;
   }
   .Copyright {
-    font-size: 9px;
+    font-size: 0.9rem;
   }
 }
 @media (min-width: 481px) and (max-width: 1200px) {
-  footer {
-    padding: 20px 0;
-    display: flex;
+  .footer-info {
     flex-direction: column;
     align-items: center;
     text-align: center;
@@ -77,24 +80,17 @@ footer {
     margin-bottom: 10px;
   }
   .footer-img img {
+    position: relative;
     width: 30%;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
   }
-  .footer-img p {
-    font-size: 12px;
-    margin: 0;
-  }
-  .div-icon {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
-  }
-  .div-icon i {
-    font-size: 18px;
-    margin: 0 5px;
+  .footer-p {
+    font-size: 0.6rem;
+    margin-left: 0;
+    text-align: center;
+    width: 100%;
   }
   .Copyright {
-    font-size: 10px;
-    margin-top: 5px;
+    font-size: 0.9rem;
   }
 }

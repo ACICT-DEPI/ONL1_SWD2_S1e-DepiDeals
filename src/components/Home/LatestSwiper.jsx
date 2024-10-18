@@ -43,7 +43,7 @@ export default function LatestSwiper() {
       <Box sx={{ display: { xs: "block", sm: "none", md: "none" } }}>
         <Swiper
           style={{ zIndex: 0 }}
-          slidesPerView={1.2}
+          slidesPerView={1.4}
           spaceBetween={20}
           loop={true}
           navigation={true}

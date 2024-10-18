@@ -4,7 +4,7 @@
   font-size: inherit;
   padding: 10px;
   border: none;
-  height: 45px;
+  min-height: 100%;
   color: #787777;
 }
 

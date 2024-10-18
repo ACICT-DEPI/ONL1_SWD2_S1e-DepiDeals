@@ -38,7 +38,7 @@ export default function TopSwiper() {
   };
 
   return (
-    <Box sx={{ maxWidth: "100%" }}>
+    <Box sx={{ maxWidth: "100%", zIndex: 0 }}>
       <Swiper
         slidesPerView={1}
         pagination={{ type: "bullets", clickable: true }}

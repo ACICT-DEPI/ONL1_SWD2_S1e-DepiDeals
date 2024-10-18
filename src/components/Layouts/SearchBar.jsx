@@ -52,9 +52,9 @@ export default function SearchBar({ phone }) {
           alignItems: "center",
           width: "100%",
           position: "relative",
-          height: "30px",
+          height: "50px",
           fontSize: { xs: "18px", md: "20px" },
-          zIndex: 1,
+          zIndex: 2,
         }}>
         <input
           className="searchInput"
@@ -68,10 +68,11 @@ export default function SearchBar({ phone }) {
           onBlur={() => {
             setTimeout(() => setSearching(false), 150);
           }}
-          placeholder="Search For Products 🔎"
+          placeholder="Search For Products "
         />
         <SearchIcon
           sx={{
+            zIndex: 4,
             position: "absolute",
             right: "10px",
             fontSize: "40px",

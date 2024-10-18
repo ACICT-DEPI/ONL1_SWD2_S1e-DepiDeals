@@ -3,6 +3,13 @@
   padding: 0;
   box-sizing: border-box;
 }
+.item h2 {
+  all: inherit;
+}
+
+.col-item span {
+  all: inherit;
+}
 body {
   background-color: #ffffff;
 }
@@ -25,10 +32,18 @@ body {
   border: 1px solid #dad5d5;
   border-radius: 10px;
 }
+.main-row .item {
+  font-weight: 700;
+  flex: 1;
+  text-align: center;
+  padding: 5px;
+  color: #414db1;
+}
 .item {
   flex: 1;
   text-align: center;
   padding: 5px;
+  color: #414db1;
 }
 .product-image {
   width: 80px;
@@ -71,7 +86,7 @@ body {
   padding: 5px 0;
   border-bottom: 1px #dad5d5 solid;
 }
-button {
+.latestButton {
   align-self: center;
   background-color: #414db1;
   color: #ffffff;
@@ -88,71 +103,64 @@ button {
   background-color: white;
   border: none;
   font-weight: 600;
+  font-size: 15px;
 }
-p {
+.item {
   font-size: 20px;
-  color: #414db1;
-}
-h2 {
   color: #414db1;
 }
 /* Responsive */
 @media (max-width: 480px) {
-  .table, .cart-total {
-      width: 100%;
-      margin: 10px;
+  .table,
+  .cart-total {
+    width: 100%;
+    margin: 10px;
   }
   .product-image {
-      width: 40px;
-      height: 40px;
+    width: 40px;
+    height: 40px;
   }
-  button {
-      width: 90%;
-      font-size: 13px;
+  .latestButton {
+    width: 90%;
+    font-size: 13px;
+  }
+  .dele {
+    font-size: 13px;
   }
   .item {
-      font-size: 14px;
+    font-size: 9px;
   }
-  p {
-      font-size: 15px;
-  }
-  h2 {
-      font-size: 13px;
-  }
+
   .product-container {
-    flex-direction: column; 
+    flex-direction: column;
   }
   .product-name {
-    margin-top: 10px; 
-    margin-left: 0;  
+    margin-top: 10px;
+    margin-left: 0;
   }
 }
 @media (min-width: 481px) and (max-width: 1200px) {
- .table, .cart-total {
+  .table,
+  .cart-total {
     width: 100%;
     margin: 10px;
-}
-.product-image {
+  }
+  .product-image {
     width: 40px;
     height: 40px;
-}
-button {
+  }
+  .latestButton {
     width: 100%;
     font-size: 25px;
+  }
+  .item {
+    font-size: 14px;
+  }
+  .product-container {
+    flex-direction: column;
+  }
+  .product-name {
+    margin-top: 10px;
+    margin-left: 0;
+  }
 }
-.item {
-    font-size: 20px;
-}
-p {
-    font-size: 20px;
-}
-h2 {
-    font-size: 25px;
-}
-.product-container {
-  flex-direction: column; 
-}
-.product-name {
-  margin-top: 10px; 
-  margin-left: 0;  
-}}

@@ -1,6 +1,7 @@
 import React from "react";
 import "./cart.css";
 import TagName from "../Layouts/TagName";
+import { Box } from "@mui/material";
 
 const products = [
   {
@@ -8,23 +9,24 @@ const products = [
     name: "Product1",
     price: 500,
     quantity: 1,
-    image: "s.jpg",
+    image: "/s.jpg",
   },
   {
     id: 2,
     name: "Product2",
     price: 750,
     quantity: 2,
-    image: "s.jpg",
+    image: "/s.jpg",
   },
   {
     id: 3,
     name: "Product3",
     price: 500,
     quantity: 3,
-    image: "s.jpg",
+    image: "/s.jpg",
   },
 ];
+
 export default function Cart() {
   const total = products.reduce(
     (sum, product) => sum + product.price * product.quantity,
@@ -33,10 +35,10 @@ export default function Cart() {
 
   return (
     <main style={{ padding: "20px" }}>
-      <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
-        <div className="tagRec"></div>
+      <Box sx={{ width: "100%", display: "flex" }}>
         <TagName name={"Cart"} />
-      </div>
+      </Box>
+
       <div className="table">
         <div className="main-row">
           <div className="item">

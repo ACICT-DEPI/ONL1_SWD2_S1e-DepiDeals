@@ -7,7 +7,8 @@ export default function LatestDeals() {
   return (
     <Box
       sx={{
-        padding: "20px",
+        minWidth: "100%",
+        padding: "20px 0px",
         zIndex: 0,
         display: "flex",
         flexDirection: "column",

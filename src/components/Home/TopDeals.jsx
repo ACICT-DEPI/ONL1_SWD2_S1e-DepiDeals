@@ -14,6 +14,7 @@ export default function TopDeals() {
         alignItems: "start",
         gap: "10px",
         my: "20px",
+        zIndex: 0,
       }}>
       <TagName name={"Top in DepiDeals"} />
       <Swiper />
