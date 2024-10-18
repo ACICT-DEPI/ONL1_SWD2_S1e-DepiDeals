@@ -9,6 +9,7 @@
   display: flex;
   justify-content: space-around;
   width: 100%;
+  max-width: 100%;
 }
 
 .tab {
@@ -32,16 +33,24 @@
 
 @media (max-width: 370px) {
   .tabs {
-    flex-wrap: wrap;
+    overflow: scroll;
     gap: 10px;
     justify-content: start;
   }
+  .tab {
+    padding: 15px 10px;
+  }
 }
 
-@media (min-width: 450px) and (max-width: 670px) {
+@media (min-width: 370px) and (max-width: 670px) {
   .tab {
     border-radius: 20px;
     font-size: 13px;
+  }
+  .tabs {
+    overflow: scroll;
+    gap: 10px;
+    justify-content: start;
   }
 }
 

@@ -9,7 +9,8 @@ export default function LatestCard({ item }) {
       <Link style={{ height: "80%", width: "100%" }} to={`/item/${item.id}`}>
         <img src={item.Pic} width={"100%"} height={"100%"} alt="" />
       </Link>
-      {item.Name}
+      <Typography sx={{ margin: "10px 0px" }}> {item.Name}</Typography>
+
       <Button
         sx={{ width: "100%", borderRadius: "0px 0px 10px 10px" }}
         type="button"

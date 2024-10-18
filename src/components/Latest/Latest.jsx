@@ -43,7 +43,7 @@ export default function Latest() {
         display: "flex",
         flexDirection: "column",
         alignItems: "start",
-
+padding:"20px",
         gap: "20px",
         minHeight: "100vh",
       }}>

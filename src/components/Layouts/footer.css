@@ -55,6 +55,7 @@ footer {
   .footer-img img {
     width: 40%;
     margin-bottom: 5px;
+    position: relative;
   }
   .footer-p {
     font-size: 0.7rem;
