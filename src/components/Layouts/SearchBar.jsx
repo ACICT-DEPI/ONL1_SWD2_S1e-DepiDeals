@@ -1,37 +1,64 @@
 import Box from "@mui/material/Box";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
+import "./SearchBar.css";
+import { Link } from "react-router-dom";
 // import { Typography } from "@mui/material";
 // import { Link } from "react-router-dom";
 
 export default function SearchBar({ phone }) {
   const [searching, setSearching] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
-  // const [data, setData] = useState([]);
+  const [data, setData] = useState(["Loading"]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          `https://seif-sync-server.vercel.app/Depi/products`
+        );
+        if (!response.ok) {
+          throw new Error("Network response was not ok " + response.statusText);
+        }
+        const fetchedData = await response.json();
+        setData(fetchedData);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
+  }, [searchTerm]);
+
+  const Res = () => {
+    return data.map((item) => (
+      <div className="searchItem" key={item.id}>
+        <Link key={item.id} style={{ all: "inherit" }} to={`/item/${item.id}`}>
+          {item.Name}
+        </Link>
+      </div>
+    ));
+  };
 
   return (
     <Box sx={{ width: { xs: "100%", md: "80%" }, position: "relative" }}>
       <Box
         sx={{
           display: { xs: "none", sm: "flex" },
+          flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
           width: "100%",
           position: "relative",
           height: "30px",
           fontSize: { xs: "18px", md: "20px" },
-          zIndex: 2,
+          zIndex: 1,
         }}>
         <input
+          className="searchInput"
           style={{
-            width: "100%",
-            borderRadius: "20px",
-            fontSize: "inherit",
-            padding: "10px",
-            border: "none",
-            height: "45px" ,
+            zIndex: 4,
             backgroundColor: searching ? "white" : "#F1EFEF",
-            color: "#787777",
           }}
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
@@ -45,11 +72,18 @@ export default function SearchBar({ phone }) {
           sx={{
             position: "absolute",
             right: "10px",
-
             fontSize: "40px",
             color: "gray",
           }}
         />
+
+        <div
+          className="searchRes"
+          style={{
+            display: searching ? "block" : "none",
+          }}>
+          {Res()}
+        </div>
       </Box>
     </Box>
   );

@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -8,6 +8,7 @@ export default function TopCard({ item }) {
     <Link className="link" to={`/item/${item.id}`}>
       <Box
         sx={{
+          zIndex: "-1",
           position: "relative",
           height: { xs: "300px", md: "500px" },
         }}>
@@ -29,9 +30,21 @@ export default function TopCard({ item }) {
             bottom: "20px",
             left: "20px",
           }}>
-          <h2>{item.Name}</h2>
+          <Typography
+            variant="h2"
+            sx={{ fontSize: { xs: "20PX", md: "40px" }, fontWeight: "700" }}>
+            {item.Name}
+          </Typography>
           <span>Category :</span> {item.Category} | <span>Price : </span>{" "}
-          {item.Price} $<p style={{ color: "white" }}>{item.Overview}</p>
+          {item.Price}
+          <Typography
+            sx={{
+              color: "white",
+              fontSize: { xs: "15PX", md: "20px" },
+              fontWeight: "700",
+            }}>
+            {item.Overview}
+          </Typography>
         </Box>
       </Box>
     </Link>

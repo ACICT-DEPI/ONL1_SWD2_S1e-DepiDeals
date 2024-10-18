@@ -1,0 +1,30 @@
+.user {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+  color: black;
+}
+p {
+  padding: 0px;
+  margin: 0px;
+}
+
+.cartItemPic {
+  width: 60px;
+  height: 60px;
+}
+
+.cartItem {
+  padding: 10px;
+  border: 1px #8d8d94 solid;
+
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.cartItem span {
+  color: #636365;
+font-weight: 500;}

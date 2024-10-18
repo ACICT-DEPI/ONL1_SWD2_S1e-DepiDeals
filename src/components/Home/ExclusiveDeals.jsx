@@ -26,7 +26,7 @@ export default function ExclusiveDeals() {
   }, []);
 
   const Cards = () => {
-    return data.map((item) => <LatestCard key={item.id} item={item} />);
+    return data.map((item) => <LatestCard key={item._id} item={item} />);
   };
 
   return (

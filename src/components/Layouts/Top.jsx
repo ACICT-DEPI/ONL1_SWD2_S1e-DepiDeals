@@ -15,6 +15,7 @@ export default function Top() {
     <>
       <Box
         sx={{
+          
           boxShadow: "3px 0px 10px rgba(0,0,0,0.25)",
           boxSizing: "border-box",
           width: "100%",
@@ -24,7 +25,7 @@ export default function Top() {
           margin: "0px",
           justifyContent: "space-between",
           alignItems: "center",
-          zIndex: 1,
+          zIndex: 2,
           maxHeight: "70px",
         }}>
         <img width={"150px"} id="logo" src="/logo.png" alt="logo" />

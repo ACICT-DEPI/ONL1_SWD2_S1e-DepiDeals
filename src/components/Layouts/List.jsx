@@ -14,6 +14,11 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 export default function LList({ toggleDrawer }) {
+  function handleExit() {
+    localStorage.removeItem("usertoken");
+    localStorage.removeItem("username");
+  }
+
   return (
     <Box
       sx={{
@@ -92,14 +97,19 @@ export default function LList({ toggleDrawer }) {
           Personal
         </Typography>
         {/* ========================================================= */}
-        <Link to={"/Profile"} className="llink">
-          <ListItemButton onClick={() => toggleDrawer()}>
-            <AccountCircleIcon sx={{ fontSize: "35px" }} />
-            <ListItemText>
-              <div className="llink"> Profile</div>
-            </ListItemText>
-          </ListItemButton>
-        </Link>
+        {localStorage.getItem("usertoken") ? (
+          <Link to={"/Profile"} className="llink">
+            <ListItemButton onClick={() => toggleDrawer()}>
+              <AccountCircleIcon sx={{ fontSize: "35px" }} />
+              <ListItemText>
+                <div className="llink"> Profile</div>
+              </ListItemText>
+            </ListItemButton>
+          </Link>
+        ) : (
+          ""
+        )}
+
         {/* ========================================================= */}
         <Link to={"/Cart"} className="llink">
           <ListItemButton onClick={() => toggleDrawer()}>
@@ -110,14 +120,32 @@ export default function LList({ toggleDrawer }) {
           </ListItemButton>
         </Link>
         {/* ========================================================= */}
-        <Link to={"/Home"} className="llink">
-          <ListItemButton onClick={() => toggleDrawer()}>
-            <ExitToAppIcon sx={{ fontSize: "35px" }} />
-            <ListItemText>
-              <div className="llink"> SignOut</div>
-            </ListItemText>
-          </ListItemButton>
-        </Link>
+        {localStorage.getItem("usertoken") ? (
+          <Link to={"/Start"} onClick={() => handleExit()} className="llink">
+            <ListItemButton onClick={() => toggleDrawer()}>
+              <ExitToAppIcon sx={{ fontSize: "35px" }} />
+              <ListItemText>
+                <div className="llink"> SignOut</div>
+              </ListItemText>
+            </ListItemButton>
+          </Link>
+        ) : (
+          ""
+        )}
+
+        {/* ========================================================= */}
+        {localStorage.getItem("usertoken") ? (
+          ""
+        ) : (
+          <Link to={"/Start"} className="llink">
+            <ListItemButton onClick={() => toggleDrawer()}>
+              <ExitToAppIcon sx={{ fontSize: "35px" }} />
+              <ListItemText>
+                <div className="llink"> SignIn</div>
+              </ListItemText>
+            </ListItemButton>
+          </Link>
+        )}
       </List>
     </Box>
   );

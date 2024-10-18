@@ -1,0 +1,35 @@
+.searchInput {
+  width: 100%;
+  border-radius: 20px;
+  font-size: inherit;
+  padding: 10px;
+  border: none;
+  height: 45px;
+  color: #787777;
+}
+
+.searchRes {
+  font-size: 15px;
+  box-sizing: border-box;
+  padding: 20px;
+  box-shadow: 3px 0px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 0px 0px 20px 20px;
+  background-color: white;
+  width: 100%;
+  position: absolute;
+  top: 10px;
+  padding-top: 50px;
+  z-index: 3;
+}
+
+.searchItem {
+  font-size: 15px;
+  width: 100%;
+  padding: 5px 0px;
+
+  cursor: pointer;
+}
+
+.searchItem:hover {
+  background-color: #beb3b3;
+}

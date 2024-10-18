@@ -8,10 +8,55 @@ export default function SignUp({ sign }) {
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
 
+  const [response, setResponse] = useState("");
+  const [err, setErr] = useState("");
+
   // const nav = useNavigate();
-  const handleSignUp = () => {
-    alert(userName + password);
-  };
+
+  async function handleSignUp(event) {
+    event.preventDefault();
+    try {
+      alert(password + password2);
+
+      if (password !== password2) {
+        setErr("Passwords do not match");
+        return;
+      }
+
+      const bodyData = {
+        username: userName,
+        password: password,
+        email: email,
+      };
+      const response = await fetch(
+        "https://final-react-project-pi.vercel.app/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(bodyData),
+        }
+      );
+      const data = await response.json();
+      if (response.status === 200) {
+        setResponse("User created successfully!");
+        setErr("");
+        setEmail("");
+        setPassword("");
+        setPassword2("");
+        setUserName("");
+      } else {
+        setErr(data.message);
+      }
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  }
 
   return (
     <Box sx={{ width: "55%", mx: "auto", my: "auto" }}>
@@ -48,7 +93,7 @@ export default function SignUp({ sign }) {
         <div className="formItem">
           <label>Password</label>
           <input
-            type="text"
+            type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
@@ -57,10 +102,29 @@ export default function SignUp({ sign }) {
         <div className="formItem">
           <label>Password Conformation</label>
           <input
-            type="text"
+            type="password"
             value={password2}
             onChange={(e) => setPassword2(e.target.value)}
           />
+        </div>
+        <div
+          style={{
+            width: "80%",
+            fontSize: "13px",
+            color: "red",
+            textAlign: "right",
+          }}>
+          {err}
+        </div>
+
+        <div
+          style={{
+            width: "80%",
+            fontSize: "13px",
+            color: "green",
+            textAlign: "right",
+          }}>
+          {response}
         </div>
         <Button
           sx={{ width: "80%", borderRadius: "20px", mt: 2 }}

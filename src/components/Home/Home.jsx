@@ -7,15 +7,7 @@ import LatestDeals from "./LatestDeals";
 
 export default function Home() {
   return (
-    <Box
-      sx={{
-        padding: "20px 5px ",
-        minWidth: "100%",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        boxSizing: "border-box",
-      }}>
+    <div className="homeMain">
       <Box
         sx={{
           minWidth: "100%",
@@ -29,6 +21,6 @@ export default function Home() {
         <ExclusiveDeals />
       </Box>
       <LatestDeals />
-    </Box>
+    </div>
   );
 }

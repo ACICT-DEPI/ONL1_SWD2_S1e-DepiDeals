@@ -6,7 +6,7 @@ export default function ExclusiveCard({ item }) {
   return (
     <div className="ExclusiveCard">
       <Link
-        to={`/item/${item.id}`}
+        to={`/item/${item._id}`}
         style={{ width: "40%", height: "100%" }}
         className="link">
         <img height={"100%"} width={"100%"} src={item.Pic} alt="" />

@@ -13,21 +13,28 @@ export default function Start() {
       sx={{
         position: "relative",
         margin: "60px auto",
-        minHeight: "600px",
-        width: "1000px",
+        minHeight: { xs: "100vh", md: "600px" },
+        width: { xs: "100%", md: "1000px" },
         display: "flex",
         alignItems: "center",
-        boxShadow: "3px 0px 10px rgba(0,0,0,0.25)",
+        boxShadow: { xs: "none", md: "3px 0px 10px rgba(0,0,0,0.25)" },
       }}>
-      <img
-        src="/start.png"
-        style={{ maxHeight: "600px", width: "auto", objectFit: "cover" }}
-        alt="start"
-      />
+      <Box
+        sx={{
+          display: { xs: "none", md: "block" },
+          Height: "100%",
+          width: "32%",
+        }}>
+        <img
+          src="/start.png"
+          style={{ Height: "100%", width: "100%", objectFit: "cover" }}
+          alt="start"
+        />
+      </Box>
 
       <div className="skip">
         <Link to={"/"} className="link">
-          <Typography sx={{fontWeight:"700"}}>Skip For Now</Typography>
+          <Typography sx={{ fontWeight: "700" }}>Skip For Now</Typography>
         </Link>
         <ArrowForwardIcon />
       </div>

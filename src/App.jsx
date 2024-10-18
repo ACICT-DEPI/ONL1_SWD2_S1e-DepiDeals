@@ -4,15 +4,20 @@ import React from "react";
 import { Box } from "@mui/material";
 import { Navigate, Route, Routes } from "react-router-dom";
 
-import Home from "./components/Home/Home";
-import About from "./components/AboutMe/AboutMe";
-import Profile from "./components/Profile/Profile";
-import Details from "./components/Details/Details";
-import Latest from "./components/Latest/Latest.jsx";
-import Trendy from "./components/Trendy/Trendy";
-import Top from "./components/Layouts/Top";
-import Start from "./components/Start/Start";
+// Layouts
 import Footer from "./components/Layouts/Footer.jsx";
+import Top from "./components/Layouts/Top";
+
+// mainRoutes
+import Start from "./components/Start/Start";
+import Home from "./components/Home/Home";
+import Trendy from "./components/Trendy/Trendy";
+import Latest from "./components/Latest/Latest.jsx";
+import About from "./components/AboutMe/AboutMe";
+import Details from "./components/Details/Details";
+
+// personalRoutes
+import Profile from "./components/Profile/Profile";
 import Cart from "./components/Cart/Cart.jsx";
 
 export default function App() {

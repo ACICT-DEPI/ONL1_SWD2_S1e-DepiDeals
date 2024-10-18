@@ -8,16 +8,15 @@ export default function LatestDeals() {
     <Box
       sx={{
         padding: "20px",
-        mb:"50px",
+        zIndex: 0,
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "start",
         gap: "10px",
-        
       }}>
       <TagName name={"Latest"} />
-      <LatestSwiper/>
+      <LatestSwiper />
     </Box>
   );
 }
