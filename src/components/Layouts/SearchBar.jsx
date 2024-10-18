@@ -44,7 +44,9 @@ export default function SearchBar({ phone }) {
     <Box sx={{ width: { xs: "100%", md: "80%" }, position: "relative" }}>
       <Box
         sx={{
-          display: { xs: "none", sm: "flex" },
+          display: phone
+            ? { xs: "flex", sm: "none" }
+            : { xs: "none", sm: "flex" },
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
@@ -66,7 +68,7 @@ export default function SearchBar({ phone }) {
           onBlur={() => {
             setTimeout(() => setSearching(false), 150);
           }}
-          placeholder="Search for recipes"
+          placeholder="Search For Products 🔎"
         />
         <SearchIcon
           sx={{

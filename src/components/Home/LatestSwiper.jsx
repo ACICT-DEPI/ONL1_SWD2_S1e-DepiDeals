@@ -40,7 +40,19 @@ export default function LatestSwiper() {
 
   return (
     <Box sx={{ maxWidth: "100%" }}>
-      <Box sx={{ display: { xs: "block", md: "none" } }}>
+      <Box sx={{ display: { xs: "block", sm: "none", md: "none" } }}>
+        <Swiper
+          style={{ zIndex: 0 }}
+          slidesPerView={1.2}
+          spaceBetween={20}
+          loop={true}
+          navigation={true}
+          modules={[Navigation]}>
+          {data ? Cards() : "loading"}
+        </Swiper>
+      </Box>
+
+      <Box sx={{ display: { xs: "none", sm: "block", md: "none" } }}>
         <Swiper
           style={{ zIndex: 0 }}
           slidesPerView={2}
@@ -51,7 +63,8 @@ export default function LatestSwiper() {
           {data ? Cards() : "loading"}
         </Swiper>
       </Box>
-      <Box sx={{ display: { xs: "none", md: "block" } }}>
+
+      <Box sx={{ display: { xs: "none", sm: "none", md: "block" } }}>
         <Swiper
           slidesPerView={4}
           spaceBetween={20}

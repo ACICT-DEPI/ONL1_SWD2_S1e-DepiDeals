@@ -59,11 +59,28 @@ export default function SignUp({ sign }) {
   }
 
   return (
-    <Box sx={{ width: "55%", mx: "auto", my: "auto" }}>
+    <Box
+      sx={{
+        width: { xs: "90%", sm: "70%", md: "55%" },
+        mx: "auto",
+        my: "auto",
+      }}>
       <form onSubmit={handleSignUp}>
-        <Typography variant="h4" sx={{ mt: 2 }}>
+        <Box
+          sx={{
+            display: { xs: "block", md: "none" },
+          }}>
+          <img src="/logo.png" alt="" />
+        </Box>
+        <Typography
+          sx={{
+            mt: 2,
+            display: { xs: "none", md: "block" },
+          }}
+          variant="h4">
           Create an account
         </Typography>
+
         <Typography
           sx={{
             textAlign: "center",

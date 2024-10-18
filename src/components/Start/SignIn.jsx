@@ -46,14 +46,32 @@ export default function SignIn({ sign }) {
   };
 
   return (
-    <Box sx={{ width: "55%", mx: "auto", my: "auto" }}>
+    <Box
+      sx={{
+        width: { xs: "90%", sm: "70%", md: "55%" },
+        mx: "auto",
+        my: "auto",
+      }}>
       <form onSubmit={handleSignIn}>
-        <Typography variant="h4">Sign In</Typography>
+        <Box
+          sx={{
+            display: { xs: "block", md: "none" },
+          }}>
+          <img src="/logo.png" alt="" />
+        </Box>
+        <Typography
+          sx={{
+            display: { xs: "none", md: "block" },
+          }}
+          variant="h4">
+          Sign In
+        </Typography>
+
         <Typography
           sx={{
             textAlign: "center",
             color: "#b3b3b3",
-            mt: -2,
+            mt: 0,
             fontSize: "11px",
           }}>
           Welcome back! Please sign in to your account.

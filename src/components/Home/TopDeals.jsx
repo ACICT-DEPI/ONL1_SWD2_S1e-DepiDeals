@@ -13,7 +13,7 @@ export default function TopDeals() {
         justifyContent: "start",
         alignItems: "start",
         gap: "10px",
-        mb:"20px"
+        my: "20px",
       }}>
       <TagName name={"Top in DepiDeals"} />
       <Swiper />
