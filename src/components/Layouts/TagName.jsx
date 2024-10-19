@@ -20,7 +20,12 @@ export default function TagName({ name }) {
         }}>
         .
       </div>
-      <Typography sx={{ fontSize: "25px", fontWeight: "700",color:"black" }}>
+      <Typography
+        sx={{
+          fontSize: { xs: "20px", md: "25px" },
+          fontWeight: { xs: "600", md: "700" },
+          color: "black",
+        }}>
         {name}
       </Typography>
     </div>

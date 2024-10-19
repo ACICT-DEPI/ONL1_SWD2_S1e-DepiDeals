@@ -15,6 +15,7 @@ export default function Home() {
           maxWidth: "100%",
           display: { xs: "block", md: "flex" },
           justifyContent: "center",
+          alignItems: "start",
           height: { xs: "", md: "550px" },
           gap: "20px",
         }}>

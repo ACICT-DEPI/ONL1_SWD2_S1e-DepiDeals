@@ -7,6 +7,7 @@ export default function TopDeals() {
   return (
     <Box
       sx={{
+        marginTop:"0px",
         width: { xs: "100%", md: "60%" },
         display: "flex",
         flexDirection: "column",
