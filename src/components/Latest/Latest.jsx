@@ -3,10 +3,13 @@ import TagName from "../Layouts/TagName";
 import Filter from "./Filter";
 import { Box } from "@mui/material";
 import LatestCard from "../Home/LatestCard";
+import CartAlert from "../Layouts/CartAlert";
+import LoginAlert from "../Layouts/LoginAlert";
 
 export default function Latest() {
   const [filter, setFilter] = useState(null);
   const [data, setData] = useState([]);
+  const [signAlert, setSignAlert] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,10 +32,14 @@ export default function Latest() {
 
   const Cards = () => {
     if (filter === null) {
-      return data.map((item) => <LatestCard item={item} />);
+      return data.map((item) => (
+        <LatestCard item={item} setSignAlert={setSignAlert} />
+      ));
     } else {
       return data.map((item) =>
-        item.Category === filter ? <LatestCard item={item} /> : null
+        item.Category === filter ? (
+          <LatestCard item={item} setSignAlert={setSignAlert} />
+        ) : null
       );
     }
   };
@@ -43,7 +50,7 @@ export default function Latest() {
         display: "flex",
         flexDirection: "column",
         alignItems: "start",
-padding:"20px",
+        padding: "20px",
         gap: "20px",
         minHeight: "100vh",
       }}>
@@ -61,6 +68,12 @@ padding:"20px",
         }}>
         {Cards()}
       </Box>
+
+      {localStorage.getItem("usertoken") ? (
+        <CartAlert show={signAlert} setshow={setSignAlert} />
+      ) : (
+        <LoginAlert show={signAlert} setshow={setSignAlert} />
+      )}
     </Box>
   );
 }

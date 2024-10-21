@@ -5,8 +5,6 @@ import PcartItem from "./PcartItem";
 import { Link } from "react-router-dom";
 
 export default function Pcart() {
- 
-
   const Cart = localStorage.getItem("userCart")
     ? JSON.parse(localStorage.getItem("userCart"))
     : [];
@@ -27,7 +25,11 @@ export default function Pcart() {
         justifyContent: "start",
       }}>
       <TagName name={"cart"} />
-      {items()}
+      {Cart.length === 0 ? (
+        <div>Your cart is empty. Add products to your cart.</div>
+      ) : (
+        items()
+      )}
       <Link
         style={{
           textAlign: "right",

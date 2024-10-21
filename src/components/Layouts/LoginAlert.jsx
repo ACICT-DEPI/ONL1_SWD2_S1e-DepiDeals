@@ -39,7 +39,8 @@ export default function LoginAlert({ show, setshow }) {
         }}>
         <p className="alertFirstP">Please SignIn first!</p>
         <p className="alertSecP">
-          Exclusive Deals Await You Your Satisfaction, Our Priority!
+          Exclusive Deals Await You ...
+          <br /> Your Satisfaction, Our Priority!
         </p>
         <img src="/icons/AlertLogo.png" alt="" />
         <Button

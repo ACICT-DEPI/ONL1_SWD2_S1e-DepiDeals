@@ -3,11 +3,13 @@ import TagName from "../Layouts/TagName";
 import { Box } from "@mui/material";
 import LatestCard from "../Home/LatestCard";
 import Filter from "../Latest/Filter";
+import CartAlert from "../Layouts/CartAlert";
+import LoginAlert from "../Layouts/LoginAlert";
 
 export default function Latest() {
   const [filter, setFilter] = useState(null);
   const [data, setData] = useState([]);
-
+  const [signAlert, setSignAlert] = useState(null);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -29,10 +31,14 @@ export default function Latest() {
 
   const Cards = () => {
     if (filter === null) {
-      return data.map((item) => <LatestCard item={item} />);
+      return data.map((item) => (
+        <LatestCard item={item} setSignAlert={setSignAlert} />
+      ));
     } else {
       return data.map((item) =>
-        item.Category === filter ? <LatestCard item={item} /> : null
+        item.Category === filter ? (
+          <LatestCard item={item} setSignAlert={setSignAlert} />
+        ) : null
       );
     }
   };
@@ -61,6 +67,12 @@ export default function Latest() {
         }}>
         {Cards()}
       </Box>
+
+      {localStorage.getItem("usertoken") ? (
+        <CartAlert show={signAlert} setshow={setSignAlert} />
+      ) : (
+        <LoginAlert show={signAlert} setshow={setSignAlert} />
+      )}
     </Box>
   );
 }

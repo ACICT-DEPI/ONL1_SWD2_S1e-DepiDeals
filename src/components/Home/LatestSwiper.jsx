@@ -7,9 +7,12 @@ import "swiper/css/navigation";
 
 import { Navigation } from "swiper/modules";
 import LatestCard from "./LatestCard";
+import LoginAlert from "../Layouts/LoginAlert";
+import CartAlert from "../Layouts/CartAlert";
 
 export default function LatestSwiper() {
   const [data, setData] = useState([]);
+  const [signAlert, setSignAlert] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,14 +35,21 @@ export default function LatestSwiper() {
 
   const Cards = () => {
     return data.map((item) => (
-      <SwiperSlide key={item.id}>
-        <LatestCard item={item} />
+      <SwiperSlide style={{ overflow: "visible" }} key={item.id}>
+        <LatestCard setSignAlert={setSignAlert} item={item} />
       </SwiperSlide>
     ));
   };
 
   return (
     <Box sx={{ maxWidth: "100%" }}>
+      
+      {localStorage.getItem("usertoken") ? (
+        <CartAlert show={signAlert} setshow={setSignAlert} />
+      ) : (
+        <LoginAlert show={signAlert} setshow={setSignAlert} />
+      )}
+      
       <Box sx={{ display: { xs: "block", sm: "none", md: "none" } }}>
         <Swiper
           style={{ zIndex: 0 }}

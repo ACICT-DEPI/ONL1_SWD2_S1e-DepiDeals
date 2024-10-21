@@ -3,12 +3,15 @@ import { Box, Typography } from "@mui/material";
 import { useParams } from "react-router-dom";
 import TagName from "../Layouts/TagName";
 import "./details.css";
+import CartAlert from "../Layouts/CartAlert";
+import LoginAlert from "../Layouts/LoginAlert";
 
 export default function Details() {
   const { id } = useParams();
   const [data, setData] = useState(null);
-
+  const [inputN, setinputN] = useState(1);
   const [selectedImage, setSelectedImage] = useState("");
+  const [signAlert, setSignAlert] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,10 +30,34 @@ export default function Details() {
       }
     };
     fetchData();
-    console.log(data);
-  }, [data,id]);
+  }, [id]);
 
-  // State to manage the selected image for the main display
+  function handleAddToCart() {
+    if (localStorage.getItem("userCart")) {
+      const Cart = localStorage.getItem("userCart")
+        ? JSON.parse(localStorage.getItem("userCart"))
+        : [];
+
+      const itemIndex = Cart.findIndex((e) => e.productID === data._id);
+      console.log(itemIndex);
+      if (itemIndex !== -1) {
+        Cart[itemIndex] = {
+          productID: data._id,
+          quantity: +Cart[itemIndex].quantity + inputN,
+        };
+      } else {
+        Cart.push({
+          productID: data._id,
+          quantity: inputN,
+        });
+      }
+      localStorage.setItem("userCart", JSON.stringify(Cart));
+      setinputN(0);
+      setSignAlert(true);
+      return;
+    }
+    setSignAlert(true);
+  }
 
   if (data === null) {
     return (
@@ -115,14 +142,42 @@ export default function Details() {
           <div className="productActions">
             {/* Quantity Counter */}
             <div className="counter">
-              <button id="downButton">-</button>
-              <input value="0" type="text" id="productInput" readOnly />
-              <button id="upButton">+</button>
+              <button
+                onClick={() => {
+                  if (inputN > 1) {
+                    setinputN(inputN - 1);
+                  }
+                }}
+                id="downButton">
+                -
+              </button>
+              <input
+                value={inputN}
+                onChange={(e) => {
+                  setinputN(e.target.value());
+                }}
+                type="text"
+                id="productInput"
+                readOnly
+              />
+              <button
+                onClick={() => {
+                  if (inputN < 10) {
+                    setinputN(inputN + 1);
+                  }
+                }}
+                id="upButton">
+                +
+              </button>
             </div>
 
             {/* Buy and Cart Buttons */}
             <button className="buy">Buy Now</button>
-            <button id="cartButton">
+            <button
+              onClick={() => {
+                handleAddToCart();
+              }}
+              id="cartButton">
               <img
                 width="40px"
                 height="50px"
@@ -134,8 +189,15 @@ export default function Details() {
 
           {/* Purchase History (Optional) */}
           <p>Purchases: {data.Purchases}</p>
+          <img src="/det.png" width={"100%"} alt="" />
         </div>
       </div>
+
+      {localStorage.getItem("usertoken") ? (
+        <CartAlert show={signAlert} setshow={setSignAlert} />
+      ) : (
+        <LoginAlert show={signAlert} setshow={setSignAlert} />
+      )}
     </Box>
   );
 }

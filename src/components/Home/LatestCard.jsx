@@ -1,13 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { Button, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
-import CartAlert from "../Layouts/CartAlert";
-import LoginAlert from "../Layouts/LoginAlert";
 
-export default function LatestCard({ item }) {
-  const [signAlert, setSignAlert] = useState(null);
 
+export default function LatestCard({ item, setSignAlert }) {
   function handleAddToCart() {
     if (localStorage.getItem("userCart")) {
       const Cart = localStorage.getItem("userCart")
@@ -27,8 +24,6 @@ export default function LatestCard({ item }) {
           quantity: 1,
         });
       }
-
-      //  console.log(Cart);
       localStorage.setItem("userCart", JSON.stringify(Cart));
       setSignAlert(true);
       return;
@@ -38,12 +33,6 @@ export default function LatestCard({ item }) {
 
   return (
     <>
-      {localStorage.getItem("usertoken") ? (
-        <CartAlert show={signAlert} setshow={setSignAlert} />
-      ) : (
-        <LoginAlert show={signAlert} setshow={setSignAlert} />
-      )}
-
       <div className="latestCard">
         <Link style={{ height: "80%", width: "100%" }} to={`/item/${item._id}`}>
           <img src={item.Pic} width={"100%"} height={"100%"} alt="" />

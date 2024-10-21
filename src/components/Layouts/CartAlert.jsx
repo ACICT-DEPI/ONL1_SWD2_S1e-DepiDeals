@@ -1,5 +1,4 @@
 import * as React from "react";
-
 import { Box, Button } from "@mui/material";
 
 export default function CartAlert({ show, setshow }) {
@@ -10,12 +9,13 @@ export default function CartAlert({ show, setshow }) {
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: "rgba(1,1,1,0.4)",
-        zIndex: 5,
+        zIndex: 9999,
         position: "fixed",
         top: "0",
         right: "0",
         bottom: "0",
         left: "0",
+    
       }}>
       <Box
         sx={{
@@ -30,17 +30,14 @@ export default function CartAlert({ show, setshow }) {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          zIndex: 9,
+          zIndex: 10000, // Also increased for inner content
           flexDirection: "column",
           gap: "10px",
         }}>
-        <p className="alertFirstP">Item added to your cart successfully !</p>
-
-        <img src="/icons/added.png" alt="" />
+        <p className="alertFirstP">Item added to your cart successfully!</p>
+        <img src="/icons/added.png" alt="Added to cart" />
         <Button
-          onClick={() => {
-            setshow(null);
-          }}
+          onClick={() => setshow(null)}
           variant="contained"
           sx={{
             mt: { xs: "20px", sm: "40px" },

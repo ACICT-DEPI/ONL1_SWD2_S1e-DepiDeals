@@ -51,7 +51,7 @@ export default function CartItem({ id, quantity, setProducts }) {
         <p>{quantity}</p>
       </div>
       <div className="item">
-        <p>${data.Price * quantity}</p>
+        <p>${(data.Price * quantity).toFixed(2)}</p>
       </div>
       <div className="item">
         <button onClick={() => handleDelete()} className="dele">

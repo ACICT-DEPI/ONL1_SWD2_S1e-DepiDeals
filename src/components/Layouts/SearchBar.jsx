@@ -33,7 +33,7 @@ export default function SearchBar({ phone }) {
   const Res = () => {
     return data.map((item) => (
       <div className="searchItem" key={item.id}>
-        <Link key={item.id} style={{ all: "inherit" }} to={`/item/${item.id}`}>
+        <Link key={item.id} style={{ all: "inherit" }} to={`/item/${item._id}`}>
           {item.Name}
         </Link>
       </div>

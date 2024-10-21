@@ -1,6 +1,6 @@
 import React from "react";
 import "./Profile.css";
-import Addres from "./Addres";
+
 import User from "./User";
 import Pcart from "./Pcart";
 import { Box } from "@mui/material";
@@ -17,7 +17,7 @@ export default function Profile() {
       }}>
       <User />
       <Pcart />
-      <Addres />
+      {/* <Addres /> */}
     </Box>
   );
 }
