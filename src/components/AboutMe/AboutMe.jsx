@@ -11,7 +11,7 @@ export default function AboutMe() {
         alignItems: "center",
         minHeight: "90vh",
       }}>
-      <Box sx={{ maxWidth: "80%" }}>
+      <Box sx={{ maxWidth: "70%" }}>
         <img width={"100%"} src="about.png" alt="logo" />
       </Box>
 
@@ -21,7 +21,7 @@ export default function AboutMe() {
           textAlign: "center",
           color: "#414DB1",
           fontWeight: "bold",
-          fontSize: { xs: "20px", md: "25px" },
+          fontSize: { xs: "16px", sm: "20px", md: "25px" },
         }}>
         DepiDeals is your ultimate E-commerce destination for a diverse range of
         tech devices, from smart home gadgets to gaming accessories and personal

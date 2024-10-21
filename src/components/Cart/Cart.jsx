@@ -41,6 +41,7 @@ export default function Cart() {
         ) : (
           products.map((product) => (
             <CartItem
+              setProducts={setProducts}
               key={product.productID}
               id={product.productID}
               quantity={product.quantity}

@@ -10,7 +10,7 @@ export default function ExclusiveDeals() {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://final-react-project-pi.vercel.app/latest`
+          `https://final-react-project-pi.vercel.app/products`
         );
         if (!response.ok) {
           throw new Error("Network response was not ok " + response.statusText);

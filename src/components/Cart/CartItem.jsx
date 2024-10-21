@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-export default function CartItem({ id, quantity }) {
+export default function CartItem({ id, quantity, setProducts }) {
   const [data, setData] = useState(null);
   function handleDelete() {
     let Cart = localStorage.getItem("userCart")
@@ -12,6 +12,7 @@ export default function CartItem({ id, quantity }) {
     });
 
     localStorage.setItem("userCart", JSON.stringify(Cart));
+    setProducts(Cart);
   }
   useEffect(() => {
     const fetchData = async () => {

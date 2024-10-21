@@ -15,7 +15,7 @@ export default function SearchBar({ phone }) {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://final-react-project-pi.vercel.app/search/?keyword=${searchTerm}`
+          `https://final-react-project-wvwt.vercel.app/search/?keyword=${searchTerm}`
         );
         if (!response.ok) {
           throw new Error("Network response was not ok " + response.statusText);
