@@ -15,8 +15,7 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 export default function LList({ toggleDrawer }) {
   function handleExit() {
-    localStorage.removeItem("usertoken");
-    localStorage.removeItem("username");
+    localStorage.clear();
   }
 
   return (

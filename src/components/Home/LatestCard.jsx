@@ -7,6 +7,35 @@ import LoginAlert from "../Layouts/LoginAlert";
 
 export default function LatestCard({ item }) {
   const [signAlert, setSignAlert] = useState(null);
+
+  function handleAddToCart() {
+    if (localStorage.getItem("userCart")) {
+      const Cart = localStorage.getItem("userCart")
+        ? JSON.parse(localStorage.getItem("userCart"))
+        : [];
+
+      const itemIndex = Cart.findIndex((e) => e.productID === item._id);
+      console.log(itemIndex);
+      if (itemIndex !== -1) {
+        Cart[itemIndex] = {
+          productID: item._id,
+          quantity: +Cart[itemIndex].quantity + 1,
+        };
+      } else {
+        Cart.push({
+          productID: item._id,
+          quantity: 1,
+        });
+      }
+
+      //  console.log(Cart);
+      localStorage.setItem("userCart", JSON.stringify(Cart));
+      setSignAlert(true);
+      return;
+    }
+    setSignAlert(true);
+  }
+
   return (
     <>
       {localStorage.getItem("usertoken") ? (
@@ -23,7 +52,7 @@ export default function LatestCard({ item }) {
         <Button
           sx={{ width: "100%", borderRadius: "0px 0px 10px 10px" }}
           type="button"
-          onClick={() => setSignAlert(true)}
+          onClick={() => handleAddToCart()}
           variant="contained">
           Add to Cart
         </Button>

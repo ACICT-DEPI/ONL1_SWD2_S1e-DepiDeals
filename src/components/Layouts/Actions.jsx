@@ -6,8 +6,7 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { Link } from "react-router-dom";
 export default function Actions() {
   function handleExit() {
-    localStorage.removeItem("usertoken");
-    localStorage.removeItem("username");
+    localStorage.clear();
   }
   return (
     <Box

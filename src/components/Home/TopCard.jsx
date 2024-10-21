@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function TopCard({ item }) {
-  console.log(item);
+
   return (
     <Link className="link" to={`/item/${item._id}`}>
       <Box

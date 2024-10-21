@@ -31,8 +31,19 @@ export default function SignIn({ sign }) {
       if (response.status === 200) {
         localStorage.setItem("usertoken", data.token);
         localStorage.setItem("username", username);
+        const Cart = [
+          {
+            productID: "6712c67b216beff33f96403a",
+            quantity: 2,
+          },
+          {
+            productID: "6712c67b216beff33f96403b",
+            quantity: 4,
+          },
+        ];
+        localStorage.setItem("userCart", JSON.stringify(Cart));
         setErr("");
-        nav("/home");
+        nav("/Profile");
       } else {
         setErr(data.error);
       }
