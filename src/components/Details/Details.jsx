@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Typography } from "@mui/material";
 import { useParams } from "react-router-dom";
 import TagName from "../Layouts/TagName";
@@ -6,38 +6,47 @@ import "./details.css";
 
 export default function Details() {
   const { id } = useParams();
+  const [data, setData] = useState(null);
 
-  // Mock product data
-  const productData = {
-    id: "GAMMON-001",
-    Name: "Ultra HD Gaming Monitor 27",
-    Category: "Monitors",
-    Price: 399.99,
-    Pic: "https://www.lg.com/ae_ar/images/monitors/md07514850/D-01.jpg",
-    Bg: "https://cdn.cloudtek.vn/images/2023/06/08/hocmarketing-org-og-8718-score-big-savings-on-lgs-top-gaming-monitor-get-the-27gn950-b-ultragear-now.jpg",
-    Gallery: [
-      "https://m.media-amazon.com/images/I/61bwc5xzUoL._AC_SL1362_.jpg",
-      "https://www.lg.com/ae_ar/images/monitors/md07514850/D-11.jpg",
-      "https://pimcdn.sharafdg.com/images/S000409370_13?1703631963",
-    ],
-    Overview: "A stunning 4K monitor with vibrant colors for gaming.",
-    Instock: true,
-    Sale: false,
-    Date: "2023-08-01",
-    Purchases: 150,
-  };
+  const [selectedImage, setSelectedImage] = useState("");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          `https://final-react-project-pi.vercel.app/products/${id}`
+        );
+        if (!response.ok) {
+          throw new Error("Network response was not ok " + response.statusText);
+        }
+        const fetchedData = await response.json();
+        setData(fetchedData[0]);
+        setSelectedImage(fetchedData[0].Pic);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+    console.log(data);
+  }, [data,id]);
 
   // State to manage the selected image for the main display
-  const [selectedImage, setSelectedImage] = useState(productData.Pic);
 
-  // Simulate API data fetch and validate product ID (for real API use)
-  // useEffect(() => {
-  //   if (id !== productData.id) {
-  //     // Handle error or fetch from API if needed
-  //     console.error("Product not found");
-  //   }
-  // }, [id]);
-
+  if (data === null) {
+    return (
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+        }}>
+        <Typography variant="h4" component="h2">
+          loading
+        </Typography>
+      </Box>
+    );
+  }
   return (
     <Box
       sx={{
@@ -48,14 +57,14 @@ export default function Details() {
         alignItems: "start",
         position: "relative",
       }}>
-      <TagName name={id} />
+      <TagName name={data.Name} />
 
       <div className="productContainer">
         {/* Gallery Section */}
         <div className="gallery">
           <div id="productThumbs">
             {/* Thumbnails */}
-            {productData.Gallery.map((img, index) => (
+            {data.Gallery.map((img, index) => (
               <img
                 key={index}
                 src={img}
@@ -75,17 +84,17 @@ export default function Details() {
               width="100%"
               height="100%"
               src={selectedImage}
-              alt={productData.Name}
+              alt={data.Name}
             />
           </div>
         </div>
 
         {/* Product Details Section */}
         <div className="productCard">
-          <h1 id="productTitle">{productData.Name}</h1>
+          <h1 id="productTitle">{data.Name}</h1>
 
           {/* Product Overview */}
-          <p id="productOverview">{productData.Overview}</p>
+          <p id="productOverview">{data.Overview}</p>
 
           {/* Price */}
           <Typography
@@ -94,12 +103,12 @@ export default function Details() {
               fontSize: { xs: "20px", md: "25px" },
               fontWeight: "700",
             }}>
-            ${productData.Price.toFixed(2)}
+            ${data.Price.toFixed(2)}
           </Typography>
 
           {/* Stock Status */}
           <p id="productDetails">
-            {productData.Instock ? "In Stock" : "Out of Stock"}
+            {data.Instock ? "In Stock" : "Out of Stock"}
           </p>
 
           {/* Action Section */}
@@ -124,7 +133,7 @@ export default function Details() {
           </div>
 
           {/* Purchase History (Optional) */}
-          <p>Purchases: {productData.Purchases}</p>
+          <p>Purchases: {data.Purchases}</p>
         </div>
       </div>
     </Box>

@@ -31,6 +31,7 @@ export default function Home() {
         <TopDeals />
         <ExclusiveDeals />
       </Box>
+
       <LatestDeals />
     </div>
   );

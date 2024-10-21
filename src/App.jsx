@@ -1,5 +1,6 @@
 // import { ThemeProvider, createTheme } from "@mui/material/styles";
 import "./App.css";
+import "./components/Layouts/Alert.css";
 import React from "react";
 import { Box } from "@mui/material";
 import { Navigate, Route, Routes } from "react-router-dom";

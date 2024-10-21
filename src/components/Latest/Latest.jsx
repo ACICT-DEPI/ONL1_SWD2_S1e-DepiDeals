@@ -12,7 +12,7 @@ export default function Latest() {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://seif-sync-server.vercel.app/Depi/products`
+          `https://final-react-project-pi.vercel.app/latest`
         );
         if (!response.ok) {
           throw new Error("Network response was not ok " + response.statusText);

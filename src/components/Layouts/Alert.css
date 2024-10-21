@@ -1,0 +1,24 @@
+.alertFirstP {
+  text-align: center;
+  font-weight: 700;
+  font-size: 20px;
+  color: #414db1;
+}
+
+.alertSecP {
+  width: 90%;
+  text-align: center;
+  font-weight: 600;
+  font-size: 16px;
+  color: #a9b1f0;
+}
+
+.closeButton {
+  border: none;
+  background-color: transparent;
+  padding: 0px;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  cursor: pointer;
+}

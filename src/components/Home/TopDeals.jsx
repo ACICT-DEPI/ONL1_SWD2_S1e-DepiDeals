@@ -7,14 +7,14 @@ export default function TopDeals() {
   return (
     <Box
       sx={{
-        marginTop:"0px",
+        marginTop: "0px",
         width: { xs: "100%", md: "60%" },
         display: "flex",
         flexDirection: "column",
         justifyContent: "start",
         alignItems: "start",
         gap: "10px",
-        my: "20px",
+        my: { xs: "20px", md: "0px" },
         zIndex: 0,
       }}>
       <TagName name={"Top in DepiDeals"} />

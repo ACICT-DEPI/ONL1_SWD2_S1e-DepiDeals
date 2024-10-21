@@ -38,6 +38,7 @@ export default function ExclusiveDeals() {
         justifyContent: "start",
         alignItems: "start",
         gap: "10px",
+        height: { xs: "", md: "550px" },
       }}>
       <TagName name={"Exclusive"} />
       {Cards()}
