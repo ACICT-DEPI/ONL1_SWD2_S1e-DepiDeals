@@ -29,12 +29,32 @@ export default function SignIn({ sign }) {
       );
       const data = await response.json();
       if (response.status === 200) {
-        localStorage.setItem("usertoken", data.token);
-        localStorage.setItem("username", username);
-        const Cart = [];
-        localStorage.setItem("userCart", JSON.stringify(Cart));
+        const getCart = async () => {
+          const response = await fetch(
+            "https://final-react-project-wvwt.vercel.app/cart",
+            {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `${data.token}`,
+              },
+            }
+          );
+          if (response.ok) {
+            const cartData = await response.json();
+
+            localStorage.setItem("usertoken", JSON.stringify(data.token));
+            localStorage.setItem("username", username);
+            localStorage.setItem("userCart", JSON.stringify(cartData.items));
+          } else {
+            const errorData = await response.json();
+            console.error("Error:", errorData);
+          }
+        };
+        getCart();
+
         setErr("");
-        nav("/Profile");
+        nav("/");
       } else {
         setErr(data.error);
       }

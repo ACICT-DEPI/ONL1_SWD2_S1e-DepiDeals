@@ -32,31 +32,44 @@ export default function Details() {
     fetchData();
   }, [id]);
 
-  function handleAddToCart() {
-    if (localStorage.getItem("userCart")) {
-      const Cart = localStorage.getItem("userCart")
-        ? JSON.parse(localStorage.getItem("userCart"))
-        : [];
-
-      const itemIndex = Cart.findIndex((e) => e.productID === data._id);
-      console.log(itemIndex);
-      if (itemIndex !== -1) {
-        Cart[itemIndex] = {
-          productID: data._id,
-          quantity: +Cart[itemIndex].quantity + inputN,
-        };
-      } else {
-        Cart.push({
-          productID: data._id,
-          quantity: inputN,
-        });
+  async function handleAddToCart() {
+    const bodyData = {
+      productID: data._id,
+      quantity: inputN,
+    };
+    const response = await fetch(
+      "https://final-react-project-pi.vercel.app/AddToCart",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `${JSON.parse(localStorage.getItem("usertoken"))}`,
+        },
+        body: JSON.stringify(bodyData),
       }
-      localStorage.setItem("userCart", JSON.stringify(Cart));
-      setinputN(0);
+    );
+
+    console.log(response);
+    if (response.status === 200) {
+      const response = await fetch(
+        "https://final-react-project-wvwt.vercel.app/cart",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `${JSON.parse(localStorage.getItem("usertoken"))}`,
+          },
+        }
+      );
+      if (response.ok) {
+        const cartData = await response.json();
+        localStorage.setItem("userCart", JSON.stringify(cartData.items));
+        setSignAlert(true);
+        setinputN(0);
+        return;
+      }
       setSignAlert(true);
-      return;
     }
-    setSignAlert(true);
   }
 
   if (data === null) {

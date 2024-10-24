@@ -11,7 +11,7 @@ export default function Cart() {
   useEffect(() => {
     const userCart = localStorage.getItem("userCart");
     setProducts(userCart ? JSON.parse(userCart) : []);
-  }, []); // Added empty dependency array
+  }, []);
 
   return (
     <main style={{ padding: "20px" }}>

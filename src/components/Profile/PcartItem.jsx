@@ -27,8 +27,8 @@ export default function PcartItem({ id, quantity }) {
     <div className="cartItem">
       <img className="cartItemPic" src={data.Pic} alt="" />
       <span>{data.Name}</span>
-      <span>{quantity}</span>
-      <span>{data.Price * quantity}$</span>
+      {/* <span>{quantity}</span> */}
+      <span>{Number(data.Price) * Number(quantity)}$</span>
     </div>
   );
 }

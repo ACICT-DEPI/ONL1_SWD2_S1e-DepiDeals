@@ -3,32 +3,44 @@ import React from "react";
 import { Button, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 
-
 export default function LatestCard({ item, setSignAlert }) {
-  function handleAddToCart() {
-    if (localStorage.getItem("userCart")) {
-      const Cart = localStorage.getItem("userCart")
-        ? JSON.parse(localStorage.getItem("userCart"))
-        : [];
-
-      const itemIndex = Cart.findIndex((e) => e.productID === item._id);
-      console.log(itemIndex);
-      if (itemIndex !== -1) {
-        Cart[itemIndex] = {
-          productID: item._id,
-          quantity: +Cart[itemIndex].quantity + 1,
-        };
-      } else {
-        Cart.push({
-          productID: item._id,
-          quantity: 1,
-        });
+  async function handleAddToCart() {
+    const bodyData = {
+      productID: item._id,
+      quantity: 1,
+    };
+    const response = await fetch(
+      "https://final-react-project-pi.vercel.app/AddToCart",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `${JSON.parse(localStorage.getItem("usertoken"))}`,
+        },
+        body: JSON.stringify(bodyData),
       }
-      localStorage.setItem("userCart", JSON.stringify(Cart));
+    );
+
+    console.log(response);
+    if (response.status === 200) {
+      const response = await fetch(
+        "https://final-react-project-wvwt.vercel.app/cart",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `${JSON.parse(localStorage.getItem("usertoken"))}`,
+          },
+        }
+      );
+      if (response.ok) {
+        const cartData = await response.json();
+        localStorage.setItem("userCart", JSON.stringify(cartData.items));
+        setSignAlert(true);
+        return;
+      }
       setSignAlert(true);
-      return;
     }
-    setSignAlert(true);
   }
 
   return (
