@@ -16,8 +16,6 @@ export default function SignUp({ sign }) {
   async function handleSignUp(event) {
     event.preventDefault();
     try {
-      alert(password + password2);
-
       if (password !== password2) {
         setErr("Passwords do not match");
         return;
@@ -110,6 +108,7 @@ export default function SignUp({ sign }) {
         <div className="formItem">
           <label>Password</label>
           <input
+            minLength={8}
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -119,6 +118,7 @@ export default function SignUp({ sign }) {
         <div className="formItem">
           <label>Password Conformation</label>
           <input
+            minLength={8}
             type="password"
             value={password2}
             onChange={(e) => setPassword2(e.target.value)}
