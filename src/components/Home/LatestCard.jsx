@@ -39,8 +39,8 @@ export default function LatestCard({ item, setSignAlert }) {
         setSignAlert(true);
         return;
       }
-      setSignAlert(true);
     }
+    setSignAlert(true);
   }
 
   return (

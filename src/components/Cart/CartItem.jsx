@@ -14,7 +14,6 @@ export default function CartItem({ id, quantity, setProducts }) {
       "https://final-react-project-pi.vercel.app/DeleteFromCart",
       {
         method: "POST",
-
         headers: {
           "Content-Type": "application/json",
           Authorization: `${JSON.parse(localStorage.getItem("usertoken"))}`,

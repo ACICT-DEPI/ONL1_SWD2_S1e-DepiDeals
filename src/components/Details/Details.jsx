@@ -9,8 +9,10 @@ import LoginAlert from "../Layouts/LoginAlert";
 export default function Details() {
   const { id } = useParams();
   const [data, setData] = useState(null);
+
   const [inputN, setinputN] = useState(1);
   const [selectedImage, setSelectedImage] = useState("");
+
   const [signAlert, setSignAlert] = useState(null);
 
   useEffect(() => {
@@ -37,6 +39,7 @@ export default function Details() {
       productID: data._id,
       quantity: inputN,
     };
+
     const response = await fetch(
       "https://final-react-project-pi.vercel.app/AddToCart",
       {
@@ -48,8 +51,8 @@ export default function Details() {
         body: JSON.stringify(bodyData),
       }
     );
-
     console.log(response);
+
     if (response.status === 200) {
       const response = await fetch(
         "https://final-react-project-wvwt.vercel.app/cart",
@@ -68,8 +71,9 @@ export default function Details() {
         setinputN(0);
         return;
       }
-      setSignAlert(true);
     }
+    console.log("fdefe");
+    setSignAlert(true);
   }
 
   if (data === null) {
@@ -87,6 +91,7 @@ export default function Details() {
       </Box>
     );
   }
+
   return (
     <Box
       sx={{
@@ -186,6 +191,7 @@ export default function Details() {
 
             {/* Buy and Cart Buttons */}
             <button className="buy">Buy Now</button>
+
             <button
               onClick={() => {
                 handleAddToCart();
