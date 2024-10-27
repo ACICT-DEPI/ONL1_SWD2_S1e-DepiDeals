@@ -8,7 +8,7 @@ export default function LatestDeals() {
     <Box
       sx={{
         minWidth: "100%",
-        padding: "20px 0px",
+        padding: { xs: "20px 0px", md: "20px 25px" },
         zIndex: 2,
         display: "flex",
         flexDirection: "column",
@@ -16,7 +16,6 @@ export default function LatestDeals() {
         alignItems: "start",
         gap: "10px",
       }}>
-   
       <TagName name={"Latest"} />
       <LatestSwiper />
     </Box>
